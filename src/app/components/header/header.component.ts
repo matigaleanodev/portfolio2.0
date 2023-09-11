@@ -21,6 +21,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
           margin-left: 30%;
         }
       }
+      .link {
+        transition: all 0.5s ease;
+        &:hover {
+          transform: scale(1.5);
+        }
+      }
     `,
   ],
 })
