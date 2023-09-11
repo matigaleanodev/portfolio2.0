@@ -11,13 +11,20 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     `
       @import 'variables';
       .header {
-        background-color: $header-background-light;
+        background-color: $header-background-dark;
         backdrop-filter: blur(12px);
+      }
+      .margin {
+        margin-left: 15px;
+
+        @media (min-width: 768px) {
+          margin-left: 30%;
+        }
       }
     `,
   ],
 })
 export class HeaderComponent {
   protected logo = 'assets/images/LogoMati.png';
-  protected title = 'Matias Galeano Fullstack Developer';
+  protected title = 'Matias Galeano Developer';
 }

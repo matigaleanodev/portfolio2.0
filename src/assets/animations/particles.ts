@@ -3,7 +3,7 @@ import { MoveDirection, OutMode } from 'tsparticles-engine';
 export const particles = {
   background: {
     color: {
-      value: '#090111',
+      value: '#040008',
     },
   },
   fpsLimit: 120,

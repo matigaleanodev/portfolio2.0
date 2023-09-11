@@ -1,11 +1,16 @@
 <main class="d-flex flex-column h-100 scrollable-container">
+  <ng-particles
+    [id]="id"
+    [options]="particlesOptions"
+    [particlesInit]="particlesInit"
+  ></ng-particles>
   <div style="min-height: 70px">
     <app-header />
   </div>
   <div>
     <router-outlet />
   </div>
-  <div class="mt-auto mb-0" style="min-height: 150px">
+  <div class="mt-auto mb-0" style="min-height: 150px; z-index: 1">
     <app-footer />
   </div>
 </main>
