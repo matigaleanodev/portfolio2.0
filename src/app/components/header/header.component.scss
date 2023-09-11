@@ -1,0 +1,22 @@
+@import "variables";
+
+.margin {
+  margin-left: 15px;
+
+  @media (min-width: 768px) {
+    margin-left: 30%;
+  }
+}
+.link {
+  transition: all 0.5s ease;
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+
+.header {
+  background-color: $header-background-dark;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(15px) !important;
+  box-shadow: 0 10px 10px 0 $header-background-dark;
+}

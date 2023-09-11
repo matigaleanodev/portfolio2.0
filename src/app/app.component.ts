@@ -12,7 +12,7 @@ import { NgParticlesModule } from 'ng-particles';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styles: [],
+  styleUrls: ['./app.component.scss'],
   imports: [
     CommonModule,
     RouterOutlet,

@@ -1,20 +1,18 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, LOCALE_ID } from '@angular/core';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { SocialBoxComponent } from '../social-box/social-box.component';
+import localeEs from '@angular/common/locales/es';
+
+registerLocaleData(localeEs);
 
 @Component({
   selector: 'app-footer',
   standalone: true,
   templateUrl: './footer.component.html',
-  styles: [
-    `
-      @import 'variables';
-      .footer {
-        background-color: $header-background-dark;
-        backdrop-filter: blur(12px);
-      }
-    `,
-  ],
+  styles: [``],
   imports: [CommonModule, SocialBoxComponent],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
 })
-export class FooterComponent {}
+export class FooterComponent {
+  currentMonth = new Date();
+}

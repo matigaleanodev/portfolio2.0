@@ -1,5 +1,5 @@
 $primary: #4209e0;
-$secondary: #e98d42;
+$secondary: #e0740f;
 $success: #117948;
 $danger: #a82431;
 $info: #e0af0f;
@@ -7,13 +7,48 @@ $light: #e8ddf1;
 $white: #f3f0f7;
 $gray: #acafb3;
 $dark: #040008;
-$shadow-dark: #00000040;
-$shadow-light: #ffb45280;
+
 $facebook: #3b5998;
 $twitter: #1da1f2;
 $instagram: #e1306c;
 $linkedin: #0077b5;
 $github: #474242;
 
-$header-background-light: #ce9865a9;
-$header-background-dark: #00000040;
+$angular: #dd1b16;
+$nestjs: #e02e2f;
+$nodejs: #6cc24a;
+$mysql: #00758f;
+$javascript: #f7df1e;
+$typescript: #007acc;
+$html: #e34c26;
+$css: #2965f1;
+
+$shadow-dark: #1706305b;
+$shadow-light: #ffb45280;
+$header-background-light: #ce9764bf;
+$header-background-dark: #050111bf;
+
+.angular {
+  color: $angular !important;
+}
+.nest {
+  color: $nestjs !important;
+}
+.node {
+  color: $nodejs !important;
+}
+.mysql {
+  color: $mysql !important;
+}
+.js {
+  color: $javascript !important;
+}
+.ts {
+  color: $typescript !important;
+}
+.html {
+  color: $html !important;
+}
+.css {
+  color: $css !important;
+}

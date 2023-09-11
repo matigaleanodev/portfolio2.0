@@ -1,0 +1,9 @@
+@import "variables";
+.app {
+  min-height: calc(100% - 220px);
+}
+.footer {
+  background-color: $header-background-dark;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(15px) !important;
+}
