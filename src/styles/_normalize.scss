@@ -15,7 +15,14 @@ html {
 
 body {
   font-family: "Inconsolata", monospace;
-  background: $dark;
+  background: radial-gradient(
+    circle at top right,
+    #040008,
+    #07020c,
+    #0d0a0f,
+    #110f13,
+    #ffffff
+  );
   background-size: 100% 1000%;
   color: $dark;
   margin: 0;
@@ -91,6 +98,6 @@ td {
 }
 
 ::selection {
-  background-color: $secondary;
+  background-color: $light;
   color: $dark;
 }

@@ -1,0 +1,10 @@
+<section class="container">
+  <app-subtitle class="row" [title]="'Soft Skills'" />
+  <div class="row d-flex justify-content-center gap-1 pt-2 skill">
+    <app-soft-skill-item
+      *ngFor="let skill of softSkills"
+      [data]="skill"
+      class="col-8 col-md-5 col-lg-4 col-xl-3 mb-3 mb-md-2 skill"
+    />
+  </div>
+</section>
