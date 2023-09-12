@@ -1,24 +1,37 @@
-<footer class="footer border-top text-center pt-2" style="min-height: 150px">
+<footer class="footer border-top text-center py-2" style="min-height: 75px">
   <div class="container text-light h-100">
     <div class="row">
-      <div class="col-md-6">
-        <ul class="navbar-nav">
+      <div class="d-none d-md-block col-md-3 mb-2 mb-md-auto">
+        <ul class="navbar-nav text-start">
           <li class="nav-item">
-            <a class="nav-link w-auto" href="#home">Home</a>
+            <a class="nav-link p-0" style="max-width: 120px" href="#home">
+              <i class="fas fa-home"></i> Home
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link w-auto" href="#projects">Proyectos</a>
+            <a class="nav-link p-0" style="max-width: 120px" href="#projects">
+              <i class="fas fa-user"></i> About Me
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link w-auto" href="#contact">Contacto</a>
+            <a class="nav-link p-0" style="max-width: 120px" href="#projects">
+              <i class="fas fa-folder"></i> Proyectos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link p-0" style="max-width: 120px" href="#contact">
+              <i class="fas fa-address-book"></i> Contacto
+            </a>
           </li>
         </ul>
       </div>
-      <div class="col-md-6 text-center d-flex flex-column">
-        <h4 class="mt-0 mb-auto">Puedes encontrarme en mis redes:</h4>
+      <div class="col-md-4 text-center d-flex flex-column text-center pb-md-3">
+        <h4 class="mt-0 mb-2 mb-md-auto">Puedes encontrarme en mis redes:</h4>
         <app-social-box />
-        <p class="mb-1 mt-auto">
-          Copyright &copy; Matias Ariel Galeano -
+      </div>
+      <div class="col-md-5 text-center d-flex flex-column">
+        <p class="mb-0 mt-4 mt-md-auto text-end">
+          Copyright &copy; Matias Galeano -
           {{ currentMonth | date : "MMM YYYY" : "UTC" : "es" | titlecase }}
         </p>
       </div>

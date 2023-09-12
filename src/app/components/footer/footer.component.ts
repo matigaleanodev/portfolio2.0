@@ -9,7 +9,27 @@ registerLocaleData(localeEs);
   selector: 'app-footer',
   standalone: true,
   templateUrl: './footer.component.html',
-  styles: [``],
+  styles: [
+    `
+      @import 'variables';
+      .footer {
+        background-color: $header-background-dark !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(15px) !important;
+      }
+      .nav-link {
+        font-size: 0.8rem;
+        transition: all 0.3s ease-out 0s;
+        &:hover {
+          color: $primary !important;
+          transform: scale(1.1);
+        }
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+    `,
+  ],
   imports: [CommonModule, SocialBoxComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
 })

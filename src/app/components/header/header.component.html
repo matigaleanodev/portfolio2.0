@@ -1,9 +1,9 @@
-<header class="header fixed-top" style="min-height: 70px">
+<header class="header fixed-top" style="min-height: 50px">
   <div class="container">
     <nav
       class="navbar navbar-expand-md navbar-default navbar-dark bg-transparent"
     >
-      <a class="navbar-brand text-light no-select" href="#">
+      <a class="navbar-brand text-light no-select" routerLink="home">
         <img class="img-fluid" [src]="logo" alt="" style="width: 2rem" />
         {{ title }}
       </a>
@@ -20,14 +20,41 @@
       </button>
       <div class="collapse navbar-collapse col-auto" id="navbar">
         <ul class="navbar-nav mr-auto margin">
-          <li class="nav-item active">
-            <a class="nav-link text-light" href="#home">Home</a>
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              routerLink="/home"
+              routerLinkActive="link-active"
+            >
+              <i class="fas fa-home"></i> Home
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#projects">Proyectos</a>
+            <a
+              class="nav-link text-light"
+              routerLink="/about-me"
+              routerLinkActive="link-active"
+            >
+              <i class="fas fa-user"></i> About Me
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-light" href="#contact">Contacto</a>
+            <a
+              class="nav-link text-light"
+              routerLink="/projects"
+              routerLinkActive="link-active"
+            >
+              <i class="fas fa-folder"></i> Proyectos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              routerLink="/contact"
+              routerLinkActive="link-active"
+            >
+              <i class="fas fa-address-book"></i> Contacto
+            </a>
           </li>
         </ul>
         <div
@@ -38,12 +65,13 @@
             href="https://github.com/matigaleanodev/portfolio2.0"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-light ms-auto me-0 link"
+            class="text-light ms-auto me-0 link-repo"
           >
             <svg
               fill="none"
               stroke-width="0"
               viewBox="0 0 24 24"
+              class=""
               height="1.6em"
               width="1.6em"
               xmlns="http://www.w3.org/2000/svg"
