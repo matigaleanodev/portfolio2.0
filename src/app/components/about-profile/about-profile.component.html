@@ -1,0 +1,69 @@
+<section class="container p-0">
+  <div class="row profile">
+    <div
+      class="d-flex justify-content-center align-items-center col-12 col-md-4 py-5 py-md-2 mx-auto"
+    >
+      <ul class="nav flex-column gap-2">
+        <picture class="mx-auto mb-4 profile__picture">
+          <img
+            src="{{ profilePic }}"
+            alt="Matias Galeano foto de perfil"
+            class="profile__picture__img"
+          />
+        </picture>
+        <button
+          class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12"
+          (click)="onClick('soft')"
+        >
+          Soft Skills
+        </button>
+        <button
+          class="btn bg-primary bg-opacity-50 text-light mx-auto col-8 col-md-12"
+          (click)="onClick('hard')"
+        >
+          Hard Skills
+        </button>
+      </ul>
+    </div>
+    <div
+      class="d-flex justify-content-center col-12 col-md-8 py-5 py-md-2 mx-auto"
+    >
+      <article
+        class="col-12 border border-primary border-1 rounded-2 p-4 bg-gradient bg-opacity-25 profile__content"
+      >
+        <div class="col-12 d-flex pb-2 align-items-center border-bottom">
+          <h3 class="fw-bold fs-2 fw-bold text-light profile__content__title">
+            Sobre Mi
+          </h3>
+        </div>
+        <div class="pt-2 pt-md-5 profile__content__body">
+          <p class="text-break profile__content__p text-light">
+            Soy de Posadas, Misiones, Argentina. Desde 2020 estudio programación
+            y desarrollo web de forma autodidacta.
+            <br />
+            A mitad de 2021 tuve la oportunidad de participar de Argentina
+            Programa y termine de descubrir mi pasión por el desarrollo
+            frontend.
+            <br />
+            Me considero un apasionado del futbol, la musica y el World of
+            Warcraft.
+            <br />
+            Actualmente me desempeño como Frontend Developer en
+            <a
+              href="http://www.ingertec.com.ar"
+              class="mx-auto text-info fst-italic"
+              target="_blank"
+            >
+              IngerTec
+            </a>
+            desarrollando aplicaciones en base a Angular
+            <img
+              src="assets/icons/angular.svg"
+              style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem"
+            />
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

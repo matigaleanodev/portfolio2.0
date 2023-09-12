@@ -16,17 +16,17 @@ $transition-collapse: height 0.35s ease !default;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-}
-.scrollable-container::-webkit-scrollbar {
-  width: 10px;
-}
-.scrollable-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.scrollable-container::-webkit-scrollbar-thumb {
-  background: $secondary;
-  border-radius: 3px;
+  z-index: 2;
+  &::-webkit-scrollbar {
+    width: 5px;
+    &-track {
+      background: transparent;
+    }
+    &-thumb {
+      background: $light;
+      border-radius: 3px;
+    }
+  }
 }
 
 .pointer {
@@ -35,4 +35,8 @@ $transition-collapse: height 0.35s ease !default;
 
 .no-select {
   user-select: none;
+}
+
+.mh100 {
+  min-height: calc(100% - 200px);
 }

@@ -14,8 +14,8 @@ registerLocaleData(localeEs);
       @import 'variables';
       .footer {
         background-color: $header-background-dark !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(15px) !important;
+        backdrop-filter: blur(5px) !important;
+        -webkit-backdrop-filter: blur(5px) !important;
       }
       .nav-link {
         font-size: 0.8rem;

@@ -2,12 +2,13 @@
   [id]="id"
   [options]="particlesOptions"
   [particlesInit]="particlesInit"
+  style="z-index: -1; position: relative"
 ></ng-particles>
-<main class="d-flex flex-column h-100 scrollable-container" style="z-index: 1">
-  <div style="min-height: 50px">
+<main class="d-flex flex-column scrollable-container">
+  <div class="mb-auto" style="min-height: 50px">
     <app-header />
   </div>
-  <div style="z-index: 1" class="app">
+  <div class="my-auto" style="z-index: 1">
     <router-outlet />
   </div>
   <div class="mt-auto mb-0">
