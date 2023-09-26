@@ -74,20 +74,10 @@
     &-image {
       min-height: 35vh;
       width: 35vh;
+      padding: 0;
       margin: auto 5px auto 5px;
       border-radius: 100%;
       box-shadow: inset 10px 15px 30px $shadow-dark;
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  .profile {
-    &-title {
-      padding-top: 15vh;
-    }
-    &-banner {
-      padding-bottom: 10vh;
     }
   }
 }

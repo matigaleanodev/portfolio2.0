@@ -37,5 +37,9 @@ $transition-collapse: height 0.35s ease !default;
 }
 
 .mh100 {
-  min-height: calc(100% - 200px);
+  min-height: calc(100vh - 220px);
+}
+
+.mt70 {
+  margin-top: 70px;
 }

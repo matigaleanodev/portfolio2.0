@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AboutProfileComponent } from '../../components/about-profile/about-profile.component';
 import { AboutSoftSkillsComponent } from '../../components/about-soft-skills/about-soft-skills.component';
 import { AboutHardSkillsComponent } from '../../components/about-hard-skills/about-hard-skills.component';
+import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({
   selector: 'app-about-me',
@@ -14,6 +15,7 @@ import { AboutHardSkillsComponent } from '../../components/about-hard-skills/abo
     AboutProfileComponent,
     AboutSoftSkillsComponent,
     AboutHardSkillsComponent,
+    FooterComponent,
   ],
 })
 export class AboutMeComponent {}

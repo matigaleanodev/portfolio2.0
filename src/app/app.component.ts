@@ -13,13 +13,7 @@ import { NgParticlesModule } from 'ng-particles';
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [
-    CommonModule,
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    NgParticlesModule,
-  ],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, NgParticlesModule],
 })
 export class AppComponent {
   title = 'matias-galeano';
