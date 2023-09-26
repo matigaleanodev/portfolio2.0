@@ -15,7 +15,23 @@ export const routes: Routes = [
       import('./pages/about-me/about-me.component').then(
         (c) => c.AboutMeComponent
       ),
-    title: title + ' | About Me',
+    title: title + ' | Sobre Mi',
+  },
+  {
+    path: 'contact',
+    loadComponent: () =>
+      import('./pages/contact/contact.component').then(
+        (c) => c.ContactComponent
+      ),
+    title: title + ' | Contacto',
+  },
+  {
+    path: 'projects',
+    loadComponent: () =>
+      import('./pages/projects/projects.component').then(
+        (c) => c.ProjectsComponent
+      ),
+    title: title + ' | Proyectos',
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {

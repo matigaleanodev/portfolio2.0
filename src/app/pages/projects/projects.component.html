@@ -1,1 +1,10 @@
-<p>projects works!</p>
+<section class="container mt-3">
+  <app-subtitle class="row" [title]="'Proyectos'" />
+  <div class="row d-flex justify-content-center align-item-center mt-3 pb-5">
+    <app-project-item
+      class="col-auto"
+      *ngFor="let project of projects"
+      [project]="project"
+    />
+  </div>
+</section>

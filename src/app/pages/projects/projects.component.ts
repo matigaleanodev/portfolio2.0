@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
+import { ProjectItemComponent } from '../../components/project-item/project-item.component';
+import { Project } from 'src/app/models/project.model';
+import { ProjectList } from './projects';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss']
+  styleUrls: ['./projects.component.scss'],
+  imports: [CommonModule, SubtitleComponent, ProjectItemComponent],
 })
 export class ProjectsComponent {
-
+  projects: Project[] = ProjectList;
 }

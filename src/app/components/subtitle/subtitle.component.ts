@@ -6,7 +6,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="d-flex mt-5 mb-3 pb-2 border-bottom border-light text-light">
+    <div class="d-flex mb-3 pb-2 border-bottom border-light text-light">
       <h3 class="fs-1 fw-bold">{{ title }}</h3>
       <div class="d-flex gap-3 ms-auto">
         <i
