@@ -1,5 +1,7 @@
 @import "variables";
 
 main {
-  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: fill-available !important;
+  min-height: -webkit-fill-available !important;
 }

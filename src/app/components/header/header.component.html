@@ -10,19 +10,19 @@
       <button
         class="navbar-toggler"
         type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbar"
-        aria-controls="navbar"
+        aria-controls="navbarMenu"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        (click)="collapse()"
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse col-auto" id="navbar">
+      <div class="collapse navbar-collapse" id="navbarMenu" #navMenu>
         <ul class="navbar-nav mr-auto margin">
           <li class="nav-item">
             <a
               class="nav-link text-light"
+              (click)="collapse()"
               routerLink="/home"
               routerLinkActive="link-active"
             >
@@ -32,6 +32,7 @@
           <li class="nav-item">
             <a
               class="nav-link text-light"
+              (click)="collapse()"
               routerLink="/about-me"
               routerLinkActive="link-active"
             >
@@ -41,6 +42,7 @@
           <li class="nav-item">
             <a
               class="nav-link text-light"
+              (click)="collapse()"
               routerLink="/projects"
               routerLinkActive="link-active"
             >
@@ -50,6 +52,7 @@
           <li class="nav-item">
             <a
               class="nav-link text-light"
+              (click)="collapse()"
               routerLink="/contact"
               routerLinkActive="link-active"
             >
@@ -63,6 +66,7 @@
         >
           <a
             href="https://github.com/matigaleanodev/portfolio2.0"
+            (click)="collapse()"
             target="_blank"
             rel="noopener noreferrer"
             class="text-light ms-auto me-0 link-repo"
