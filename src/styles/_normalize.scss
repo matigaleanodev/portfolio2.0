@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  height: 100dvh;
+  min-height: 100dvh;
   font-family: "Inconsolata", monospace;
   background: radial-gradient(
     circle at top right,
@@ -28,7 +28,6 @@ body {
   color: $dark;
   margin: 0;
   max-width: 100vw;
-  overflow: hidden;
   hyphens: auto;
   font-smooth: always;
   -webkit-font-smoothing: antialiased;

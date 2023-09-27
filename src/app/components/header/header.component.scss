@@ -7,7 +7,7 @@
 .margin {
   margin-left: 15px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     margin-left: 15%;
   }
 }
@@ -21,9 +21,10 @@
 
 .navbar-nav {
   .nav-item {
+    @media (min-width: 1024px) {
+      margin-left: 20px;
+    }
     position: relative;
-    margin-left: 20px;
-
     a {
       transition: all 0.3s ease-out 0s;
       position: relative;
