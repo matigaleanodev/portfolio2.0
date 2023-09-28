@@ -8,12 +8,14 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   template: `
     <div class="d-flex mb-3 pb-2 border-bottom border-light text-light">
       <h3 class="fs-1 fw-bold">{{ title }}</h3>
-      <div class="d-flex gap-3 ms-auto">
-        <i
-          class="fa-solid fa-angles-up m-auto icon pointer"
-          (click)="onClick(title === 'Proyectos' ? 'home' : 'about')"
-        ></i>
-      </div>
+      <a
+        *ngIf="title !== 'Proyectos'"
+        class="ms-auto"
+        type="button"
+        (click)="onClick('about')"
+      >
+        <i class="fa-solid fa-angles-up m-auto icon pointer"></i>
+      </a>
     </div>
   `,
   styles: [

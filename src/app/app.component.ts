@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { particles } from 'src/assets/animations/particles';
 import { Engine } from 'tsparticles-engine';
 import { loadFull } from 'tsparticles';
 import { NgParticlesModule } from 'ng-particles';
+import { slideInY } from 'src/assets/animations/slide-in-y.animation';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +14,7 @@ import { NgParticlesModule } from 'ng-particles';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [CommonModule, RouterOutlet, HeaderComponent, NgParticlesModule],
+  animations: [slideInY],
 })
 export class AppComponent {
   title = 'matias-galeano';
@@ -24,5 +25,13 @@ export class AppComponent {
 
   async particlesInit(engine: Engine): Promise<void> {
     await loadFull(engine);
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return (
+      outlet &&
+      outlet.activatedRouteData &&
+      outlet.activatedRouteData['animation']
+    );
   }
 }

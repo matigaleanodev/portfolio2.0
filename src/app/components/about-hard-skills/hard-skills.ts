@@ -59,17 +59,17 @@ export const HardSkillList: HardSkill[] = [
   },
   {
     id: 67,
-    name: 'MySQL',
-    type: 'backend',
-    image: 'mysql.svg',
-    url: 'https://www.mysql.com/',
-  },
-  {
-    id: 68,
     name: 'Node Js',
     type: 'backend',
     image: 'nodejs.svg',
     url: 'https://nodejs.org/',
+  },
+  {
+    id: 68,
+    name: 'MySQL',
+    type: 'backend',
+    image: 'mysql.svg',
+    url: 'https://www.mysql.com/',
   },
   {
     id: 69,

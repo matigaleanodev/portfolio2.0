@@ -1,0 +1,104 @@
+<form [formGroup]="contactForm" autocomplete="off">
+  <div class="row mb-2">
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label class="form-label" for="name">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="{
+            'is-valid': Name?.touched && Name?.valid,
+            'is-invalid': Name?.touched && Name?.errors
+          }"
+          id="name"
+          name="name"
+          placeholder="tu nombre"
+          formControlName="name"
+        />
+        <div class="error-container">
+          <span
+            class="text-danger text-truncate"
+            *ngIf="Name?.touched && Name?.hasError('required')"
+          >
+            Por favor, ingrese su nombre.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          [ngClass]="{
+            'is-valid': Email?.touched && Email?.valid,
+            'is-invalid': Email?.touched && Email?.errors
+          }"
+          id="email"
+          name="email"
+          placeholder="ejemplo@email.com"
+          formControlName="email"
+        />
+        <div class="error-container">
+          <span
+            class="text-danger text-truncate"
+            *ngIf="Email?.touched && Email?.hasError('required')"
+          >
+            Por favor, ingrese su email.
+          </span>
+          <span
+            class="text-danger text-truncate"
+            *ngIf="Email?.touched && Email?.hasError('email')"
+          >
+            El email ingresado no es válido.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12">
+      <div class="form-group">
+        <label class="form-label" for="message">Mensaje</label>
+        <textarea
+          class="form-control"
+          [ngClass]="{
+            'is-valid': Message?.touched && Message?.valid,
+            'is-invalid': Message?.touched && Message?.errors
+          }"
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="tu mensaje aqui.."
+          formControlName="message"
+        ></textarea>
+        <div class="error-container">
+          <span
+            class="text-danger text-truncate"
+            *ngIf="Message?.touched && Message?.hasError('required')"
+          >
+            Por favor, ingrese su mensaje.
+          </span>
+          <span
+            class="text-danger text-truncate"
+            *ngIf="Message?.touched && Message?.hasError('minlength')"
+          >
+            El mensaje es demasiado corto.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-12 d-flex justify-content-end">
+      <input
+        [disabled]="!contactForm.valid"
+        type="submit"
+        value="Enviar"
+        class="btn btn-primary"
+        style="min-width: 47%"
+      />
+    </div>
+  </div>
+</form>

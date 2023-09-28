@@ -8,34 +8,33 @@ import { HardSkill } from 'src/app/models/skills.model';
   standalone: true,
   imports: [CommonModule, TooltipDirective],
   template: `
-    <div class="d-flex flex-column gap-2 justify-content-center">
-      <div class="d-flex justify-content-center mb-md-5">
-        <picture class="skill__picture">
-          <a href="{{ skill.url }}" target="_blank" rel="noopener noreferrer">
-            <img
-              Tooltip
-              [src]="image"
-              [alt]="skill.name"
-              [tooltip]="skill.name"
-              class="mt-1 mt-md-5 mb-1 mx-0 px-1 skill__icon"
-            />
-          </a>
-        </picture>
-      </div>
-    </div>
+    <a
+      class="skill"
+      href="{{ skill.url }}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <picture class="skill-picture">
+        <img
+          Tooltip
+          [src]="image"
+          [alt]="skill.name"
+          [tooltip]="skill.name"
+          class="skill-icon img-fluid"
+        />
+      </picture>
+    </a>
   `,
   styles: [
     `
       @import 'variables';
 
       .skill {
-        &__picture {
-          width: 3rem;
-          height: 3rem;
-        }
-        &__icon {
-          height: 2.5rem;
-          width: auto;
+        width: 3rem;
+        height: 3rem;
+        &-icon {
+          width: 100%;
+          height: 100%;
           cursor: pointer;
           transition: all 0.5s ease;
           &:hover {

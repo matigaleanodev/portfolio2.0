@@ -2,45 +2,45 @@ import { SoftSkill } from 'src/app/models/skills.model';
 
 export const SoftSkillList: SoftSkill[] = [
   {
-    id: 77,
-    name: 'Trabajo en equipo',
+    id: 1,
+    name: 'Comunicacion Efectiva',
     description:
-      'Trabajo en equipo con mis compañeros para lograr los objetivos.',
-    image: 'equipo.svg',
-  },
-  {
-    id: 78,
-    name: 'Ayuda mutua',
-    description:
-      'Creo firmemente que la mejor forma de conseguir los objetivos es otorgando ayuda siempre que se pueda a quien lo necesite y saber reconocer cuando es uno quien necesita ayuda.',
+      'Soy capaz de expresar mis ideas de manera clara y persuasiva. Escuchar y entender a los demás es fundamental para mí, lo que facilita la colaboración efectiva en equipo.',
     image: 'comunicativo.svg',
   },
   {
-    id: 79,
-    name: 'Organizado',
+    id: 77,
+    name: 'Pensamiento Crítico',
     description:
-      'Trato de organizarme planeando con anticipacion ayudandome con herramientas como Notion para tener un mejor control de mis actividades.',
-    image: 'organizado.svg',
-  },
-  {
-    id: 80,
-    name: 'Adaptable a los cambios',
-    description:
-      'Tengo facilidad para adaptarme a los cambios que se puedan presentar en el dia a dia.',
-    image: 'adaptable.svg',
-  },
-  {
-    id: 81,
-    name: 'Formacion constante',
-    description:
-      'Constante busqueda de informacion y actualizacion en las tecnologias que uso en el dia a dia y las que quiero aprender.',
+      'Mi habilidad para analizar, evaluar y resolver problemas me permite tomar decisiones informadas. Me gusta abordar desafíos desde múltiples perspectivas y encontrar soluciones creativas.',
     image: 'formacion.svg',
   },
   {
-    id: 82,
-    name: 'Comunicacion Efectiva',
+    id: 80,
+    name: 'Adaptabilidad',
     description:
-      'Trato de generar vinculos a traves de la comunicacion con mis compañeros. Creo firmemente en que formar vinculo con los demas aporta mucho a uno mismo.',
-    image: 'comunicativo.svg',
+      'Me siento cómodo adaptándome a situaciones cambiantes. Puedo ajustar mis enfoques y métodos según las circunstancias, lo que me permite mantenerme efectivo en entornos dinámicos.',
+    image: 'adaptable.svg',
+  },
+  {
+    id: 79,
+    name: 'Gestión del Tiempo',
+    description:
+      'Soy eficiente en la organización de mi tiempo y tareas. Establezco prioridades y cumplo con los plazos, lo que me permite ser productivo y cumplir con mis responsabilidades.',
+    image: 'organizado.svg',
+  },
+  {
+    id: 78,
+    name: 'Trabajo en Equipo',
+    description:
+      'Disfruto colaborando con otros y creo un ambiente positivo de trabajo en equipo. Valoro las aportaciones de mis colegas y contribuyo activamente al éxito colectivo.',
+    image: 'equipo.svg',
+  },
+  {
+    id: 81,
+    name: 'Empatía',
+    description:
+      'Me esfuerzo por entender las perspectivas y emociones de los demás. La empatía me ayuda a establecer relaciones sólidas y a ser un apoyo en situaciones personales y profesionales.',
+    image: 'ayuda.svg',
   },
 ];
