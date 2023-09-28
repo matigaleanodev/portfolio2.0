@@ -3,11 +3,20 @@
   <div
     class="row d-flex justify-content-center align-item-center mt-3 pb-5 gap-5 gap-lg-4 gap-xl-2"
   >
-    <app-project-item
-      class="col-auto"
-      *ngFor="let project of projects"
-      [project]="project"
-    />
+    <ng-container *ngFor="let project of projects; let i = index">
+      <app-project-item
+        class="col-auto"
+        [project]="project"
+        [@enter]="{
+          value: '',
+          params: {
+            duration: 750,
+            delay: project.delay,
+            translate: '30px'
+          }
+        }"
+      />
+    </ng-container>
   </div>
 </section>
 <div class="mt-auto mb-0">

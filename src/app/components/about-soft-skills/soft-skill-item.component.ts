@@ -10,7 +10,7 @@ import { SoftSkill } from 'src/app/models/skills.model';
   template: `
     <article class="skill">
       <div
-        class="border border-primary border-1 rounded-2 bg-gradient bg-opacity-25 skill__wrapped"
+        class="border border-primary border-1 rounded-2 bg-gradient bg-opacity-25 skill__wrapped "
       >
         <picture class="d-flex w-100 skill__picture">
           <img

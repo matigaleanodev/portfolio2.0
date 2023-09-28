@@ -6,7 +6,11 @@ import { CommonModule, ViewportScroller } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="d-flex mb-3 pb-2 border-bottom border-light text-light">
+    <div
+      class="d-flex mb-3 pb-2 border-bottom border-light text-light"
+      data-aos="fade-right"
+      data-aos-easing="ease-in-sine"
+    >
       <h3 class="fs-1 fw-bold">{{ title }}</h3>
       <a
         *ngIf="title !== 'Proyectos'"

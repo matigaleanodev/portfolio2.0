@@ -11,11 +11,18 @@ import {
   withPreloading,
 } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import * as AOS from 'aos';
 
 const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
   scrollPositionRestoration: 'top',
 };
+
+AOS.init({
+  easing: 'ease-out-back',
+  duration: 1500,
+});
+window.addEventListener('load', AOS.refresh);
 
 const inMemoryScrollingFeature: InMemoryScrollingFeature =
   withInMemoryScrolling(scrollConfig);

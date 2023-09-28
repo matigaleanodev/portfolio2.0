@@ -3,6 +3,7 @@
   <div class="row justify-content-center">
     <div
       class="col-12 col-md-8 col-lg-6 border border-primary bg-gradient bg-opacity-25 rounded-3 mb-3"
+      data-aos="fade-up"
     >
       <p class="p-4">
         En mi trayectoria profesional, he adquirido experiencia en diversas
@@ -13,35 +14,40 @@
     </div>
   </div>
 
-  <h3 class="fs-3 fw-semibold text-center">Frontend</h3>
+  <h3 class="fs-3 fw-semibold text-center" data-aos="fade-right">Frontend</h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
       <app-hard-skill-item
         class="col"
         *ngFor="let skill of frontend"
         [skill]="skill"
+        data-aos="fade-left"
       />
     </div>
   </div>
 
-  <h3 class="fs-3 fw-semibold text-center">Backend</h3>
+  <h3 class="fs-3 fw-semibold text-center" data-aos="fade-right">Backend</h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
       <app-hard-skill-item
         class="col"
         *ngFor="let skill of backend"
         [skill]="skill"
+        data-aos="fade-left"
       />
     </div>
   </div>
 
-  <h3 class="fs-3 fw-semibold text-center">Herramientas</h3>
+  <h3 class="fs-3 fw-semibold text-center" data-aos="fade-right">
+    Herramientas
+  </h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
       <app-hard-skill-item
         class="col"
         *ngFor="let skill of tools"
         [skill]="skill"
+        data-aos="fade-left"
       />
     </div>
   </div>

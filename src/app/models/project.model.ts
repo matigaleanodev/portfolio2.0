@@ -1,5 +1,6 @@
 export interface Project {
   id: number;
+  delay?: number;
   name: string;
   description: string;
   date: string;

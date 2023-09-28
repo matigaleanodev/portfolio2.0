@@ -1,6 +1,7 @@
 import { Project } from 'src/app/models/project.model';
+import { Observable, of } from 'rxjs';
 
-export const ProjectList: Project[] = [
+const ProjectList: Project[] = [
   {
     id: 56,
     name: 'Mi Portfolio Personal',
@@ -46,3 +47,5 @@ export const ProjectList: Project[] = [
     demoUrl: 'https://auth-service-a3930.web.app/',
   },
 ];
+
+export const ProjectList$: Observable<Project[]> = of(ProjectList);
