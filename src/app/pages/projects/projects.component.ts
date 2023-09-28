@@ -28,7 +28,7 @@ export class ProjectsComponent implements OnInit {
     ProjectList$.subscribe((projects) => {
       const aux = this.generateShuffledArray(projects.length);
       projects.forEach((project, i) => {
-        project.delay = aux[i] * 750;
+        project.delay = aux[i] * 500;
         this.projects.push(project);
       });
     });
