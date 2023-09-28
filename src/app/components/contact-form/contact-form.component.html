@@ -91,13 +91,19 @@
     </div>
   </div>
   <div class="row mb-2">
-    <div class="col-12 d-flex justify-content-end">
+    <div class="col-12 col-md-6">
+      <re-captcha
+        (resolved)="resolved($event)"
+        formControlName="recaptcha"
+        [siteKey]="sitekey"
+      ></re-captcha>
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-end">
       <input
         [disabled]="!contactForm.valid"
         type="submit"
         value="Enviar"
-        class="btn btn-primary"
-        style="min-width: 47%"
+        class="btn btn-primary w-100"
       />
     </div>
   </div>

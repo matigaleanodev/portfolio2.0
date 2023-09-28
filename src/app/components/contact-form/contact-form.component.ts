@@ -6,11 +6,18 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
+  ],
   templateUrl: './contact-form.component.html',
   styles: [
     `
@@ -21,6 +28,7 @@ import {
   ],
 })
 export class ContactFormComponent {
+  sitekey = environment.RECAPTCHA.SITE_KEY;
   contactForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -28,7 +36,7 @@ export class ContactFormComponent {
       Validators.required,
       Validators.minLength(25),
     ]),
-    recaptcha: new FormControl('', [Validators.required]),
+    recaptcha: new FormControl(null, [Validators.required]),
   });
 
   get Name() {
@@ -41,5 +49,9 @@ export class ContactFormComponent {
 
   get Message() {
     return this.contactForm.get('message');
+  }
+
+  resolved(captchaResponse: string) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }
