@@ -39,15 +39,17 @@ export class ContactComponent implements AfterViewInit {
 
     const maxHeight = Math.max(agradecimientoHeight, formularioHeight);
 
-    this.renderer.setStyle(
-      this.agradecimiento.nativeElement,
-      'min-height',
-      `${maxHeight}px`
-    );
-    this.renderer.setStyle(
-      this.formulario.nativeElement,
-      'min-height',
-      `${maxHeight}px`
-    );
+    if (window.innerWidth > 768) {
+      this.renderer.setStyle(
+        this.agradecimiento.nativeElement,
+        'min-height',
+        `${maxHeight}px`
+      );
+      this.renderer.setStyle(
+        this.formulario.nativeElement,
+        'min-height',
+        `${maxHeight}px`
+      );
+    }
   }
 }

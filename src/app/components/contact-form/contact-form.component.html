@@ -91,20 +91,24 @@
     </div>
   </div>
   <div class="row mb-2">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-lg-6">
       <re-captcha
+        class="mx-auto"
         (resolved)="resolved($event)"
         formControlName="recaptcha"
         [siteKey]="sitekey"
       ></re-captcha>
     </div>
-    <div class="col-12 col-md-6 d-flex justify-content-end">
-      <input
-        [disabled]="!contactForm.valid"
-        type="submit"
-        value="Enviar"
-        class="btn btn-primary w-100"
-      />
+    <div class="col-12 col-lg-6">
+      <div class="d-flex align-items-end justify-content-end h-100">
+        <input
+          [disabled]="!contactForm.valid"
+          type="submit"
+          value="Enviar"
+          class="btn btn-primary"
+          style="min-width: 150px"
+        />
+      </div>
     </div>
   </div>
 </form>
