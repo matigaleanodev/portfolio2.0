@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -39,6 +39,9 @@ import { CommonModule } from '@angular/common';
           .fa-envelope:hover {
             color: $white;
           }
+          .fa-whatsapp:hover {
+            color: $whatsapp;
+          }
           &-item {
             font-size: 1.5rem;
             width: 2rem;
@@ -50,4 +53,6 @@ import { CommonModule } from '@angular/common';
     `,
   ],
 })
-export class SocialBoxComponent {}
+export class SocialBoxComponent {
+  @Input() mail: boolean = false;
+}

@@ -1,9 +1,12 @@
 <section class="container-fluid container-lg text-light">
   <div class="mh100 d-flex flex-row align-items-center gap-3">
     <article class="col-12 col-md-8 col-lg-6 h-100 d-flex align-items-center">
-      <div class="border border-light bg-gradient bg-opacity-25 p-3 rounded-3">
+      <div
+        #agradecimiento
+        class="d-flex flex-column border border-light bg-gradient bg-opacity-25 p-3 rounded-3"
+      >
         <h3 class="fs-3 fw-bolder text-center">¡Gracias por tu visita!</h3>
-        <p class="text p-2">
+        <p class="text p-2 mt-auto">
           Es un placer compartir mi trabajo contigo.La creatividad y la pasión
           son los pilares de todo lo que hago, y estoy emocionado de mostrarte
           cómo se reflejan en mis proyectos.
@@ -17,11 +20,12 @@
           ¡No dudes en ponerte en contacto conmigo a través de las siguientes
           plataformas!
         </p>
-        <app-social-box />
+        <app-social-box [mail]="true" class="mt-auto mb-2 mb-md-3 mb-lg-4" />
       </div>
     </article>
     <article class="col-12 col-md-4 col-lg-6 h-100 d-flex align-items-center">
       <div
+        #formulario
         class="border border-light bg-gradient bg-opacity-25 p-3 rounded-3 w-100"
       >
         <h3 class="fs-3 fw-bolder text-center">¡Puedes dejarme un mensaje!</h3>
