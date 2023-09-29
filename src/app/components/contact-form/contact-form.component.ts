@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -8,6 +8,8 @@ import {
 } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { ContactService } from 'src/app/services/contact.service';
+import { CreateContactDTO } from 'src/app/models/contact.model';
 
 @Component({
   selector: 'app-contact-form',
@@ -28,7 +30,6 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
   ],
 })
 export class ContactFormComponent {
-  sitekey = environment.RECAPTCHA.SITE_KEY;
   contactForm: FormGroup = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -38,6 +39,9 @@ export class ContactFormComponent {
     ]),
     recaptcha: new FormControl(null, [Validators.required]),
   });
+
+  sitekey = environment.RECAPTCHA.SITE_KEY;
+  service = inject(ContactService);
 
   get Name() {
     return this.contactForm.get('name');
@@ -51,7 +55,25 @@ export class ContactFormComponent {
     return this.contactForm.get('message');
   }
 
-  resolved(captchaResponse: string) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  submit(event: Event) {
+    debugger;
+    event.preventDefault();
+    if (this.contactForm.valid) {
+      const contact: CreateContactDTO = this.contactForm.getRawValue();
+      this.service.send(contact).subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          this.contactForm.reset();
+        },
+      });
+    } else {
+      this.contactForm.markAllAsTouched();
+      console.log('Form is not valid');
+    }
   }
 }

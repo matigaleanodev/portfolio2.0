@@ -1,4 +1,4 @@
-<form [formGroup]="contactForm" autocomplete="off">
+<form [formGroup]="contactForm" autocomplete="off" (ngSubmit)="submit($event)">
   <div class="row mb-2">
     <div class="col-12 col-md-6">
       <div class="form-group">
@@ -94,7 +94,6 @@
     <div class="col-12 col-lg-6">
       <re-captcha
         class="mx-auto"
-        (resolved)="resolved($event)"
         formControlName="recaptcha"
         [siteKey]="sitekey"
       ></re-captcha>
