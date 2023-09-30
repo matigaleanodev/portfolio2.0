@@ -1,7 +1,11 @@
-export interface LoginUser {
+export interface User {
+  id: number;
   email: string;
   password: string;
+  createdAt: string;
 }
+
+export type LoginUser = Pick<User, 'email' | 'password'>;
 
 export interface LoginResponse {
   access_token: string;

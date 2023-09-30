@@ -1,47 +1,46 @@
 import { Injectable } from '@angular/core';
+import { TokenData } from '../models/token.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
-  token: string;
-
-  constructor() {
-    const Token: string = sessionStorage.getItem('token') || '';
-    this.token = Token;
+  setToken(token: string): void {
+    const tokenData = this.decodeToken(token);
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('user', JSON.stringify(tokenData.user));
   }
 
   validateToken(): boolean {
-    const Token = this.token;
-
+    const Token = sessionStorage.getItem('token');
     if (!Token) {
       return false;
     }
 
     const payload = Token.split('.')[1];
-    const decodedPayload = decodeURIComponent(
-      atob(payload)
-        .split('')
-        .map((c) => {
-          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-        })
-        .join('')
-    );
-
-    if (
-      JSON.parse(decodedPayload).name !==
-      sessionStorage.getItem('apellidoYNombre')
-    ) {
+    const tokenData = this.decodeToken(payload);
+    if (!tokenData) {
+      return false;
+    }
+    const savedUser = JSON.parse(sessionStorage.getItem('user') || '{}');
+    if (savedUser.id !== tokenData.user.id) {
       return false;
     }
 
-    if (
-      JSON.parse(decodedPayload).nameid !== sessionStorage.getItem('idUsuario')
-    ) {
-      return false;
-    }
-
-    const exp = JSON.parse(decodedPayload).exp;
+    const exp = tokenData.exp;
     return Date.now() < exp * 1000;
+  }
+
+  decodeToken(payload: string): TokenData {
+    return JSON.parse(
+      decodeURIComponent(
+        atob(payload)
+          .split('')
+          .map((c) => {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+          })
+          .join('')
+      )
+    );
   }
 }
