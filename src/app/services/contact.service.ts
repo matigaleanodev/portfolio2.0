@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Contact, CreateContactDTO } from '../models/contact.model';
 import { Observable, map } from 'rxjs';
-import { BYPASS_JW_TOKEN } from './request.interceptor';
+import { BYPASS_JW_TOKEN } from '../interceptors/request.interceptor';
 
 @Injectable({
   providedIn: 'root',

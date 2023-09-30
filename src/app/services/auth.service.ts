@@ -1,11 +1,11 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { LoginResponse, LoginUser } from '../models/user.model';
+import { LoginResponse, LoginUser, User } from '../models/user.model';
 import { Observable, map } from 'rxjs';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
-import { BYPASS_JW_TOKEN } from './request.interceptor';
+import { BYPASS_JW_TOKEN } from '../interceptors/request.interceptor';
 
 @Injectable({
   providedIn: 'root',
@@ -16,15 +16,18 @@ export class AuthService {
   private _token = inject(TokenService);
   private _router = inject(Router);
 
-  login(credentials: LoginUser): Observable<LoginResponse> {
+  login(credentials: LoginUser): Observable<User> {
     return this._http
       .post<LoginResponse>(`${this.API_URL}/users/login`, credentials, {
         context: new HttpContext().set(BYPASS_JW_TOKEN, true),
       })
       .pipe(
         map((res) => {
-          this._token.setToken(res.access_token);
-          return res;
+          const { access_token } = res;
+          const payload = access_token.split('.')[1];
+          const tokenData = this._token.decodeToken(payload);
+          this._token.setToken(access_token);
+          return tokenData.user;
         })
       );
   }

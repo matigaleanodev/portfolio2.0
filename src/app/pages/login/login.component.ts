@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -7,7 +7,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { LoginUser } from 'src/app/models/user.model';
+import { LoginUser, User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +20,7 @@ import { LoginUser } from 'src/app/models/user.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   passwordVisibility: boolean = false;
 
   loginForm = new FormGroup({
@@ -27,7 +31,14 @@ export class LoginComponent {
     ]),
   });
 
-  service = inject(AuthService);
+  private service = inject(AuthService);
+  private router = inject(Router);
+  private toastr = inject(ToastrService);
+  private app = inject(AppService);
+
+  ngOnInit(): void {
+    if (this.service.isLoggedIn) this.router.navigate(['/dashboard']);
+  }
 
   get Email() {
     return this.loginForm.get('email');
@@ -43,19 +54,27 @@ export class LoginComponent {
 
   onLogin(event: Event) {
     event.preventDefault();
+    this.app.loading$.next(true);
     if (this.loginForm.valid) {
       const user = this.loginForm.getRawValue();
       this.service.login(user as LoginUser).subscribe({
-        next: (response) => {
-          console.log(response);
+        next: (user: User) => {
+          this.toastr.success(
+            `Bienvenido ${user.name}`,
+            'Credenciales correctas'
+          );
+          this.router.navigate(['/dashboard']);
         },
-        error: (error) => {
-          console.log(error);
+        error: () => {
+          this.app.loading$.next(false);
+        },
+        complete: () => {
+          this.app.loading$.next(false);
         },
       });
     } else {
       this.loginForm.markAllAsTouched();
-      console.log('Form is not valid');
+      this.toastr.warning('Formulario no válido', 'Error');
     }
   }
 }

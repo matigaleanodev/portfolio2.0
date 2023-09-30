@@ -6,7 +6,9 @@ import { TokenData } from '../models/token.model';
 })
 export class TokenService {
   setToken(token: string): void {
-    const tokenData = this.decodeToken(token);
+    const payload = token.split('.')[1];
+    const tokenData = this.decodeToken(payload);
+
     sessionStorage.setItem('token', token);
     sessionStorage.setItem('user', JSON.stringify(tokenData.user));
   }

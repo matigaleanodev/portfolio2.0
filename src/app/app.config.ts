@@ -1,5 +1,9 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withInterceptors,
+} from '@angular/common/http';
 import { routes } from './app.routes';
 import {
   InMemoryScrollingFeature,
@@ -12,6 +16,9 @@ import {
 } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import * as AOS from 'aos';
+import { provideToastr } from 'ngx-toastr';
+import { requestInterceptor } from './interceptors/request.interceptor';
+import { errorInterceptor } from './interceptors/error.interceptor';
 
 const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
@@ -29,8 +36,11 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([requestInterceptor, errorInterceptor])),
     provideAnimations(),
+    provideToastr({
+      preventDuplicates: true,
+    }),
     provideRouter(
       routes,
       inMemoryScrollingFeature,

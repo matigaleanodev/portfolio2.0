@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 
 const title = 'Matias Galeano';
 
@@ -38,6 +39,15 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/login/login.component').then((c) => c.LoginComponent),
     title: title + ' | Contacto',
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./pages/dashboard/dashboard.component').then(
+        (c) => c.DashboardComponent
+      ),
+    title: title + ' | Dashboard',
+    canActivate: [authGuard],
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
