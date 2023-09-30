@@ -16,6 +16,7 @@ html {
 body {
   min-height: 100dvh;
   font-family: "Inconsolata", monospace;
+  position: relative;
   background: radial-gradient(
     circle at top right,
     #040008,

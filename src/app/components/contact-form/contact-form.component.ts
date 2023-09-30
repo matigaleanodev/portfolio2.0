@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { ContactService } from 'src/app/services/contact.service';
 import { CreateContactDTO } from 'src/app/models/contact.model';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -42,6 +43,7 @@ export class ContactFormComponent {
 
   sitekey = environment.RECAPTCHA.SITE_KEY;
   service = inject(ContactService);
+  app = inject(AppService);
 
   get Name() {
     return this.contactForm.get('name');
@@ -56,16 +58,18 @@ export class ContactFormComponent {
   }
 
   submit(event: Event) {
-    debugger;
     event.preventDefault();
     if (this.contactForm.valid) {
+      this.app.loading$.next(true);
       const contact: CreateContactDTO = this.contactForm.getRawValue();
       this.service.send(contact).subscribe({
         next: (response) => {
           console.log(response);
+          this.app.loading$.next(false);
         },
         error: (error) => {
           console.log(error);
+          this.app.loading$.next(false);
         },
         complete: () => {
           this.contactForm.reset();

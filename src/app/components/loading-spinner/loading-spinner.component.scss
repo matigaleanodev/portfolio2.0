@@ -1,0 +1,220 @@
+$astronaut-color: #15aece;
+$schoolbag-color: #94b7ca;
+$head-gradient-start: #e3e8eb;
+$head-gradient-middle: #fbfdfa;
+$head-gradient-end: #e3e8eb;
+$body-gradient-start: #e3e8eb;
+$body-gradient-middle: #fbfdfa;
+$body-gradient-end: #e3e8eb;
+$panel-color: #b7cceb;
+$arm-left-color: #e3e8eb;
+$arm-right-color: #fbfdfa;
+$arm-inner-left-color: #6e91a4;
+$arm-inner-right-color: #b6d2e0;
+$leg-left-color: #e3e8eb;
+$leg-right-color: #fbfdfa;
+$leg-inner-left-color: #6d96ac;
+$leg-inner-right-color: #b0cfe4;
+
+@keyframes astronaut {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.astronaut {
+  width: 250px;
+  height: 300px;
+  position: absolute;
+  z-index: 11;
+  top: calc(50% - 150px);
+  left: calc(50% - 125px);
+  animation: astronaut 4s linear infinite;
+
+  .head {
+    width: 97px;
+    height: 80px;
+    position: absolute;
+    z-index: 3;
+    background: linear-gradient(
+      to right,
+      $head-gradient-start 0%,
+      $head-gradient-start 50%,
+      $head-gradient-middle 50%,
+      $head-gradient-middle 100%
+    );
+    border-radius: 50%;
+    top: 34px;
+    left: calc(50% - 47.5px);
+
+    &:after {
+      content: "";
+      width: 60px;
+      height: 50px;
+      position: absolute;
+      top: calc(50% - 25px);
+      left: calc(50% - 30px);
+      background: linear-gradient(
+        to top,
+        $astronaut-color 0%,
+        $astronaut-color 50%,
+        $head-gradient-start 50%,
+        $head-gradient-start 100%
+      );
+      border-radius: 15px;
+    }
+
+    &:before {
+      content: "";
+      width: 12px;
+      height: 25px;
+      position: absolute;
+      top: calc(50% - 12.5px);
+      left: -4px;
+      background-color: $arm-inner-left-color;
+      border-radius: 5px;
+      box-shadow: 92px 0px 0px $arm-inner-left-color;
+    }
+  }
+
+  .body {
+    width: 85px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+    background-color: $body-gradient-start;
+    border-radius: 40px / 20px;
+    top: 105px;
+    left: calc(50% - 41px);
+
+    &:before {
+      content: "";
+      width: 60px;
+      height: 40px;
+      position: absolute;
+      top: 20px;
+      left: calc(50% - 30px);
+      background-color: $panel-color;
+    }
+  }
+
+  .schoolbag {
+    width: 100px;
+    height: 150px;
+    position: absolute;
+    z-index: 1;
+    top: calc(50% - 75px);
+    left: calc(50% - 50px);
+    background-color: $schoolbag-color;
+    border-radius: 50px 50px 0 0 / 30px 30px 0 0;
+  }
+
+  .arm {
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    top: 121px;
+    z-index: 2;
+
+    &.arm-left {
+      left: 30px;
+      background-color: $arm-left-color;
+      border-radius: 0 0 0 39px;
+
+      &:before {
+        content: "";
+        width: 30px;
+        height: 70px;
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background-color: $arm-inner-left-color;
+        border-radius: 50px 50px 0 120px / 50px 50px 0 110px;
+      }
+
+      &:after {
+        content: "";
+        width: 30px;
+        height: 10px;
+        position: absolute;
+        top: -24px;
+        background-color: $arm-inner-left-color;
+        left: 0;
+      }
+    }
+
+    &.arm-right {
+      right: 30px;
+      background-color: $arm-right-color;
+      border-radius: 0 0 39px 0;
+
+      &:before {
+        content: "";
+        width: 30px;
+        height: 70px;
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background-color: $arm-inner-right-color;
+        border-radius: 50px 50px 120px 0 / 50px 50px 110px 0;
+      }
+
+      &:after {
+        content: "";
+        width: 30px;
+        height: 10px;
+        position: absolute;
+        top: -24px;
+        background-color: $arm-inner-right-color;
+        right: 0;
+      }
+    }
+  }
+
+  .leg {
+    width: 30px;
+    height: 40px;
+    position: absolute;
+    z-index: 2;
+    bottom: 70px;
+
+    &.leg-left {
+      left: 76px;
+      background-color: $leg-left-color;
+      transform: rotate(20deg);
+
+      &:before {
+        content: "";
+        width: 50px;
+        height: 25px;
+        position: absolute;
+        bottom: -26px;
+        left: -20px;
+        background-color: $leg-inner-left-color;
+        border-radius: 30px 0 0 0;
+        border-bottom: 10px solid $leg-inner-left-color;
+      }
+    }
+
+    &.leg-right {
+      right: 73px;
+      background-color: $leg-right-color;
+      transform: rotate(-20deg);
+
+      &:before {
+        content: "";
+        width: 50px;
+        height: 25px;
+        position: absolute;
+        bottom: -26px;
+        right: -20px;
+        background-color: $leg-inner-right-color;
+        border-radius: 0 30px 0 0;
+        border-bottom: 10px solid $leg-inner-right-color;
+      }
+    }
+  }
+}

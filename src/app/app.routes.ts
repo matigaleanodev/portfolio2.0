@@ -8,7 +8,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/home/home.component').then((c) => c.HomeComponent),
     title: title + ' | Portfolio',
-    data: { animation: 'slideInY' },
   },
   {
     path: 'about-me',
@@ -17,7 +16,6 @@ export const routes: Routes = [
         (c) => c.AboutMeComponent
       ),
     title: title + ' | Sobre Mi',
-    data: { animation: 'slideInY' },
   },
   {
     path: 'contact',
@@ -26,7 +24,6 @@ export const routes: Routes = [
         (c) => c.ContactComponent
       ),
     title: title + ' | Contacto',
-    data: { animation: 'slideInY' },
   },
   {
     path: 'projects',
@@ -35,7 +32,6 @@ export const routes: Routes = [
         (c) => c.ProjectsComponent
       ),
     title: title + ' | Proyectos',
-    data: { animation: 'slideInY' },
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {

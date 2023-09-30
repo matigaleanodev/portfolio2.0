@@ -5,3 +5,9 @@ main {
   min-height: fill-available !important;
   min-height: -webkit-fill-available !important;
 }
+
+.spin {
+  top: 0;
+  left: 0;
+  z-index: 2000;
+}

@@ -90,22 +90,26 @@
       </div>
     </div>
   </div>
-  <div class="row mb-2">
-    <div class="col-12 col-lg-6">
+  <div class="row">
+    <div
+      class="col-12 col-xl-6 mb-4 mb-md-2 d-flex justify-content-center justify-content-md-start"
+    >
       <re-captcha
         class="mx-auto"
         formControlName="recaptcha"
         [siteKey]="sitekey"
       ></re-captcha>
     </div>
-    <div class="col-12 col-lg-6">
-      <div class="d-flex align-items-end justify-content-end h-100">
+    <div class="col-12 col-xl-6 mb-2">
+      <div
+        class="d-flex align-items-end justify-content-center justify-content-xl-end h-100"
+      >
         <input
           [disabled]="!contactForm.valid"
           type="submit"
           value="Enviar"
           class="btn btn-primary"
-          style="min-width: 150px"
+          style="min-width: 200px; max-width: 250px"
         />
       </div>
     </div>

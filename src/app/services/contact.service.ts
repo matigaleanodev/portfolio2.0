@@ -14,7 +14,6 @@ export class ContactService {
   send(message: CreateContactDTO): Observable<Contact> {
     return this._http.post<Contact>(`${this._API_URL}/contact`, message).pipe(
       map((contact) => {
-        console.log(contact);
         return contact;
       })
     );
