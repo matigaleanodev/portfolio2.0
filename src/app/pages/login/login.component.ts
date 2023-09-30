@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   FormControl,
@@ -6,6 +6,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { LoginUser } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +27,8 @@ export class LoginComponent {
     ]),
   });
 
+  service = inject(AuthService);
+
   get Email() {
     return this.loginForm.get('email');
   }
@@ -35,5 +39,23 @@ export class LoginComponent {
 
   togglePasswordVisibility() {
     this.passwordVisibility = !this.passwordVisibility;
+  }
+
+  onLogin(event: Event) {
+    event.preventDefault();
+    if (this.loginForm.valid) {
+      const user = this.loginForm.getRawValue();
+      this.service.login(user as LoginUser).subscribe({
+        next: (response) => {
+          console.log(response);
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    } else {
+      this.loginForm.markAllAsTouched();
+      console.log('Form is not valid');
+    }
   }
 }
