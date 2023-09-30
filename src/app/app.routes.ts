@@ -33,6 +33,12 @@ export const routes: Routes = [
       ),
     title: title + ' | Proyectos',
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./pages/login/login.component').then((c) => c.LoginComponent),
+    title: title + ' | Contacto',
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: '**',
