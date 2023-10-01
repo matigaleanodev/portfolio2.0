@@ -11,6 +11,7 @@ import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { ContactService } from 'src/app/services/contact.service';
 import { CreateContactDTO } from 'src/app/models/contact.model';
 import { AppService } from 'src/app/services/app.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-form',
@@ -42,8 +43,9 @@ export class ContactFormComponent {
   });
 
   sitekey = environment.RECAPTCHA.SITE_KEY;
-  service = inject(ContactService);
-  app = inject(AppService);
+  private service = inject(ContactService);
+  private toastr = inject(ToastrService);
+  private app = inject(AppService);
 
   get Name() {
     return this.contactForm.get('name');
@@ -63,21 +65,23 @@ export class ContactFormComponent {
       this.app.loading$.next(true);
       const contact: CreateContactDTO = this.contactForm.getRawValue();
       this.service.send(contact).subscribe({
-        next: (response) => {
-          console.log(response);
-          this.app.loading$.next(false);
+        next: (res) => {
+          this.toastr.success(
+            'Tu retroalimentación es muy importante para mí, y estoy ansioso por escuchar tus ideas y sugerencias.',
+            `Gracias ${res.name} por tu mensaje`
+          );
         },
         error: (error) => {
-          console.log(error);
           this.app.loading$.next(false);
         },
         complete: () => {
           this.contactForm.reset();
+          this.app.loading$.next(false);
         },
       });
     } else {
       this.contactForm.markAllAsTouched();
-      console.log('Form is not valid');
+      this.toastr.warning('Formulario no válido', 'Error');
     }
   }
 }
