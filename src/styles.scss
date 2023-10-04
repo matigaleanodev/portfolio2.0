@@ -7,7 +7,7 @@ $form-check-input-checked-border-color: $primary;
 $transition-collapse: height 0.35s ease !default;
 
 @import "node_modules/bootstrap/scss/bootstrap.scss";
-@import "ngx-toastr/toastr";
+@import "ngx-toastr/toastr-bs5-alert";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1;0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "normalize";
 
