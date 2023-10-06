@@ -21,7 +21,7 @@ export class AppService {
   }
 
   onInitApi() {
-    return this._http.get(this.API_URL).pipe(
+    return this._http.get(this.API_URL + '/profile').pipe(
       delay(300),
       map((response: any) => {
         this.loading$.next(false);

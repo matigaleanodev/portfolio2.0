@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "portfolio-354205"
+  },
+  "targets": {
+    "portfolio-354205": {
+      "hosting": {
+        "matias-galeano": [
+          "portfolio-354205"
+        ]
+      }
+    }
   }
 }

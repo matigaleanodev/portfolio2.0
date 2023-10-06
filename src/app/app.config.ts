@@ -19,6 +19,7 @@ import * as AOS from 'aos';
 import { provideToastr } from 'ngx-toastr';
 import { requestInterceptor } from './interceptors/request.interceptor';
 import { errorInterceptor } from './interceptors/error.interceptor';
+import { firebaseProviders } from 'src/firebase';
 
 const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
@@ -48,5 +49,6 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding()
     ),
     importProvidersFrom([HttpClientModule]),
+    firebaseProviders,
   ],
 };

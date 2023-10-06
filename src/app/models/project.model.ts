@@ -7,4 +7,5 @@ export interface Project {
   frontUrl: string;
   backUrl: string;
   demoUrl: string;
+  delay?: number;
 }
