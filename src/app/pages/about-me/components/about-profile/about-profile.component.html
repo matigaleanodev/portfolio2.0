@@ -7,7 +7,7 @@
       <ul class="nav flex-column gap-2">
         <picture class="mx-auto mb-4 profile__picture">
           <img
-            src="{{ profilePic }}"
+            [src]="profilePic$ | async"
             alt="Matias Galeano foto de perfil"
             class="profile__picture__img"
           />
@@ -39,29 +39,10 @@
           </h3>
         </div>
         <div class="pt-2 pt-md-3 profile__content__body">
-          <p class="text-break profile__content__p text-light">
-            De Posadas-Misiones, Argentina. Desde 2020 estudio programación y
-            desarrollo web de forma autodidacta.
-            <br />
-            A mitad de 2021 tuve la oportunidad de participar de Argentina
-            Programa y termine de descubrir mi pasión por el desarrollo en
-            Typescript.
-            <br />
-            Soy un apasionado del futbol, la musica y el World of Warcraft.
-            <br />
-            Actualmente me desempeño como Frontend Developer en
-            <a
-              href="http://www.ingertec.com.ar"
-              class="mx-auto text-info fst-italic"
-              target="_blank"
-              >IngerTec</a
-            >
-            desarrollando aplicaciones en base a Angular
-            <img
-              src="assets/icons/angular.svg"
-              style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem"
-            />
-          </p>
+          <p
+            class="text-break profile__content__p text-light"
+            [innerHTML]="profile.description"
+          ></p>
         </div>
       </article>
     </div>
