@@ -8,6 +8,7 @@ import { loadFull } from 'tsparticles';
 import { NgParticlesModule } from 'ng-particles';
 import { AppService } from './services/app.service';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { FirebaseService } from './services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -30,11 +31,13 @@ export class AppComponent implements OnInit {
   particlesOptions = particles;
 
   app = inject(AppService);
+  firebase = inject(FirebaseService);
 
   loading$ = this.app.Loading$;
   loaded$ = this.app.Loaded$;
 
   ngOnInit(): void {
+    this.firebase.getAllImages().subscribe((res) => console.log(res));
     this.app.onInitApi().subscribe({
       next: (response) => {
         console.log(response);
