@@ -1,1 +1,24 @@
-<p>image-uploader works!</p>
+<div class="form-group mb-2">
+  <label [attr.for]="name" class="form-label">{{ label }}</label>
+  <input
+    #fileInput
+    (change)="change(fileInput)"
+    type="file"
+    accept=".jpg, .jpeg, .png, .avif, .webp, .svg"
+    class="form-control"
+    [attr.name]="name"
+    [attr.id]="name"
+  />
+</div>
+<picture
+  class="row justify-content-center mb-2"
+  *ngIf="predeterminedImage$ | async as src"
+>
+  <img
+    [ngSrc]="src"
+    class="img-fluid"
+    alt="upload image"
+    width="300"
+    height="300"
+  />
+</picture>

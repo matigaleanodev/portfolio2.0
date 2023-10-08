@@ -8,7 +8,6 @@ import { loadFull } from 'tsparticles';
 import { NgParticlesModule } from 'ng-particles';
 import { AppService } from '@shared/services/app.service';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
-import { FirebaseService } from '@shared/services/firebase.service';
 
 @Component({
   selector: 'app-root',
@@ -31,17 +30,26 @@ export class AppComponent implements OnInit {
   particlesOptions = particles;
 
   app = inject(AppService);
-  firebase = inject(FirebaseService);
 
   loading$ = this.app.Loading$;
 
   ngOnInit(): void {
-    this.firebase.getAllImages().subscribe((res) => console.log(res));
-    this.app.onInitApi().subscribe({
-      next: (response) => {
-        console.log(response);
-      },
-    });
+    this.initData();
+  }
+
+  initData() {
+    const storedProfile = sessionStorage.getItem('profile');
+
+    if (storedProfile) {
+      this.app._loading$.next(false);
+      console.log('App Init');
+    } else {
+      this.app.onInitApi().subscribe({
+        next: () => {
+          console.log('App Init');
+        },
+      });
+    }
   }
 
   async particlesInit(engine: Engine): Promise<void> {

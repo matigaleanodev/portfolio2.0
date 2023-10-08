@@ -1,1 +1,59 @@
-<p>profile-form works!</p>
+<h5 class="text-center fs-5 fw-semibold">Editar Perfil</h5>
+
+<form [formGroup]="profileForm" class="mb-5" (ngSubmit)="onSave($event)">
+  <div class="row mb-2">
+    <div class="col-12 col-md-8 col-lg-6 col-xl-4 offset-lg-1 offset-xl-2">
+      <div class="form-group">
+        <label for="name" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          name="name"
+          id="name"
+          formControlName="name"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-2">
+    <div class="col-12 col-lg-10 col-xl-8">
+      <div class="form-group">
+        <label for="description" class="form-label">Descripcion</label>
+        <textarea
+          type="text"
+          rows="5"
+          class="form-control"
+          name="description"
+          id="description"
+          formControlName="description"
+        >
+        </textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-start mb-2">
+    <app-image-uploader
+      class="col-12 col-md-6 col-lg-5 col-xl-4"
+      [name]="'profileImage'"
+      [form]="profileForm"
+      [controlName]="'image'"
+      [label]="'Imagen de perfil'"
+    />
+    <app-image-uploader
+      class="col-12 col-md-6 col-lg-5 col-xl-4"
+      [name]="'homeImage'"
+      [label]="'Imagen del Home'"
+    />
+  </div>
+  <div class="row justify-content-center mb-2">
+    <div class="col-12 col-lg-10 col-xl-8 d-flex">
+      <input
+        [disabled]="!profileForm.valid"
+        type="submit"
+        value="Enviar"
+        class="btn btn-primary me-0 ms-auto"
+        style="min-width: 200px; max-width: 250px"
+      />
+    </div>
+  </div>
+</form>

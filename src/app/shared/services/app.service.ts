@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ProfileDTO } from '../models/profile.model';
+import { Profile, ProfileDTO } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +17,7 @@ export class AppService {
     return this._loading$.asObservable();
   }
 
-  onInitApi(): Observable<ProfileDTO[]> {
+  onInitApi(): Observable<Profile> {
     return this._http.get<ProfileDTO[]>(this.API_URL + '/profile').pipe(
       map((response: ProfileDTO[]) => {
         const { projects, softSkills, hardSkills, ...profile } = response[0];
@@ -26,7 +26,7 @@ export class AppService {
         sessionStorage.setItem('softSkills', JSON.stringify(softSkills));
         sessionStorage.setItem('hardSkills', JSON.stringify(hardSkills));
         this._loading$.next(false);
-        return response;
+        return profile;
       })
     );
   }

@@ -17,8 +17,8 @@ import { Observable, forkJoin, from, switchMap } from 'rxjs';
 export class FirebaseService {
   constructor(private storage: Storage) {}
 
-  uploadImage(image: File): Observable<UploadResult> {
-    const path = `images/${image.name}`;
+  uploadImage(image: File, fileName: string): Observable<UploadResult> {
+    const path = `images/${fileName}`;
     const imageRef = ref(this.storage, path);
 
     return from(uploadBytes(imageRef, image));
@@ -34,6 +34,13 @@ export class FirebaseService {
         return forkJoin(downloadURLs);
       })
     );
+  }
+
+  getImageURL(imageName: string): Observable<string> {
+    const path = `images/${imageName}`;
+    const imageRef = ref(this.storage, path);
+
+    return from(getDownloadURL(imageRef));
   }
 
   deleteImage(imageUrl: string): Observable<void> {
