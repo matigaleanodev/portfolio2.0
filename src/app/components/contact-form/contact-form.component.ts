@@ -62,7 +62,7 @@ export class ContactFormComponent {
   submit(event: Event) {
     event.preventDefault();
     if (this.contactForm.valid) {
-      this.app.loading$.next(true);
+      this.app._loading$.next(true);
       const contact: CreateContactDTO = this.contactForm.getRawValue();
       this.service.send(contact).subscribe({
         next: (res) => {
@@ -72,11 +72,11 @@ export class ContactFormComponent {
           );
         },
         error: (error) => {
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
         complete: () => {
           this.contactForm.reset();
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
       });
     } else {

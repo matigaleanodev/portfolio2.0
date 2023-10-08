@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
 
   onLogin(event: Event) {
     event.preventDefault();
-    this.app.loading$.next(true);
+    this.app._loading$.next(true);
     if (this.loginForm.valid) {
       const user = this.loginForm.getRawValue();
       this.service.login(user as LoginUser).subscribe({
@@ -66,10 +66,10 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard']);
         },
         error: () => {
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
         complete: () => {
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
       });
     } else {

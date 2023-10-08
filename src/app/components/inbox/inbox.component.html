@@ -1,5 +1,7 @@
 <section class="container">
-  <h4 class="text-center fs-3 fw-semibold">Bandeja de entrada</h4>
+  <h4 class="text-center text-light fs-3 fw-semibold mb-3">
+    Bandeja de entrada
+  </h4>
   <div class="row">
     <div class="col-12 col-md-10 col-lg-8 mx-auto">
       <ng-container *ngIf="messages$ | async as messages">
@@ -22,7 +24,7 @@
                 [attr.aria-controls]="'flush-collapse-' + i"
               >
                 <span class="fw-semibold fs-5">
-                  Mensajae de
+                  Mensaja de
                   <span> {{ contact.name }} - {{ contact.email }}</span>
                 </span>
               </button>

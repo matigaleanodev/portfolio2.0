@@ -1,12 +1,60 @@
-<div class="container mh100">
+<div class="container">
   <app-subtitle class="row mt-3" [title]="'Dashboard'" />
-  <div
-    class="row d-flex justify-content-center align-item-center mt-3 pb-5 gap-5 gap-lg-4 gap-xl-2 text-light"
-  >
-    <app-inbox />
-    <app-profile-form />
-    <app-project-form />
-    <app-soft-skill-form />
-    <app-hard-skill-form />
+  <app-inbox class="row mb-3" />
+  <div class="row">
+    <h4 class="text-center fs-3 fw-semibold">Panel de contról</h4>
+    <div class="row justify-content-center">
+      <div class="col-auto mb-2">
+        <button
+          class="btn bg-primary bg-opacity-50 text-light"
+          (click)="modeSelect('profile')"
+        >
+          Editar Perfil
+        </button>
+      </div>
+      <div class="col-auto mb-2">
+        <button
+          class="btn bg-primary bg-opacity-50 text-light"
+          (click)="modeSelect('project')"
+        >
+          Editar Proyectos
+        </button>
+      </div>
+      <div class="col-auto mb-2">
+        <button
+          class="btn bg-primary bg-opacity-50 text-light"
+          (click)="modeSelect('hardskill')"
+        >
+          Editar H Skills
+        </button>
+      </div>
+      <div class="col-auto mb-2">
+        <button
+          class="btn bg-primary bg-opacity-50 text-light"
+          (click)="modeSelect('softskill')"
+        >
+          Editar S Skills
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <ng-container [ngSwitch]="mode">
+      <ng-container *ngSwitchCase="'base'">
+        <div class="text-center">HOLA</div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'profile'">
+        <app-profile-form />
+      </ng-container>
+      <ng-container *ngSwitchCase="'project'">
+        <app-project-form />
+      </ng-container>
+      <ng-container *ngSwitchCase="'softskill'">
+        <app-soft-skill-form />
+      </ng-container>
+      <ng-container *ngSwitchCase="'hardskill'">
+        <app-hard-skill-form />
+      </ng-container>
+    </ng-container>
   </div>
 </div>

@@ -4,15 +4,18 @@
   [particlesInit]="particlesInit"
   style="z-index: -1; position: relative"
 ></ng-particles>
-<main class="d-flex flex-column" *ngIf="loaded$ | async">
-  <div style="min-height: 50px">
-    <app-header />
-  </div>
-  <div class="mh100 mt70" style="z-index: 1">
-    <router-outlet />
-  </div>
-</main>
-<app-loading-spinner
-  *ngIf="loading$ | async"
-  class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"
-/>
+<ng-container *ngIf="loading$ | async as loading; else loaded">
+  <app-loading-spinner
+    class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"
+  />
+</ng-container>
+<ng-template #loaded>
+  <main class="d-flex flex-column">
+    <div style="min-height: 50px">
+      <app-header />
+    </div>
+    <div class="mh100 mt70" style="z-index: 1">
+      <router-outlet />
+    </div>
+  </main>
+</ng-template>

@@ -7,6 +7,7 @@ import { ProjectFormComponent } from '../../components/project-form/project-form
 import { SoftSkillFormComponent } from '../../components/soft-skill-form/soft-skill-form.component';
 import { HardSkillFormComponent } from '../../components/hard-skill-form/hard-skill-form.component';
 
+type viewMode = 'base' | 'profile' | 'project' | 'softskill' | 'hardskill';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -22,4 +23,10 @@ import { HardSkillFormComponent } from '../../components/hard-skill-form/hard-sk
     HardSkillFormComponent,
   ],
 })
-export class DashboardComponent {}
+export class DashboardComponent {
+  mode: viewMode = 'base';
+
+  modeSelect(mode: viewMode) {
+    this.mode = mode;
+  }
+}

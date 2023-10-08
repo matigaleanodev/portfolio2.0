@@ -34,7 +34,6 @@ export class AppComponent implements OnInit {
   firebase = inject(FirebaseService);
 
   loading$ = this.app.Loading$;
-  loaded$ = this.app.Loaded$;
 
   ngOnInit(): void {
     this.firebase.getAllImages().subscribe((res) => console.log(res));

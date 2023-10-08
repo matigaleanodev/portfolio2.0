@@ -28,7 +28,7 @@ export class InboxComponent {
   messages$: Observable<Contact[]> = this.service.getMessages();
 
   delete(i: number) {
-    this.app.loading$.next(true);
+    this.app._loading$.next(true);
 
     this.service
       .deleteMessage(i)
@@ -37,11 +37,11 @@ export class InboxComponent {
         next: (messages) => {
           this.messages$ = of(messages);
           this.toastr.success('Message deleted successfully');
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
         error: (err: HttpErrorResponse) => {
           this.toastr.error(err.error.message, err.error.status);
-          this.app.loading$.next(false);
+          this.app._loading$.next(false);
         },
       });
   }

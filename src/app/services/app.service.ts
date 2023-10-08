@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { BehaviorSubject, delay, map } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ProfileDTO } from '../models/profile.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,23 +11,22 @@ export class AppService {
   private API_URL = environment.API_URL;
   private _http = inject(HttpClient);
 
-  loading$ = new BehaviorSubject<boolean>(true);
-  loaded$ = new BehaviorSubject<boolean>(false);
+  _loading$ = new BehaviorSubject<boolean>(true);
 
   get Loading$() {
-    return this.loading$.asObservable();
-  }
-  get Loaded$() {
-    return this.loaded$.asObservable();
+    return this._loading$.asObservable();
   }
 
-  onInitApi() {
-    return this._http.get(this.API_URL + '/profile').pipe(
-      delay(300),
-      map((response: any) => {
-        this.loading$.next(false);
-        this.loaded$.next(true);
-        return response.message;
+  onInitApi(): Observable<ProfileDTO[]> {
+    return this._http.get<ProfileDTO[]>(this.API_URL + '/profile').pipe(
+      map((response: ProfileDTO[]) => {
+        const { projects, softSkills, hardSkills, ...profile } = response[0];
+        sessionStorage.setItem('profile', JSON.stringify(profile));
+        sessionStorage.setItem('projects', JSON.stringify(projects));
+        sessionStorage.setItem('softSkills', JSON.stringify(softSkills));
+        sessionStorage.setItem('hardSkills', JSON.stringify(hardSkills));
+        this._loading$.next(false);
+        return response;
       })
     );
   }
