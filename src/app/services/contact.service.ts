@@ -23,4 +23,12 @@ export class ContactService {
         })
       );
   }
+
+  getMessages(): Observable<Contact[]> {
+    return this._http.get<Contact[]>(`${this._API_URL}/contact`);
+  }
+
+  deleteMessage(id: number): Observable<Contact> {
+    return this._http.delete<Contact>(`${this._API_URL}/contact/${id}`);
+  }
 }

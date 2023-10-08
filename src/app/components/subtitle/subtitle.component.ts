@@ -13,7 +13,7 @@ import { CommonModule, ViewportScroller } from '@angular/common';
     >
       <h3 class="fs-1 fw-bold">{{ title }}</h3>
       <a
-        *ngIf="title !== 'Proyectos'"
+        *ngIf="title !== 'Proyectos' && title !== 'Dashboard'"
         class="ms-auto"
         type="button"
         (click)="onClick('about')"
