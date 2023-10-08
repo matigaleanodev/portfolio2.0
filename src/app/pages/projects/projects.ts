@@ -1,4 +1,4 @@
-import { Project } from 'src/app/models/project.model';
+import { Project } from 'src/app/shared/models/project.model';
 import { Observable, of } from 'rxjs';
 
 const ProjectList: Project[] = [

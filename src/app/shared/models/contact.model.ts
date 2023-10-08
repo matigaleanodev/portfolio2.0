@@ -6,8 +6,4 @@ export interface Contact {
   createAt: Date;
 }
 
-export interface CreateContactDTO {
-  name: string;
-  email: string;
-  message: string;
-}
+export type CreateContactDTO = Omit<Contact, 'id' | 'createAt'>;

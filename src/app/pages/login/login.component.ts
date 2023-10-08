@@ -6,12 +6,12 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { LoginUser, User } from 'src/app/models/user.model';
+import { AuthService } from '@shared/services/auth.service';
+import { LoginUser, User } from 'src/app/shared/models/user.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
-import { AppService } from 'src/app/services/app.service';
+import { AppService } from '@shared/services/app.service';
 
 @Component({
   selector: 'app-login',

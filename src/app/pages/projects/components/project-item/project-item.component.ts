@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { Project } from 'src/app/models/project.model';
-import { TooltipDirective } from 'src/app/directives/tooltip.directive';
+import { Project } from 'src/app/shared/models/project.model';
+import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 
 @Component({
   selector: 'app-project-item',

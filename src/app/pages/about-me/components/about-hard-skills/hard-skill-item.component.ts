@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { TooltipDirective } from 'src/app/directives/tooltip.directive';
-import { HardSkill } from 'src/app/models/skills.model';
+import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
+import { HardSkill } from 'src/app/shared/models/skills.model';
 
 @Component({
   selector: 'app-hard-skill-item',

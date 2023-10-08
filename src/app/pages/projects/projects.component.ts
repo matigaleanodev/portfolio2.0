@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubtitleComponent } from '../../components/subtitle/subtitle.component';
-import { ProjectItemComponent } from '../../components/project-item/project-item.component';
-import { Project } from 'src/app/models/project.model';
+import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
+import { ProjectItemComponent } from './components/project-item/project-item.component';
+import { Project } from 'src/app/shared/models/project.model';
 import { ProjectList$ } from './projects';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 import { fadeInOnEnterAnimation } from 'angular-animations';
 
 @Component({

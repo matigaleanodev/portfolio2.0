@@ -8,9 +8,9 @@ import {
 } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
-import { ContactService } from 'src/app/services/contact.service';
-import { CreateContactDTO } from 'src/app/models/contact.model';
-import { AppService } from 'src/app/services/app.service';
+import { ContactService } from '@shared/services/contact.service';
+import { CreateContactDTO } from 'src/app/shared/models/contact.model';
+import { AppService } from '@shared/services/app.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

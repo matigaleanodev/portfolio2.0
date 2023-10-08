@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutProfileComponent } from '../../components/about-profile/about-profile.component';
-import { AboutSoftSkillsComponent } from '../../components/about-soft-skills/about-soft-skills.component';
-import { AboutHardSkillsComponent } from '../../components/about-hard-skills/about-hard-skills.component';
-import { FooterComponent } from '../../components/footer/footer.component';
+import { AboutProfileComponent } from './components/about-profile/about-profile.component';
+import { AboutSoftSkillsComponent } from './components/about-soft-skills/about-soft-skills.component';
+import { AboutHardSkillsComponent } from './components/about-hard-skills/about-hard-skills.component';
+import { FooterComponent } from '@shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-about-me',

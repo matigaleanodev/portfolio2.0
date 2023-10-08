@@ -7,5 +7,8 @@ export interface Project {
   frontUrl: string;
   backUrl: string;
   demoUrl: string;
+  createAt?: Date;
   delay?: number;
 }
+
+export type CreateProject = Omit<Project, 'id' | 'createAt' | 'delay'>;

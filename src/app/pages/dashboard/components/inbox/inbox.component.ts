@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ContactService } from 'src/app/services/contact.service';
+import { ContactService } from '@shared/services/contact.service';
 import { Observable, of, switchMap } from 'rxjs';
-import { Contact } from 'src/app/models/contact.model';
+import { Contact } from 'src/app/shared/models/contact.model';
 import { ToastrService } from 'ngx-toastr';
-import { AppService } from 'src/app/services/app.service';
+import { AppService } from '@shared/services/app.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({

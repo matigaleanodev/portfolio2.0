@@ -1,4 +1,4 @@
-import { HardSkill } from 'src/app/models/skills.model';
+import { HardSkill } from 'src/app/shared/models/skills.model';
 
 export const HardSkillList: HardSkill[] = [
   {

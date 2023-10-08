@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SubtitleComponent } from '../subtitle/subtitle.component';
+import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { SoftSkillItemComponent } from './soft-skill-item.component';
 import { SoftSkillList } from './soft-skills';
-import { SoftSkill } from 'src/app/models/skills.model';
+import { SoftSkill } from 'src/app/shared/models/skills.model';
 
 @Component({
   selector: 'app-about-soft-skills',
