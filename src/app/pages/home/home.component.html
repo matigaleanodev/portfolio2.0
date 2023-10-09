@@ -1,5 +1,5 @@
 <section class="container mh100">
-  <div class="row mh100">
+  <div class="row mh100" *ngIf="banner$ | async">
     <div
       data-aos="fade-down-right"
       class="col-12 col-lg-6 d-flex justify-content-center align-items-center mb-5 profile-title"

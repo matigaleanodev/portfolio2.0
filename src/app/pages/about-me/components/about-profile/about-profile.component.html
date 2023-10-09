@@ -1,5 +1,5 @@
 <section class="container p-0">
-  <div class="row profile">
+  <div class="row profile" *ngIf="profilePic$ | async">
     <div
       data-aos="fade-down"
       class="d-flex justify-content-center align-items-center col-12 col-md-4 py-5 py-md-2 mx-auto"
