@@ -28,6 +28,10 @@ import { ToastrService } from 'ngx-toastr';
       .error-container {
         height: 1.5rem;
       }
+
+      .mh78 {
+        min-height: 78px;
+      }
     `,
   ],
 })

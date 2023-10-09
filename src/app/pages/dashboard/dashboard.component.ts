@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { InboxComponent } from './components/inbox/inbox.component';
 import { ProfileFormComponent } from './components/profile-form/profile-form.component';
-import { ProjectFormComponent } from './components/project-form/project-form.component';
-import { SoftSkillFormComponent } from './components/soft-skill-form/soft-skill-form.component';
-import { HardSkillFormComponent } from './components/hard-skill-form/hard-skill-form.component';
+import { DashboardProjectsComponent } from './components/dashboard-projects/dashboard-projects.component';
+import { DashboardSoftSkillsComponent } from './components/dashboard-soft-skills/dashboard-soft-skills.component';
+import { DashboardHardSkillsComponent } from './components/dashboard-hard-skills/dashboard-hard-skills.component';
 
 type viewMode = 'base' | 'profile' | 'project' | 'softskill' | 'hardskill';
 @Component({
@@ -18,9 +18,9 @@ type viewMode = 'base' | 'profile' | 'project' | 'softskill' | 'hardskill';
     SubtitleComponent,
     InboxComponent,
     ProfileFormComponent,
-    ProjectFormComponent,
-    SoftSkillFormComponent,
-    HardSkillFormComponent,
+    DashboardProjectsComponent,
+    DashboardSoftSkillsComponent,
+    DashboardHardSkillsComponent,
   ],
 })
 export class DashboardComponent {

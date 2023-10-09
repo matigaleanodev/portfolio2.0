@@ -55,3 +55,9 @@ $transition-collapse: height 0.35s ease !default;
   line-height: 1.5rem;
   font-size: 1rem;
 }
+
+.glass-box {
+  box-shadow: 3px 3px 6px 0 $light;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px) !important;
+}

@@ -10,10 +10,7 @@
     [attr.id]="name"
   />
 </div>
-<picture
-  class="row justify-content-center mb-2"
-  *ngIf="predeterminedImage$ | async as src"
->
+<figure class="figure" *ngIf="predeterminedImage$ | async as src">
   <img
     [ngSrc]="src"
     class="img-fluid"
@@ -21,4 +18,4 @@
     width="300"
     height="300"
   />
-</picture>
+</figure>
