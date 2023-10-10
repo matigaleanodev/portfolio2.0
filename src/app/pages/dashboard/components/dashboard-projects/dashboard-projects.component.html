@@ -34,8 +34,8 @@
             <button
               class="btn ms-auto me-2 p-0"
               data-bs-toggle="modal"
-              data-bs-target="#project"
-              (click)="delete(project)"
+              data-bs-target="#projectModal"
+              (click)="abrirModal(project)"
             >
               <i class="fa-solid fa-trash-can"></i>
             </button>
@@ -49,14 +49,18 @@
   <app-project-form [selectedProject]="selectedProject" />
 </ng-container>
 
+<!-- Modal personalizado -->
+
 <div
   class="modal fade"
-  id="project"
   tabindex="-1"
-  aria-labelledby="project"
-  aria-hidden="true"
+  role="dialog"
+  #projectModal
+  id="projectModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
 >
-  <dialog class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered text-dark">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Confirmar</h5>
@@ -65,17 +69,33 @@
           class="btn-close"
           data-bs-dismiss="modal"
           aria-label="Close"
+          (click)="cerrarModal()"
         ></button>
       </div>
       <div class="modal-body">
-        <p>Desea eliminar el elemento?.</p>
+        ¿Estás seguro de que deseas eliminar el projecto
+        {{ selectedProject?.name }}?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="cerrarModal()"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
           Cancelar
         </button>
-        <button type="button" class="btn btn-primary">Confirmar</button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="delete()"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Confirmar
+        </button>
       </div>
     </div>
-  </dialog>
+  </div>
 </div>
