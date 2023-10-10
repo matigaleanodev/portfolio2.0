@@ -6,7 +6,7 @@
       <tr>
         <th scope="col">Projecto</th>
         <th scope="col">Demo</th>
-        <th scope="col">
+        <th scope="col" class="text-end">
           <button class="btn ms-auto me-2 p-0" (click)="add()">
             <i class="fa-solid fa-plus"></i>
           </button>
@@ -31,7 +31,12 @@
             <button class="btn ms-auto me-2 p-0" (click)="edit(project)">
               <i class="fa-solid fa-pen-to-square"></i>
             </button>
-            <button class="btn ms-auto me-2 p-0" (click)="delete(project)">
+            <button
+              class="btn ms-auto me-2 p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#project"
+              (click)="delete(project)"
+            >
               <i class="fa-solid fa-trash-can"></i>
             </button>
           </td>
@@ -43,3 +48,34 @@
 <ng-container *ngIf="viewMode === 'form'">
   <app-project-form [selectedProject]="selectedProject" />
 </ng-container>
+
+<div
+  class="modal fade"
+  id="project"
+  tabindex="-1"
+  aria-labelledby="project"
+  aria-hidden="true"
+>
+  <dialog class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p>Desea eliminar el elemento?.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
+  </dialog>
+</div>
