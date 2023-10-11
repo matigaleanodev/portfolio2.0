@@ -71,7 +71,7 @@ export class ContactFormComponent {
       this.service.send(contact).subscribe({
         next: (res) => {
           this.toastr.success(
-            'Tu retroalimentación es muy importante para mí, y estoy ansioso por escuchar tus ideas y sugerencias.',
+            `Tu retroalimentación es muy importante para mí.`,
             `Gracias ${res.name} por tu mensaje`
           );
         },

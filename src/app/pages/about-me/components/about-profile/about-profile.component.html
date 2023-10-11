@@ -1,5 +1,5 @@
 <section class="container p-0">
-  <div class="row profile" *ngIf="profilePic$ | async">
+  <div class="row profile" *ngIf="profilePic$ | async as profilePic">
     <div
       data-aos="fade-down"
       class="d-flex justify-content-center align-items-center col-12 col-md-4 py-5 py-md-2 mx-auto"
@@ -7,7 +7,7 @@
       <ul class="nav flex-column gap-2">
         <picture class="mx-auto mb-4 profile__picture">
           <img
-            [src]="profilePic$ | async"
+            [src]="profilePic"
             alt="Matias Galeano foto de perfil"
             class="profile__picture__img"
           />

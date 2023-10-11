@@ -4,7 +4,7 @@
   >
     <thead class="text-light">
       <tr>
-        <th scope="col">Projecto</th>
+        <th scope="col">Proyecto</th>
         <th scope="col">Demo</th>
         <th scope="col" class="text-end">
           <button class="btn ms-auto me-2 p-0" (click)="add()">
@@ -49,8 +49,6 @@
   <app-project-form [selectedProject]="selectedProject" />
 </ng-container>
 
-<!-- Modal personalizado -->
-
 <div
   class="modal fade"
   tabindex="-1"
@@ -73,7 +71,7 @@
         ></button>
       </div>
       <div class="modal-body">
-        ¿Estás seguro de que deseas eliminar el projecto
+        ¿Estás seguro de que deseas eliminar el proyecto
         {{ selectedProject?.name }}?
       </div>
       <div class="modal-footer">
