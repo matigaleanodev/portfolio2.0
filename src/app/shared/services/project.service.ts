@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Project } from '@shared/models/project.model';
+import { CreateProject, Project } from '@shared/models/project.model';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -11,7 +11,7 @@ export class ProjectService {
   _http = inject(HttpClient);
   _API_URL = environment.API_URL;
 
-  save(project: Project): Observable<Project> {
+  save(project: CreateProject): Observable<Project> {
     return this._http.post<Project>(`${this._API_URL}/project`, project).pipe(
       map((project) => {
         return project;
@@ -19,7 +19,7 @@ export class ProjectService {
     );
   }
 
-  update(project: Project): Observable<Project> {
+  update(project: CreateProject): Observable<Project> {
     return this._http
       .patch<Project>(`${this._API_URL}/project/${project.id}`, project)
       .pipe(

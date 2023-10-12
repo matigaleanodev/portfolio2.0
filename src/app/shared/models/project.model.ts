@@ -2,7 +2,6 @@ import { Profile } from './profile.model';
 
 export interface Project {
   id: number;
-  profileId?: number;
   profile?: Profile;
   name: string;
   description: string;
@@ -15,4 +14,7 @@ export interface Project {
   delay?: number;
 }
 
-export type CreateProject = Omit<Project, 'id' | 'createAt' | 'delay'>;
+export interface CreateProject
+  extends Omit<Project, 'profile' | 'createAt' | 'delay'> {
+  profileId: number;
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Project } from '@shared/models/project.model';
+import { CreateProject, Project } from '@shared/models/project.model';
 import { ProjectFormComponent } from '../project-form/project-form.component';
 import { ProjectService } from '@shared/services/project.service';
 import { ToastrService } from 'ngx-toastr';
@@ -63,7 +63,7 @@ export class DashboardProjectsComponent implements OnInit {
     }
   }
 
-  onFormSubmit(project: Project) {
+  onFormSubmit(project: CreateProject) {
     if (this.selectedProject) {
       this.update(project);
     } else {
@@ -76,7 +76,7 @@ export class DashboardProjectsComponent implements OnInit {
     this.viewMode = 'form';
   }
 
-  save(project: Project) {
+  save(project: CreateProject) {
     this.app._loading$.next(true);
     this.service.save(project).subscribe({
       next: (response: Project) => {
@@ -92,7 +92,7 @@ export class DashboardProjectsComponent implements OnInit {
     });
   }
 
-  update(project: Project) {
+  update(project: CreateProject) {
     this.app._loading$.next(true);
     this.service.update(project).subscribe({
       next: (response: Project) => {

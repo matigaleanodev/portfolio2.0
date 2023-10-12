@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Project } from '@shared/models/project.model';
+import { CreateProject, Project } from '@shared/models/project.model';
 import {
   FormControl,
   FormGroup,
@@ -19,7 +19,7 @@ import { ImageUploaderComponent } from '../image-uploader/image-uploader.compone
 export class ProjectFormComponent implements OnInit {
   @Input() selectedProject: Project | null = null;
 
-  @Output() projectFormSubmit = new EventEmitter<Project>();
+  @Output() projectFormSubmit = new EventEmitter<CreateProject>();
   @Output() projectFormCancel = new EventEmitter<void>();
 
   projectForm: FormGroup = new FormGroup({
@@ -66,7 +66,7 @@ export class ProjectFormComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     if (this.projectForm.valid) {
-      const project: Project = this.projectForm.getRawValue();
+      const project: CreateProject = this.projectForm.getRawValue();
       this.projectFormSubmit.emit(project);
     } else {
       this.projectForm.markAllAsTouched();
