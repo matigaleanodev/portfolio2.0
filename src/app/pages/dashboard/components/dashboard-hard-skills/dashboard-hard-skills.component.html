@@ -37,7 +37,11 @@
   </table>
 </ng-container>
 <ng-container *ngIf="viewMode === 'form'">
-  <app-hard-skill-form />
+  <app-hard-skill-form
+    [selectedSkill]="selectedSkill"
+    (skillFormSubmit)="onFormSubmit($event)"
+    (skillFormCancel)="cancel()"
+  />
 </ng-container>
 
 <div

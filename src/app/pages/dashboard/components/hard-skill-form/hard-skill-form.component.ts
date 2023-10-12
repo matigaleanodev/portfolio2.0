@@ -30,7 +30,6 @@ export class HardSkillFormComponent implements OnInit {
     id: new FormControl<number>(0),
     profileId: new FormControl<number>(1),
     name: new FormControl<string>('', [Validators.required]),
-    description: new FormControl<string>('', [Validators.required]),
     type: new FormControl<skillType>('frontend', [Validators.required]),
     image: new FormControl<string>('', [Validators.required]),
     url: new FormControl<string>('', [Validators.pattern('https?://.+')]),
@@ -38,10 +37,6 @@ export class HardSkillFormComponent implements OnInit {
 
   get name() {
     return this.skillForm.get('name')!;
-  }
-
-  get description() {
-    return this.skillForm.get('description')!;
   }
 
   get type() {
