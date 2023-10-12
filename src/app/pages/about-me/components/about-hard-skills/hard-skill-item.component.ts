@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { FirebaseService } from '@shared/services/firebase.service';
+import { Observable } from 'rxjs';
 import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 import { HardSkill } from 'src/app/shared/models/skills.model';
 
@@ -17,7 +19,7 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
       <picture class="skill-picture">
         <img
           Tooltip
-          [src]="image"
+          [src]="image$ | async"
           [alt]="skill.name"
           [tooltip]="skill.name"
           class="skill-icon img-fluid"
@@ -53,9 +55,10 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
 export class HardSkillItemComponent implements OnInit {
   @Input() skill!: HardSkill;
 
-  image: string = '';
+  private firebase = inject(FirebaseService);
+  image$: Observable<string> | undefined;
 
   ngOnInit(): void {
-    this.image = 'assets/icons/' + this.skill.image;
+    this.image$ = this.firebase.getImageURL(this.skill.image);
   }
 }

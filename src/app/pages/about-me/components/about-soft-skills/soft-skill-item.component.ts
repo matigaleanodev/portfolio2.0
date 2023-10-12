@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { FirebaseService } from '@shared/services/firebase.service';
+import { Observable } from 'rxjs';
 import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 import { SoftSkill } from 'src/app/shared/models/skills.model';
 
@@ -15,7 +17,7 @@ import { SoftSkill } from 'src/app/shared/models/skills.model';
         <picture class="d-flex w-100 skill__picture">
           <img
             Tooltip
-            src="{{ image }}"
+            [src]="image$ | async"
             alt="{{ data.name }}"
             class="my-2 mx-auto skill__icon"
             [tooltip]="data.name"
@@ -36,9 +38,10 @@ import { SoftSkill } from 'src/app/shared/models/skills.model';
 })
 export class SoftSkillItemComponent implements OnInit {
   @Input() data!: SoftSkill;
-  image: string = '';
+  private firebase = inject(FirebaseService);
+  image$: Observable<string> | undefined;
 
   ngOnInit(): void {
-    this.image = 'assets/images/soft-skills/' + this.data.image;
+    this.image$ = this.firebase.getImageURL(this.data.image);
   }
 }

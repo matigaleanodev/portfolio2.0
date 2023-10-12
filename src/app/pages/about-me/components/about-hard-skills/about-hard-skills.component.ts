@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { HardSkillItemComponent } from './hard-skill-item.component';
 import { HardSkill } from 'src/app/shared/models/skills.model';
-import { HardSkillList } from './hard-skills';
 
 @Component({
   selector: 'app-about-hard-skills',
@@ -22,14 +21,19 @@ export class AboutHardSkillsComponent implements OnInit {
   }
 
   getData() {
-    this.frontend = HardSkillList.filter(
-      (skill: HardSkill) => skill.type === 'frontend'
-    );
-    this.backend = HardSkillList.filter(
-      (skill: HardSkill) => skill.type === 'backend'
-    );
-    this.tools = HardSkillList.filter(
-      (skill: HardSkill) => skill.type === 'tool'
-    );
+    const skills = sessionStorage.getItem('hardSkills');
+    let hardSkills = [];
+    if (skills) {
+      hardSkills = JSON.parse(skills);
+      this.frontend = hardSkills.filter(
+        (skill: HardSkill) => skill.type === 'frontend'
+      );
+      this.backend = hardSkills.filter(
+        (skill: HardSkill) => skill.type === 'backend'
+      );
+      this.tools = hardSkills.filter(
+        (skill: HardSkill) => skill.type === 'tool'
+      );
+    }
   }
 }

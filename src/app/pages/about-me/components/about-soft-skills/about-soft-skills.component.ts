@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { SoftSkillItemComponent } from './soft-skill-item.component';
-import { SoftSkillList } from './soft-skills';
 import { SoftSkill } from 'src/app/shared/models/skills.model';
 
 @Component({
@@ -12,6 +11,13 @@ import { SoftSkill } from 'src/app/shared/models/skills.model';
   styles: [``],
   imports: [CommonModule, SubtitleComponent, SoftSkillItemComponent],
 })
-export class AboutSoftSkillsComponent {
-  softSkills: SoftSkill[] = SoftSkillList;
+export class AboutSoftSkillsComponent implements OnInit {
+  softSkills: SoftSkill[] = [];
+
+  ngOnInit(): void {
+    const skills = sessionStorage.getItem('softSkills');
+    if (skills) {
+      this.softSkills = JSON.parse(skills);
+    }
+  }
 }
