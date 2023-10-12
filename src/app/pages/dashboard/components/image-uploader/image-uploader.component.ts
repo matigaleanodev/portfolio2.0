@@ -12,10 +12,10 @@ import { Observable } from 'rxjs';
   styles: [],
 })
 export class ImageUploaderComponent implements OnInit {
-  @Input({ required: true }) name: string = '';
+  @Input() name: string | null = null;
   @Input() form: FormGroup | undefined;
   @Input() controlName: string = '';
-  @Input() label: string = '';
+  @Input() label: string | null = null;
 
   firebase = inject(FirebaseService);
 
@@ -31,13 +31,13 @@ export class ImageUploaderComponent implements OnInit {
 
   getSavedImage() {
     const image = this.form?.get(this.controlName)?.value;
-    console.log(image);
-    this.predeterminedImage$ = this.firebase.getImageURL(image);
+    if (image) this.predeterminedImage$ = this.firebase.getImageURL(image);
   }
 
   change(fileInput: HTMLInputElement) {
     let file = fileInput.files![0];
-    this.firebase.uploadImage(file, this.name).subscribe({
+    const name = this.name ?? file.name;
+    this.firebase.uploadImage(file, name).subscribe({
       next: (res) => {
         this.predeterminedImage$ = this.firebase.getImageURL(res.ref.name);
         if (this.controlName)

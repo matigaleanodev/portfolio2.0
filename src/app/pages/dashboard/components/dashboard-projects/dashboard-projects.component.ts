@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '@shared/models/project.model';
 import { ProjectFormComponent } from '../project-form/project-form.component';
+import { ProjectService } from '@shared/services/project.service';
+import { ToastrService } from 'ngx-toastr';
+import { AppService } from '@shared/services/app.service';
 
 type ViewMode = 'list' | 'form';
 
@@ -33,6 +36,10 @@ export class DashboardProjectsComponent implements OnInit {
   @ViewChild('projectModal') myModal: any;
   @ViewChild('closeModal') closeModal: any;
 
+  private service = inject(ProjectService);
+  private toastr = inject(ToastrService);
+  private app = inject(AppService);
+
   projects: Project[] = [];
   viewMode: ViewMode = 'list';
   selectedProject: Project | null = null;
@@ -56,12 +63,78 @@ export class DashboardProjectsComponent implements OnInit {
     }
   }
 
+  onFormSubmit(project: Project) {
+    if (this.selectedProject) {
+      this.update(project);
+    } else {
+      this.save(project);
+    }
+    this.cancel();
+  }
+
   add() {
     this.viewMode = 'form';
   }
 
+  save(project: Project) {
+    this.app._loading$.next(true);
+    this.service.save(project).subscribe({
+      next: (response: Project) => {
+        this.projects.push(response);
+        sessionStorage.setItem('projects', JSON.stringify(this.projects));
+        this.app._loading$.next(false);
+        this.toastr.success('Proyecto guardado correctamente');
+      },
+      error: () => {
+        this.app._loading$.next(false);
+        this.toastr.error('Error al guardar el proyecto');
+      },
+    });
+  }
+
+  update(project: Project) {
+    this.app._loading$.next(true);
+    this.service.update(project).subscribe({
+      next: (response: Project) => {
+        this.projects = this.projects.map((p) =>
+          p.id === project.id ? response : p
+        );
+        sessionStorage.setItem('projects', JSON.stringify(this.projects));
+        this.app._loading$.next(false);
+        this.selectedProject = null;
+        this.toastr.success('Proyecto actualizado correctamente');
+      },
+      error: () => {
+        this.app._loading$.next(false);
+        this.selectedProject = null;
+        this.toastr.error('Error al actualizar el proyecto');
+      },
+    });
+  }
+
   delete() {
-    console.log(this.selectedProject);
+    const selectedProject = this.selectedProject;
+    if (selectedProject) {
+      this.app._loading$.next(true);
+      this.service.delete(selectedProject.id).subscribe({
+        next: () => {
+          this.projects = this.projects.filter(
+            (p) => p.id !== selectedProject.id
+          );
+          sessionStorage.setItem('projects', JSON.stringify(this.projects));
+          this.selectedProject = null;
+          this.app._loading$.next(false);
+          this.toastr.success('Proyecto eliminado correctamente');
+        },
+        error: () => {
+          this.app._loading$.next(false);
+          this.selectedProject = null;
+          this.toastr.error('Error al eliminar el proyecto');
+        },
+      });
+    } else {
+      this.toastr.error('Seleccione un proyecto para eliminar');
+    }
   }
 
   edit(project: Project) {

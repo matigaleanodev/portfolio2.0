@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { FirebaseService } from '@shared/services/firebase.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class HeaderComponent {
   @ViewChild('navMenu') navMenu!: ElementRef;
-  protected logo = 'assets/images/LogoMati.png';
+  private firebase = inject(FirebaseService);
+  protected logo$ = this.firebase.getImageURL('profileImage');
   protected title = 'M.G. Developer';
 
   collapse() {

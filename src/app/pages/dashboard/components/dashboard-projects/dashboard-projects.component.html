@@ -46,7 +46,11 @@
   </table>
 </ng-container>
 <ng-container *ngIf="viewMode === 'form'">
-  <app-project-form [selectedProject]="selectedProject" />
+  <app-project-form
+    [selectedProject]="selectedProject"
+    (projectFormSubmit)="onFormSubmit($event)"
+    (projectFormCancel)="cancel()"
+  />
 </ng-container>
 
 <div
