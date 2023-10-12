@@ -1,6 +1,9 @@
+import { Profile } from './profile.model';
+
 export interface Project {
   id: number;
   profileId?: number;
+  profile?: Profile;
   name: string;
   description: string;
   date: string;

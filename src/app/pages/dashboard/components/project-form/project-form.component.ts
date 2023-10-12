@@ -58,7 +58,9 @@ export class ProjectFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.selectedProject) this.projectForm.setValue(this.selectedProject);
+    if (this.selectedProject) {
+      this.projectForm.patchValue(this.selectedProject);
+    }
   }
 
   onSubmit(event: Event) {
