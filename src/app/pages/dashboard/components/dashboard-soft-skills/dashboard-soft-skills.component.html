@@ -1,1 +1,88 @@
-<p>dashboard-soft-skills works!</p>
+<ng-container *ngIf="viewMode === 'list'">
+  <table
+    class="table table-dark table-condensed table-borderless table-striped glass-box"
+  >
+    <thead class="text-light">
+      <tr>
+        <th scope="col">Skill</th>
+        <th scope="col" class="text-end">
+          <button class="btn ms-auto me-2 p-0" (click)="add()">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let skill of skills">
+        <tr>
+          <td class="text-light" scope="row">{{ skill.name | titlecase }}</td>
+          <td class="text-end">
+            <button class="btn ms-auto me-2 p-0" (click)="edit(skill)">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button
+              class="btn ms-auto me-2 p-0"
+              data-bs-toggle="modal"
+              data-bs-target="#skillModal"
+              (click)="abrirModal(skill)"
+            >
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>
+<ng-container *ngIf="viewMode === 'form'">
+  <app-soft-skill-form />
+</ng-container>
+
+<div
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  #skillModal
+  id="skillModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog modal-dialog-centered text-dark">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="cerrarModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar el skill
+        {{ selectedSkill?.name }}?
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="cerrarModal()"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="delete()"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          Confirmar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

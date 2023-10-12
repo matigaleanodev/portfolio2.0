@@ -16,7 +16,7 @@
     <tbody>
       <ng-container *ngFor="let project of projects">
         <tr>
-          <td class="text-light" scope="row">{{ project.name }}</td>
+          <td class="text-light" scope="row">{{ project.name | titlecase }}</td>
           <td>
             <p class="text-light m-0">
               <a
