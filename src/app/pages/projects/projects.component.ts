@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { ProjectItemComponent } from './components/project-item/project-item.component';
 import { Project } from 'src/app/shared/models/project.model';
-import { ProjectList$ } from './projects';
 import { FooterComponent } from '@shared/components/footer/footer.component';
 import { fadeInOnEnterAnimation } from 'angular-animations';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -25,13 +25,18 @@ export class ProjectsComponent implements OnInit {
   projects: Project[] = [];
 
   ngOnInit(): void {
-    ProjectList$.subscribe((projects) => {
+    this.getProjects().subscribe((projects) => {
       const aux = this.generateShuffledArray(projects.length);
       projects.forEach((project, i) => {
         project.delay = aux[i] * 500;
         this.projects.push(project);
       });
     });
+  }
+
+  getProjects(): Observable<Project[]> {
+    const projects = sessionStorage.getItem('projects');
+    return of(JSON.parse(projects ?? '[]') as Project[]);
   }
 
   generateShuffledArray(size: number): number[] {

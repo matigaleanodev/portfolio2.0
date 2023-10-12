@@ -41,7 +41,13 @@
   <div class="row justify-content-center">
     <ng-container [ngSwitch]="mode">
       <ng-container *ngSwitchCase="'base'">
-        <div class="text-center">HOLA</div>
+        <div class="text-center">
+          <div class="card">
+            <div class="card-body">
+              <p>Selecciona una acción</p>
+            </div>
+          </div>
+        </div>
       </ng-container>
       <ng-container *ngSwitchCase="'profile'">
         <app-profile-form />

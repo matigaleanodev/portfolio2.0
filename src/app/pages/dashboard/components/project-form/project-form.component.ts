@@ -62,7 +62,9 @@ export class ProjectFormComponent implements OnInit {
   onSubmit(event: Event) {
     event.preventDefault();
     if (this.projectForm.valid) {
-      const project: CreateProject = this.projectForm.getRawValue();
+      const project: CreateProject = this.sanitizeFormValues(
+        this.projectForm.getRawValue()
+      );
       this.projectFormSubmit.emit(project);
     } else {
       this.projectForm.markAllAsTouched();
@@ -72,5 +74,18 @@ export class ProjectFormComponent implements OnInit {
   onCancel(event: Event) {
     event.preventDefault();
     this.projectFormCancel.emit();
+  }
+
+  sanitizeFormValues(values: any): any {
+    // Recorre los valores del formulario y cambia las cadenas vacías a null
+    for (const key in values) {
+      if (values.hasOwnProperty(key)) {
+        if (values[key] === '') {
+          values[key] = null;
+        }
+      }
+    }
+
+    return values;
   }
 }

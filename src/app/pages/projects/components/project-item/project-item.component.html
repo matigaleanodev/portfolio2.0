@@ -37,5 +37,10 @@
     </div>
   </div>
 
-  <img [ngSrc]="image" alt="{{ project.name }}" class="project-image" fill />
+  <img
+    [src]="image$ | async"
+    alt="{{ project.name }}"
+    class="project-image"
+    fill
+  />
 </article>

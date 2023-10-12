@@ -1,21 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Project } from 'src/app/shared/models/project.model';
 import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
+import { FirebaseService } from '@shared/services/firebase.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-project-item',
   standalone: true,
-  imports: [CommonModule, TooltipDirective, NgOptimizedImage],
+  imports: [CommonModule, TooltipDirective],
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
 })
 export class ProjectItemComponent implements OnInit {
   @Input() project!: Project;
-  image: string = '';
   hovered: boolean = true;
 
+  private firebase = inject(FirebaseService);
+  image$: Observable<string> | undefined;
+
   ngOnInit(): void {
-    this.image = 'assets/images/projects/' + this.project.image;
+    this.image$ = this.firebase.getImageURL(this.project.image);
   }
 }
