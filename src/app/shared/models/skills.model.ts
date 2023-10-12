@@ -12,7 +12,7 @@ export interface SoftSkill {
 export interface HardSkill {
   id: number;
   name: string;
-  type: 'frontend' | 'backend' | 'tool';
+  type: skillType;
   image: string;
   url: string;
   profile?: Profile;
@@ -28,3 +28,5 @@ export interface CreateHardSkill
   extends Omit<HardSkill, 'profile' | 'createAt'> {
   profileId: number;
 }
+
+export type skillType = 'frontend' | 'backend' | 'tool';

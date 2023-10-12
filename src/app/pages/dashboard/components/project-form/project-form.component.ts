@@ -41,10 +41,6 @@ export class ProjectFormComponent implements OnInit {
     return this.projectForm.get('description')!;
   }
 
-  get image() {
-    return this.projectForm.get('image')!;
-  }
-
   get frontUrl() {
     return this.projectForm.get('frontUrl')!;
   }
