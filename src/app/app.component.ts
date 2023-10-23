@@ -51,7 +51,10 @@ export class AppComponent implements OnInit {
           console.log('App Init');
         },
         error: (err) => {
-          this.toastr.error(err.error.message, err.error.status);
+          this.toastr.error(
+            'Ocurrió un error al iniciar la API, vuelva a intentar mas tarde',
+            'Error al iniciar API'
+          );
           this.app._loading$.next(false);
         },
       });
