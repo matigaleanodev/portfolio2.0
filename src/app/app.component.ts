@@ -8,6 +8,7 @@ import { loadFull } from 'tsparticles';
 import { NgParticlesModule } from 'ng-particles';
 import { AppService } from '@shared/services/app.service';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
   particlesOptions = particles;
 
   app = inject(AppService);
+  toastr = inject(ToastrService);
 
   loading$ = this.app.Loading$;
 
@@ -47,6 +49,10 @@ export class AppComponent implements OnInit {
       this.app.onInitApi().subscribe({
         next: () => {
           console.log('App Init');
+        },
+        error: (err) => {
+          this.toastr.error(err.error.message, err.error.status);
+          this.app._loading$.next(false);
         },
       });
     }
