@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { CreateProject, Project } from '@shared/models/project.model';
 import { ProjectFormComponent } from '../project-form/project-form.component';
 import { ProjectService } from '@shared/services/project.service';
@@ -30,7 +30,7 @@ type ViewMode = 'list' | 'form';
       }
     `,
   ],
-  imports: [CommonModule, ProjectFormComponent],
+  imports: [ProjectFormComponent, TitleCasePipe],
 })
 export class DashboardProjectsComponent implements OnInit {
   @ViewChild('projectModal') myModal: any;

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Project } from 'src/app/shared/models/project.model';
 import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 import { FirebaseService } from '@shared/services/firebase.service';
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-project-item',
   standalone: true,
-  imports: [CommonModule, TooltipDirective],
+  imports: [TooltipDirective, AsyncPipe],
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
 })

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { HardSkillItemComponent } from './hard-skill-item.component';
 import { HardSkill } from 'src/app/shared/models/skills.model';
@@ -9,7 +8,7 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
   standalone: true,
   templateUrl: './about-hard-skills.component.html',
   styleUrls: ['./about-hard-skills.component.scss'],
-  imports: [CommonModule, SubtitleComponent, HardSkillItemComponent],
+  imports: [SubtitleComponent, HardSkillItemComponent],
 })
 export class AboutHardSkillsComponent implements OnInit {
   frontend: HardSkill[] = [];

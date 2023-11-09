@@ -1,11 +1,9 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import Typed, { TypedOptions } from 'typed.js';
 
 @Component({
   selector: 'app-home-skills',
   standalone: true,
-  imports: [CommonModule],
   template: `<span id="typed-element" class="typed-element subtitle"></span>`,
   styles: [
     `

@@ -1,16 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContactService } from '@shared/services/contact.service';
 import { Observable, of, switchMap } from 'rxjs';
 import { Contact } from 'src/app/shared/models/contact.model';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from '@shared/services/app.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-inbox',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   templateUrl: './inbox.component.html',
   styles: [
     `

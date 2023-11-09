@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   CreateHardSkill,
   HardSkill,
@@ -16,7 +15,7 @@ import { ImageUploaderComponent } from '../image-uploader/image-uploader.compone
 @Component({
   selector: 'app-hard-skill-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImageUploaderComponent],
+  imports: [ReactiveFormsModule, ImageUploaderComponent],
   templateUrl: './hard-skill-form.component.html',
   styles: [],
 })

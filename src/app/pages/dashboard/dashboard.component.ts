@@ -14,7 +14,6 @@ type viewMode = 'base' | 'profile' | 'project' | 'softskill' | 'hardskill';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
   imports: [
-    CommonModule,
     SubtitleComponent,
     InboxComponent,
     ProfileFormComponent,

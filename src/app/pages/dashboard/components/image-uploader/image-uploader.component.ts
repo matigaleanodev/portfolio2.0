@@ -1,13 +1,13 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
-import { AbstractControl, FormGroup } from '@angular/forms';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
+import { FormGroup } from '@angular/forms';
 import { FirebaseService } from '@shared/services/firebase.service';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-image-uploader',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [NgOptimizedImage, AsyncPipe],
   templateUrl: './image-uploader.component.html',
   styles: [],
 })

@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SubtitleComponent } from '@shared/components/subtitle/subtitle.component';
 import { SoftSkillItemComponent } from './soft-skill-item.component';
-import { SoftSkill } from 'src/app/shared/models/skills.model';
+import { SoftSkill } from '@shared/models/skills.model';
 
 @Component({
   selector: 'app-about-soft-skills',
   standalone: true,
   templateUrl: './about-soft-skills.component.html',
   styles: [``],
-  imports: [CommonModule, SubtitleComponent, SoftSkillItemComponent],
+  imports: [SubtitleComponent, SoftSkillItemComponent],
 })
 export class AboutSoftSkillsComponent implements OnInit {
   softSkills: SoftSkill[] = [];

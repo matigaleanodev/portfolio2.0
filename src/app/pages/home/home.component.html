@@ -1,5 +1,6 @@
 <section class="container mh100">
-  <div class="row mh100" *ngIf="banner$ | async as banner">
+  @if (banner$ | async; as banner) {
+  <div class="row mh100">
     <div
       data-aos="fade-down-right"
       class="col-12 col-lg-6 d-flex justify-content-center align-items-center mb-5 profile-title"
@@ -32,6 +33,7 @@
       />
     </picture>
   </div>
+  }
 </section>
 <div class="mt-auto mb-0">
   <app-footer />

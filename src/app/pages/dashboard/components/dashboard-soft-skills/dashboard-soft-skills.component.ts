@@ -1,17 +1,17 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SoftSkillFormComponent } from '../soft-skill-form/soft-skill-form.component';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from '@shared/services/app.service';
 import { SoftSkillService } from '@shared/services/soft-skill.service';
 import { CreateSoftSkill, SoftSkill } from '@shared/models/skills.model';
+import { TitleCasePipe } from '@angular/common';
 
 type ViewMode = 'list' | 'form';
 
 @Component({
   selector: 'app-dashboard-soft-skills',
   standalone: true,
-  imports: [CommonModule, SoftSkillFormComponent],
+  imports: [SoftSkillFormComponent, TitleCasePipe],
   templateUrl: './dashboard-soft-skills.component.html',
   styles: [
     `

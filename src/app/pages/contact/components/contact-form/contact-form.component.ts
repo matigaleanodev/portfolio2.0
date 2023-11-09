@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -12,15 +11,16 @@ import { ContactService } from '@shared/services/contact.service';
 import { CreateContactDTO } from 'src/app/shared/models/contact.model';
 import { AppService } from '@shared/services/app.service';
 import { ToastrService } from 'ngx-toastr';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     RecaptchaModule,
     RecaptchaFormsModule,
+    NgClass,
   ],
   templateUrl: './contact-form.component.html',
   styles: [

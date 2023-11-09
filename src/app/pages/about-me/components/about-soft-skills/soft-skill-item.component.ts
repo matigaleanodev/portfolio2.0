@@ -1,14 +1,14 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, TitleCasePipe } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { FirebaseService } from '@shared/services/firebase.service';
 import { Observable } from 'rxjs';
-import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
-import { SoftSkill } from 'src/app/shared/models/skills.model';
+import { FirebaseService } from '@shared/services/firebase.service';
+import { TooltipDirective } from '@shared/directives/tooltip.directive';
+import { SoftSkill } from '@shared/models/skills.model';
 
 @Component({
   selector: 'app-soft-skill-item',
   standalone: true,
-  imports: [CommonModule, TooltipDirective],
+  imports: [TooltipDirective, AsyncPipe, TitleCasePipe],
   template: `
     <article class="skill">
       <div

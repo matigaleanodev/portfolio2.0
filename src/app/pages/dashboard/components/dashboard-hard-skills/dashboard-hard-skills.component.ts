@@ -1,17 +1,17 @@
 import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HardSkillFormComponent } from '../hard-skill-form/hard-skill-form.component';
 import { HardSkillService } from '@shared/services/hard-skill.service';
 import { ToastrService } from 'ngx-toastr';
 import { AppService } from '@shared/services/app.service';
 import { CreateHardSkill, HardSkill } from '@shared/models/skills.model';
+import { TitleCasePipe } from '@angular/common';
 
 type ViewMode = 'list' | 'form';
 
 @Component({
   selector: 'app-dashboard-hard-skills',
   standalone: true,
-  imports: [CommonModule, HardSkillFormComponent],
+  imports: [HardSkillFormComponent, TitleCasePipe],
   templateUrl: './dashboard-hard-skills.component.html',
   styles: [
     `

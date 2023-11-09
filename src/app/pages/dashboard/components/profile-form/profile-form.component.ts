@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Profile } from '@shared/models/profile.model';
 import { ProfileService } from '@shared/services/profile.service';
 import {
@@ -17,7 +16,7 @@ import { AppService } from '@shared/services/app.service';
   standalone: true,
   templateUrl: './profile-form.component.html',
   styles: [],
-  imports: [CommonModule, ReactiveFormsModule, ImageUploaderComponent],
+  imports: [ReactiveFormsModule, ImageUploaderComponent],
 })
 export class ProfileFormComponent implements OnInit {
   profile!: Profile;

@@ -7,7 +7,6 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SocialBoxComponent } from '@shared/components/social-box/social-box.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
@@ -16,7 +15,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
   standalone: true,
   templateUrl: './contact.component.html',
   styles: [``],
-  imports: [CommonModule, SocialBoxComponent, ContactFormComponent],
+  imports: [SocialBoxComponent, ContactFormComponent],
 })
 export class ContactComponent implements AfterViewInit {
   @ViewChild('agradecimiento') agradecimiento!: ElementRef;

@@ -16,12 +16,11 @@
           formControlName="name"
         />
         <div class="error-container">
-          <span
-            class="text-danger text-truncate"
-            *ngIf="Name?.touched && Name?.hasError('required')"
-          >
+          @if (Name?.touched && Name?.hasError('required')) {
+          <span class="text-danger text-truncate">
             Por favor, ingrese su nombre.
           </span>
+          }
         </div>
       </div>
     </div>
@@ -41,18 +40,15 @@
           formControlName="email"
         />
         <div class="error-container">
-          <span
-            class="text-danger text-truncate"
-            *ngIf="Email?.touched && Email?.hasError('required')"
-          >
+          @if (Email?.touched && Email?.hasError('required')) {
+          <span class="text-danger text-truncate">
             Por favor, ingrese su email.
           </span>
-          <span
-            class="text-danger text-truncate"
-            *ngIf="Email?.touched && Email?.hasError('email')"
-          >
+          } @if (Email?.touched && Email?.hasError('email')) {
+          <span class="text-danger text-truncate">
             El email ingresado no es válido.
           </span>
+          }
         </div>
       </div>
     </div>
@@ -74,18 +70,16 @@
           formControlName="message"
         ></textarea>
         <div class="error-container">
-          <span
-            class="text-danger text-truncate"
-            *ngIf="Message?.touched && Message?.hasError('required')"
-          >
+          @if (Message?.touched && Message?.hasError('required')) {
+          <span class="text-danger text-truncate">
             Por favor, ingrese su mensaje.
           </span>
-          <span
-            class="text-danger text-truncate"
-            *ngIf="Message?.touched && Message?.hasError('minlength')"
-          >
+
+          } @if (Message?.touched && Message?.hasError('minlength')) {
+          <span class="text-danger text-truncate">
             El mensaje es demasiado corto.
           </span>
+          }
         </div>
       </div>
     </div>

@@ -13,12 +13,7 @@ import { Observable, of } from 'rxjs';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
 
-  imports: [
-    CommonModule,
-    SubtitleComponent,
-    ProjectItemComponent,
-    FooterComponent,
-  ],
+  imports: [SubtitleComponent, ProjectItemComponent, FooterComponent],
   animations: [fadeInOnEnterAnimation({ anchor: 'enter' })],
 })
 export class ProjectsComponent implements OnInit {

@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule, ViewportScroller } from '@angular/common';
+import { AsyncPipe, ViewportScroller } from '@angular/common';
 import { FirebaseService } from '@shared/services/firebase.service';
 import { Profile } from '@shared/models/profile.model';
 import { AppService } from '@shared/services/app.service';
@@ -7,7 +7,7 @@ import { AppService } from '@shared/services/app.service';
 @Component({
   selector: 'app-about-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   templateUrl: './about-profile.component.html',
   styleUrls: ['./about-profile.component.scss'],
 })

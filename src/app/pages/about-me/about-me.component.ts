@@ -11,7 +11,6 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
   imports: [
-    CommonModule,
     AboutProfileComponent,
     AboutSoftSkillsComponent,
     AboutHardSkillsComponent,

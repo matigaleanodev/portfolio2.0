@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CreateProject, Project } from '@shared/models/project.model';
 import {
   FormControl,
@@ -14,7 +13,7 @@ import { ImageUploaderComponent } from '../image-uploader/image-uploader.compone
   standalone: true,
   templateUrl: './project-form.component.html',
   styles: [],
-  imports: [CommonModule, ReactiveFormsModule, ImageUploaderComponent],
+  imports: [ReactiveFormsModule, ImageUploaderComponent],
 })
 export class ProjectFormComponent implements OnInit {
   @Input() selectedProject: Project | null = null;

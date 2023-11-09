@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { Component, Input, OnInit, inject } from '@angular/core';
 import { FirebaseService } from '@shared/services/firebase.service';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
 @Component({
   selector: 'app-hard-skill-item',
   standalone: true,
-  imports: [CommonModule, TooltipDirective],
+  imports: [TooltipDirective, AsyncPipe],
   template: `
     <a
       class="skill"

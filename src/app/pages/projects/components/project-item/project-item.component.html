@@ -7,33 +7,37 @@
       <p>{{ project.description }}</p>
     </div>
     <div class="project-buttons">
+      @if (project.frontUrl) {
       <a
         Tooltip
         tooltip="Frontend Repo"
-        *ngIf="project.frontUrl"
         [href]="project.frontUrl"
         target="_blank"
         class="button-item"
-        ><i class="fa-brands fa-github"></i
-      ></a>
+      >
+        <i class="fa-brands fa-github"> </i>
+      </a>
+      } @if (project.backUrl) {
       <a
         Tooltip
         tooltip="Backend Repo"
-        *ngIf="project.backUrl"
         [href]="project.backUrl"
         target="_blank"
         class="button-item"
-        ><i class="fa-brands fa-github"></i
-      ></a>
+      >
+        <i class="fa-brands fa-github"> </i>
+      </a>
+      } @if (project.demoUrl) {
       <a
         Tooltip
         tooltip="Live Demo"
-        *ngIf="project.demoUrl"
         [href]="project.demoUrl"
         target="_blank"
         class="button-item"
-        ><i class="fa-solid fa-arrow-up-right-from-square"></i
-      ></a>
+      >
+        <i class="fa-solid fa-arrow-up-right-from-square"> </i>
+      </a>
+      }
     </div>
   </div>
 

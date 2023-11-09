@@ -4,24 +4,18 @@
   <h3 class="fs-3 fw-semibold text-center" data-aos="fade-right">Frontend</h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
-      <app-hard-skill-item
-        class="col"
-        *ngFor="let skill of frontend"
-        [skill]="skill"
-        data-aos="fade-up"
-      />
+      @for (skill of frontend; track skill.id) {
+      <app-hard-skill-item class="col" [skill]="skill" data-aos="fade-up" />
+      }
     </div>
   </div>
 
   <h3 class="fs-3 fw-semibold text-center" data-aos="fade-right">Backend</h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
-      <app-hard-skill-item
-        class="col"
-        *ngFor="let skill of backend"
-        [skill]="skill"
-        data-aos="fade-up"
-      />
+      @for(skill of backend; track skill.id){
+      <app-hard-skill-item class="col" [skill]="skill" data-aos="fade-up" />
+      }
     </div>
   </div>
 
@@ -30,12 +24,9 @@
   </h3>
   <div class="row d-flex flex-row flex-wrap justify-content-center mb-2">
     <div class="col-auto d-flex gap-2">
-      <app-hard-skill-item
-        class="col"
-        *ngFor="let skill of tools"
-        [skill]="skill"
-        data-aos="fade-up"
-      />
+      @for (skill of tools; track skill.id) {
+      <app-hard-skill-item class="col" [skill]="skill" data-aos="fade-up" />
+      }
     </div>
   </div>
 </section>

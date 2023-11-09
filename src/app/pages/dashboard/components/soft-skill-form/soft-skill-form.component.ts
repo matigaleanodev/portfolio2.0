@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -12,7 +11,7 @@ import { CreateSoftSkill, SoftSkill } from '@shared/models/skills.model';
 @Component({
   selector: 'app-soft-skill-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ImageUploaderComponent],
+  imports: [ReactiveFormsModule, ImageUploaderComponent],
   templateUrl: './soft-skill-form.component.html',
   styles: [],
 })
