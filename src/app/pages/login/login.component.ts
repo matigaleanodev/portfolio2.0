@@ -1,5 +1,4 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -10,13 +9,13 @@ import { AuthService } from '@shared/services/auth.service';
 import { LoginUser, User } from 'src/app/shared/models/user.model';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { HttpErrorResponse } from '@angular/common/http';
 import { AppService } from '@shared/services/app.service';
+import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [TitleCasePipe, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
