@@ -4,11 +4,11 @@
   [particlesInit]="particlesInit"
   style="z-index: -1; position: relative"
 ></ng-particles>
-<ng-container *ngIf="loading$ | async">
-  <app-loading-spinner
-    class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"
-  />
-</ng-container>
+@if (loading$ | async) {
+<app-loading-spinner
+  class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"
+/>
+}
 <main class="d-flex flex-column">
   <div style="min-height: 50px">
     <app-header />

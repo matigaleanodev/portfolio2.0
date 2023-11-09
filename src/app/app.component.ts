@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { particles } from 'src/assets/animations/particles';
@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [
-    CommonModule,
+    AsyncPipe,
     RouterOutlet,
     HeaderComponent,
     NgParticlesModule,

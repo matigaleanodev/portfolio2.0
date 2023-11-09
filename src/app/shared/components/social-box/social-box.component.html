@@ -23,8 +23,8 @@
   >
     <i class="socialbox-link-item fa-brands fa-instagram"></i>
   </a>
+  @if (mail) {
   <a
-    *ngIf="mail"
     href="mailto:contacto@matiasgaleano.com.ar"
     target="_blank"
     rel="noopener noreferrer"
@@ -32,4 +32,5 @@
   >
     <i class="socialbox-link-item fa-solid fa-envelope"></i>
   </a>
+  }
 </div>

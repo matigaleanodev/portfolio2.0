@@ -1,10 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-social-box',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './social-box.component.html',
   styles: [
     `

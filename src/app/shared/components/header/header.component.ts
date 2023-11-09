@@ -1,12 +1,12 @@
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FirebaseService } from '@shared/services/firebase.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, RouterLink, RouterLinkActive],
+  imports: [NgOptimizedImage, RouterLink, RouterLinkActive, AsyncPipe],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
