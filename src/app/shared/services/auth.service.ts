@@ -1,11 +1,11 @@
 import { HttpClient, HttpContext } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { LoginResponse, LoginUser, User } from '../models/user.model';
+import { LoginResponse, LoginUser, User } from '@shared/models/user.model';
 import { Observable, map } from 'rxjs';
 import { TokenService } from './token.service';
 import { Router } from '@angular/router';
-import { BYPASS_JW_TOKEN } from '../interceptors/request.interceptor';
+import { BYPASS_JW_TOKEN } from '@shared/interceptors/request.interceptor';
 
 @Injectable({
   providedIn: 'root',

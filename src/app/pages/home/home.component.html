@@ -1,5 +1,5 @@
 <section class="container mh100">
-  @if (banner$ | async; as banner) {
+  @if (banner()) {
   <div class="row mh100">
     <div
       data-aos="fade-down-right"
@@ -24,7 +24,7 @@
       class="mh100 d-none d-md-flex col-12 col-lg-6 justify-content-center align-items-center profile-banner"
     >
       <img
-        [ngSrc]="banner"
+        [ngSrc]="banner()"
         alt=""
         width="400"
         height="400"

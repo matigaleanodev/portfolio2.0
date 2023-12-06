@@ -1,10 +1,10 @@
 <ng-particles
   [id]="id"
-  [options]="particlesOptions"
+  [options]="particlesOptions()"
   [particlesInit]="particlesInit"
   style="z-index: -1; position: relative"
 ></ng-particles>
-@if (loading$ | async) {
+@if (loading()) {
 <app-loading-spinner
   class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"
 />

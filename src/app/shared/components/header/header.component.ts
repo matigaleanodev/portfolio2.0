@@ -1,4 +1,12 @@
-import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Signal,
+  ViewChild,
+  inject,
+  signal,
+} from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FirebaseService } from '@shared/services/firebase.service';
@@ -13,8 +21,11 @@ import { FirebaseService } from '@shared/services/firebase.service';
 export class HeaderComponent {
   @ViewChild('navMenu') navMenu!: ElementRef;
   private firebase = inject(FirebaseService);
-  protected logo$ = this.firebase.getImageURL('profileImage');
-  protected title = 'M.G. Developer';
+  protected logo: Signal<string> = toSignal(
+    this.firebase.getImageURL('profileImage'),
+    { initialValue: '' }
+  );
+  protected title: Signal<string> = signal<string>('M.G. Developer');
 
   collapse() {
     let classList = this.navMenu.nativeElement.classList;

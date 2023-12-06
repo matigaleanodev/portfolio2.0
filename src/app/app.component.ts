@@ -1,4 +1,5 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Signal, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { AsyncPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@shared/components/header/header.component';
@@ -27,13 +28,14 @@ export class AppComponent implements OnInit {
   title = 'Matias Galeano';
 
   id = 'tsparticles';
-  particlesUrl = 'http://foo.bar/particles.json';
-  particlesOptions = particles;
+  particlesOptions = signal(particles);
 
   app = inject(AppService);
   toastr = inject(ToastrService);
 
-  loading$ = this.app.Loading$;
+  loading: Signal<boolean> = toSignal(this.app.Loading$, {
+    initialValue: true,
+  });
 
   ngOnInit(): void {
     this.initData();

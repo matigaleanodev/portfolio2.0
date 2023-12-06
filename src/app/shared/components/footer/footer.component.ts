@@ -1,4 +1,4 @@
-import { Component, LOCALE_ID } from '@angular/core';
+import { Component, LOCALE_ID, Signal, signal } from '@angular/core';
 import { DatePipe, TitleCasePipe, registerLocaleData } from '@angular/common';
 import { SocialBoxComponent } from '../social-box/social-box.component';
 import localeEs from '@angular/common/locales/es';
@@ -35,5 +35,5 @@ registerLocaleData(localeEs);
   providers: [{ provide: LOCALE_ID, useValue: 'es' }],
 })
 export class FooterComponent {
-  currentMonth = new Date();
+  currentMonth: Signal<Date> = signal<Date>(new Date());
 }

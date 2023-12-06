@@ -4,13 +4,8 @@
       class="navbar navbar-expand-md navbar-default navbar-dark bg-transparent"
     >
       <a class="navbar-brand text-light" routerLink="home">
-        <img
-          class="img-fluid"
-          [src]="logo$ | async"
-          alt=""
-          style="width: 2rem"
-        />
-        {{ title }}
+        <img class="img-fluid" [src]="logo()" alt="" style="width: 2rem" />
+        {{ title() }}
       </a>
       <button
         class="navbar-toggler"

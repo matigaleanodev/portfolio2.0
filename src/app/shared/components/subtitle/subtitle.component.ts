@@ -39,7 +39,6 @@ import { ViewportScroller } from '@angular/common';
 export class SubtitleComponent {
   @Input() title: string = '';
   @Output() onAdd = new EventEmitter<void>();
-  onLogin: boolean = false;
 
   private viewportScroller = inject(ViewportScroller);
 
