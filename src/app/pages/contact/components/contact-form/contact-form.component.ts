@@ -22,6 +22,7 @@ import { NgClass } from '@angular/common';
     RecaptchaFormsModule,
     NgClass,
   ],
+  providers: [AppService, ContactService],
   templateUrl: './contact-form.component.html',
   styles: [
     `

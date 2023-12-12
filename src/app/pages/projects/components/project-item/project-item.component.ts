@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
   selector: 'app-project-item',
   standalone: true,
   imports: [TooltipDirective, AsyncPipe],
+  providers: [FirebaseService],
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
 })

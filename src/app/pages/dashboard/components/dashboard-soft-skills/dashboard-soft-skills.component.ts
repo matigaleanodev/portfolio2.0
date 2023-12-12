@@ -12,6 +12,7 @@ type ViewMode = 'list' | 'form';
   selector: 'app-dashboard-soft-skills',
   standalone: true,
   imports: [SoftSkillFormComponent, TitleCasePipe],
+  providers: [AppService, SoftSkillService],
   templateUrl: './dashboard-soft-skills.component.html',
   styles: [
     `

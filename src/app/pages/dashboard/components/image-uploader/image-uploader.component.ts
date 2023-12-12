@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
   selector: 'app-image-uploader',
   standalone: true,
   imports: [NgOptimizedImage, AsyncPipe],
+  providers: [FirebaseService],
   templateUrl: './image-uploader.component.html',
   styles: [],
 })

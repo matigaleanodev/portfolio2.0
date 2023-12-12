@@ -12,6 +12,7 @@ type ViewMode = 'list' | 'form';
   selector: 'app-dashboard-hard-skills',
   standalone: true,
   imports: [HardSkillFormComponent, TitleCasePipe],
+  providers: [AppService, HardSkillService],
   templateUrl: './dashboard-hard-skills.component.html',
   styles: [
     `

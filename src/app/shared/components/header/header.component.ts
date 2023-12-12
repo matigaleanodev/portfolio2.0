@@ -15,6 +15,7 @@ import { FirebaseService } from '@shared/services/firebase.service';
   selector: 'app-header',
   standalone: true,
   imports: [NgOptimizedImage, RouterLink, RouterLinkActive, AsyncPipe],
+  providers: [FirebaseService],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

@@ -9,6 +9,7 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
   selector: 'app-hard-skill-item',
   standalone: true,
   imports: [TooltipDirective, AsyncPipe],
+  providers: [FirebaseService],
   template: `
     <a
       class="skill"

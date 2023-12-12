@@ -8,6 +8,7 @@ import { AppService } from '@shared/services/app.service';
   selector: 'app-about-profile',
   standalone: true,
   imports: [AsyncPipe],
+  providers: [AppService, FirebaseService],
   templateUrl: './about-profile.component.html',
   styleUrls: ['./about-profile.component.scss'],
 })

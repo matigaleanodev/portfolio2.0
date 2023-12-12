@@ -18,6 +18,7 @@ import { TitleCasePipe } from '@angular/common';
   imports: [TitleCasePipe, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  providers: [AppService, AuthService],
 })
 export class LoginComponent implements OnInit {
   passwordVisibility: boolean = false;

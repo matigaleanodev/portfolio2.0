@@ -11,6 +11,7 @@ import { FirebaseService } from '@shared/services/firebase.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   imports: [HomeSkillsComponent, FooterComponent, NgOptimizedImage, AsyncPipe],
+  providers: [FirebaseService],
 })
 export class HomeComponent {
   firebase = inject(FirebaseService);

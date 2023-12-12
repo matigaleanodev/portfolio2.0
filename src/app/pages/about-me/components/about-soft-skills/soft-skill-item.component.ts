@@ -9,6 +9,7 @@ import { SoftSkill } from '@shared/models/skills.model';
   selector: 'app-soft-skill-item',
   standalone: true,
   imports: [TooltipDirective, AsyncPipe, TitleCasePipe],
+  providers: [FirebaseService],
   template: `
     <article class="skill">
       <div

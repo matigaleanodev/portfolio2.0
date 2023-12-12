@@ -11,6 +11,7 @@ import { AsyncPipe } from '@angular/common';
   selector: 'app-inbox',
   standalone: true,
   imports: [AsyncPipe],
+  providers: [AppService, ContactService],
   templateUrl: './inbox.component.html',
   styles: [
     `

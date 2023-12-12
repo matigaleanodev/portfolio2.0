@@ -23,6 +23,7 @@ import { ToastrService } from 'ngx-toastr';
     NgParticlesModule,
     LoadingSpinnerComponent,
   ],
+  providers: [AppService],
 })
 export class AppComponent implements OnInit {
   title = 'Matias Galeano';

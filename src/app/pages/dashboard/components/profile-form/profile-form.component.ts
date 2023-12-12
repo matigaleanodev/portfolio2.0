@@ -17,6 +17,7 @@ import { AppService } from '@shared/services/app.service';
   templateUrl: './profile-form.component.html',
   styles: [],
   imports: [ReactiveFormsModule, ImageUploaderComponent],
+  providers: [AppService, ProfileService],
 })
 export class ProfileFormComponent implements OnInit {
   profile!: Profile;
