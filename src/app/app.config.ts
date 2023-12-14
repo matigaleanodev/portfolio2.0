@@ -13,6 +13,7 @@ import {
   withComponentInputBinding,
   withInMemoryScrolling,
   withPreloading,
+  withViewTransitions,
 } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import * as AOS from 'aos';
@@ -46,7 +47,8 @@ export const appConfig: ApplicationConfig = {
       routes,
       inMemoryScrollingFeature,
       withPreloading(PreloadAllModules),
-      withComponentInputBinding()
+      withComponentInputBinding(),
+      withViewTransitions()
     ),
     importProvidersFrom([HttpClientModule]),
     firebaseProviders,
