@@ -20,20 +20,10 @@ import { FirebaseService } from '@shared/services/firebase.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  @ViewChild('navMenu') navMenu!: ElementRef;
   private firebase = inject(FirebaseService);
   protected logo: Signal<string> = toSignal(
     this.firebase.getImageURL('profileImage'),
     { initialValue: '' }
   );
   protected title: Signal<string> = signal<string>('M.G. Developer');
-
-  collapse() {
-    let classList = this.navMenu.nativeElement.classList;
-    if (classList.contains('show')) {
-      classList.remove('show');
-    } else {
-      classList.add('show');
-    }
-  }
 }
