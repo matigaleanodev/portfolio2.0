@@ -9,18 +9,17 @@ import { DashboardHardSkillsComponent } from './components/dashboard-hard-skills
 
 type viewMode = 'base' | 'profile' | 'project' | 'softskill' | 'hardskill';
 @Component({
-  selector: 'app-dashboard',
-  standalone: true,
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  imports: [
-    SubtitleComponent,
-    InboxComponent,
-    ProfileFormComponent,
-    DashboardProjectsComponent,
-    DashboardSoftSkillsComponent,
-    DashboardHardSkillsComponent,
-  ],
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
+    imports: [
+        SubtitleComponent,
+        InboxComponent,
+        ProfileFormComponent,
+        DashboardProjectsComponent,
+        DashboardSoftSkillsComponent,
+        DashboardHardSkillsComponent,
+    ]
 })
 export class DashboardComponent {
   mode: viewMode = 'base';

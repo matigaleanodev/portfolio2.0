@@ -6,11 +6,10 @@ import { TooltipDirective } from '@shared/directives/tooltip.directive';
 import { SoftSkill } from '@shared/models/skills.model';
 
 @Component({
-  selector: 'app-soft-skill-item',
-  standalone: true,
-  imports: [TooltipDirective, AsyncPipe, TitleCasePipe],
-  providers: [FirebaseService],
-  template: `
+    selector: 'app-soft-skill-item',
+    imports: [TooltipDirective, AsyncPipe, TitleCasePipe],
+    providers: [FirebaseService],
+    template: `
     <article class="skill">
       <div
         class="border border-primary border-1 rounded-2 bg-gradient bg-opacity-25 skill__wrapped "
@@ -35,7 +34,7 @@ import { SoftSkill } from '@shared/models/skills.model';
       </div>
     </article>
   `,
-  styleUrls: ['./soft-skill-item.component.scss'],
+    styleUrls: ['./soft-skill-item.component.scss']
 })
 export class SoftSkillItemComponent implements OnInit {
   @Input() data!: SoftSkill;

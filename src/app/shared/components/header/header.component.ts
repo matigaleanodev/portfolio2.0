@@ -12,12 +12,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FirebaseService } from '@shared/services/firebase.service';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [NgOptimizedImage, RouterLink, RouterLinkActive, AsyncPipe],
-  providers: [FirebaseService],
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+    selector: 'app-header',
+    imports: [NgOptimizedImage, RouterLink, RouterLinkActive, AsyncPipe],
+    providers: [FirebaseService],
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
   private firebase = inject(FirebaseService);

@@ -1,9 +1,9 @@
-<ng-particles
+<ngx-particles
   [id]="id"
   [options]="particlesOptions()"
-  [particlesInit]="particlesInit"
+  (particlesLoaded)="particlesLoaded($event)"
   style="z-index: -1; position: relative"
-></ng-particles>
+></ngx-particles>
 @if (loading()) {
 <app-loading-spinner
   class="position-absolute w-100 h-100 bg-light bg-opacity-10 spin"

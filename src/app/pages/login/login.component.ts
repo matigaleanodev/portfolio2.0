@@ -13,12 +13,11 @@ import { AppService } from '@shared/services/app.service';
 import { TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  imports: [TitleCasePipe, ReactiveFormsModule],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [AppService, AuthService],
+    selector: 'app-login',
+    imports: [TitleCasePipe, ReactiveFormsModule],
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss'],
+    providers: [AppService, AuthService]
 })
 export class LoginComponent implements OnInit {
   passwordVisibility: boolean = false;

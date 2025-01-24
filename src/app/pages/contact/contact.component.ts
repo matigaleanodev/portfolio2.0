@@ -11,11 +11,10 @@ import { SocialBoxComponent } from '@shared/components/social-box/social-box.com
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @Component({
-  selector: 'app-contact',
-  standalone: true,
-  templateUrl: './contact.component.html',
-  styles: [``],
-  imports: [SocialBoxComponent, ContactFormComponent],
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    styles: [``],
+    imports: [SocialBoxComponent, ContactFormComponent]
 })
 export class ContactComponent implements AfterViewInit {
   @ViewChild('agradecimiento') agradecimiento!: ElementRef;

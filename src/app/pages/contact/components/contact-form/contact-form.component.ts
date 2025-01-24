@@ -14,18 +14,17 @@ import { ToastrService } from 'ngx-toastr';
 import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-contact-form',
-  standalone: true,
-  imports: [
-    ReactiveFormsModule,
-    RecaptchaModule,
-    RecaptchaFormsModule,
-    NgClass,
-  ],
-  providers: [AppService, ContactService],
-  templateUrl: './contact-form.component.html',
-  styles: [
-    `
+    selector: 'app-contact-form',
+    imports: [
+        ReactiveFormsModule,
+        RecaptchaModule,
+        RecaptchaFormsModule,
+        NgClass,
+    ],
+    providers: [AppService, ContactService],
+    templateUrl: './contact-form.component.html',
+    styles: [
+        `
       .error-container {
         height: 1.5rem;
       }
@@ -34,7 +33,7 @@ import { NgClass } from '@angular/common';
         min-height: 78px;
       }
     `,
-  ],
+    ]
 })
 export class ContactFormComponent {
   contactForm: FormGroup = new FormGroup({

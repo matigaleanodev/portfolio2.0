@@ -9,11 +9,10 @@ import { AppService } from '@shared/services/app.service';
 type ViewMode = 'list' | 'form';
 
 @Component({
-  selector: 'app-dashboard-projects',
-  standalone: true,
-  templateUrl: './dashboard-projects.component.html',
-  styles: [
-    `
+    selector: 'app-dashboard-projects',
+    templateUrl: './dashboard-projects.component.html',
+    styles: [
+        `
       @import 'variables';
       tr,
       th,
@@ -29,9 +28,9 @@ type ViewMode = 'list' | 'form';
         z-index: 9999 !important;
       }
     `,
-  ],
-  imports: [ProjectFormComponent, TitleCasePipe],
-  providers: [AppService, ProjectService],
+    ],
+    imports: [ProjectFormComponent, TitleCasePipe],
+    providers: [AppService, ProjectService]
 })
 export class DashboardProjectsComponent implements OnInit {
   @ViewChild('projectModal') myModal: any;

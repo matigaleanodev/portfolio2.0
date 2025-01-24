@@ -4,11 +4,10 @@ import { HardSkillItemComponent } from './hard-skill-item.component';
 import { HardSkill } from 'src/app/shared/models/skills.model';
 
 @Component({
-  selector: 'app-about-hard-skills',
-  standalone: true,
-  templateUrl: './about-hard-skills.component.html',
-  styleUrls: ['./about-hard-skills.component.scss'],
-  imports: [SubtitleComponent, HardSkillItemComponent],
+    selector: 'app-about-hard-skills',
+    templateUrl: './about-hard-skills.component.html',
+    styleUrls: ['./about-hard-skills.component.scss'],
+    imports: [SubtitleComponent, HardSkillItemComponent]
 })
 export class AboutHardSkillsComponent implements OnInit {
   frontend: HardSkill[] = [];

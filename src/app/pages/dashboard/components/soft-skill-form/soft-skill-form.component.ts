@@ -9,11 +9,10 @@ import { ImageUploaderComponent } from '../image-uploader/image-uploader.compone
 import { CreateSoftSkill, SoftSkill } from '@shared/models/skills.model';
 
 @Component({
-  selector: 'app-soft-skill-form',
-  standalone: true,
-  imports: [ReactiveFormsModule, ImageUploaderComponent],
-  templateUrl: './soft-skill-form.component.html',
-  styles: [],
+    selector: 'app-soft-skill-form',
+    imports: [ReactiveFormsModule, ImageUploaderComponent],
+    templateUrl: './soft-skill-form.component.html',
+    styles: []
 })
 export class SoftSkillFormComponent implements OnInit {
   @Input() selectedSkill: SoftSkill | null = null;

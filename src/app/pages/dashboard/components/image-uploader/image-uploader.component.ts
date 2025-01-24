@@ -5,12 +5,11 @@ import { FirebaseService } from '@shared/services/firebase.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-image-uploader',
-  standalone: true,
-  imports: [NgOptimizedImage, AsyncPipe],
-  providers: [FirebaseService],
-  templateUrl: './image-uploader.component.html',
-  styles: [],
+    selector: 'app-image-uploader',
+    imports: [NgOptimizedImage, AsyncPipe],
+    providers: [FirebaseService],
+    templateUrl: './image-uploader.component.html',
+    styles: []
 })
 export class ImageUploaderComponent implements OnInit {
   @Input() name: string | null = null;

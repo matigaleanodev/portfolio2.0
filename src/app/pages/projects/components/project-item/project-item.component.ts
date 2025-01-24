@@ -6,12 +6,11 @@ import { FirebaseService } from '@shared/services/firebase.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-project-item',
-  standalone: true,
-  imports: [TooltipDirective, AsyncPipe],
-  providers: [FirebaseService],
-  templateUrl: './project-item.component.html',
-  styleUrls: ['./project-item.component.scss'],
+    selector: 'app-project-item',
+    imports: [TooltipDirective, AsyncPipe],
+    providers: [FirebaseService],
+    templateUrl: './project-item.component.html',
+    styleUrls: ['./project-item.component.scss']
 })
 export class ProjectItemComponent implements OnInit {
   @Input() project!: Project;

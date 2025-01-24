@@ -13,11 +13,10 @@ import {
 import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
 
 @Component({
-  selector: 'app-hard-skill-form',
-  standalone: true,
-  imports: [ReactiveFormsModule, ImageUploaderComponent],
-  templateUrl: './hard-skill-form.component.html',
-  styles: [],
+    selector: 'app-hard-skill-form',
+    imports: [ReactiveFormsModule, ImageUploaderComponent],
+    templateUrl: './hard-skill-form.component.html',
+    styles: []
 })
 export class HardSkillFormComponent implements OnInit {
   @Input() selectedSkill: HardSkill | null = null;

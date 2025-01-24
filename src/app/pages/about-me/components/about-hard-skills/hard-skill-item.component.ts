@@ -6,11 +6,10 @@ import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 import { HardSkill } from 'src/app/shared/models/skills.model';
 
 @Component({
-  selector: 'app-hard-skill-item',
-  standalone: true,
-  imports: [TooltipDirective, AsyncPipe],
-  providers: [FirebaseService],
-  template: `
+    selector: 'app-hard-skill-item',
+    imports: [TooltipDirective, AsyncPipe],
+    providers: [FirebaseService],
+    template: `
     <a
       class="skill"
       href="{{ skill.url }}"
@@ -28,8 +27,8 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
       </picture>
     </a>
   `,
-  styles: [
-    `
+    styles: [
+        `
       @import 'variables';
 
       .skill {
@@ -51,7 +50,7 @@ import { HardSkill } from 'src/app/shared/models/skills.model';
         }
       }
     `,
-  ],
+    ]
 })
 export class HardSkillItemComponent implements OnInit {
   @Input() skill!: HardSkill;

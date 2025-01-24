@@ -4,11 +4,10 @@ import { SoftSkillItemComponent } from './soft-skill-item.component';
 import { SoftSkill } from '@shared/models/skills.model';
 
 @Component({
-  selector: 'app-about-soft-skills',
-  standalone: true,
-  templateUrl: './about-soft-skills.component.html',
-  styles: [``],
-  imports: [SubtitleComponent, SoftSkillItemComponent],
+    selector: 'app-about-soft-skills',
+    templateUrl: './about-soft-skills.component.html',
+    styles: [``],
+    imports: [SubtitleComponent, SoftSkillItemComponent]
 })
 export class AboutSoftSkillsComponent implements OnInit {
   softSkills: SoftSkill[] = [];

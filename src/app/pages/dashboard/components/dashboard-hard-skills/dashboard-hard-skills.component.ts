@@ -9,13 +9,12 @@ import { TitleCasePipe } from '@angular/common';
 type ViewMode = 'list' | 'form';
 
 @Component({
-  selector: 'app-dashboard-hard-skills',
-  standalone: true,
-  imports: [HardSkillFormComponent, TitleCasePipe],
-  providers: [AppService, HardSkillService],
-  templateUrl: './dashboard-hard-skills.component.html',
-  styles: [
-    `
+    selector: 'app-dashboard-hard-skills',
+    imports: [HardSkillFormComponent, TitleCasePipe],
+    providers: [AppService, HardSkillService],
+    templateUrl: './dashboard-hard-skills.component.html',
+    styles: [
+        `
       @import 'variables';
       tr,
       th,
@@ -31,7 +30,7 @@ type ViewMode = 'list' | 'form';
         z-index: 9999 !important;
       }
     `,
-  ],
+    ]
 })
 export class DashboardHardSkillsComponent implements OnInit {
   @ViewChild('skillModal') myModal: any;

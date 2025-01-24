@@ -5,12 +5,11 @@ import { Profile } from '@shared/models/profile.model';
 import { AppService } from '@shared/services/app.service';
 
 @Component({
-  selector: 'app-about-profile',
-  standalone: true,
-  imports: [AsyncPipe],
-  providers: [AppService, FirebaseService],
-  templateUrl: './about-profile.component.html',
-  styleUrls: ['./about-profile.component.scss'],
+    selector: 'app-about-profile',
+    imports: [AsyncPipe],
+    providers: [AppService, FirebaseService],
+    templateUrl: './about-profile.component.html',
+    styleUrls: ['./about-profile.component.scss']
 })
 export class AboutProfileComponent implements OnInit {
   profile!: Profile;

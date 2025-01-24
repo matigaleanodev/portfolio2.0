@@ -9,13 +9,12 @@ import { TitleCasePipe } from '@angular/common';
 type ViewMode = 'list' | 'form';
 
 @Component({
-  selector: 'app-dashboard-soft-skills',
-  standalone: true,
-  imports: [SoftSkillFormComponent, TitleCasePipe],
-  providers: [AppService, SoftSkillService],
-  templateUrl: './dashboard-soft-skills.component.html',
-  styles: [
-    `
+    selector: 'app-dashboard-soft-skills',
+    imports: [SoftSkillFormComponent, TitleCasePipe],
+    providers: [AppService, SoftSkillService],
+    templateUrl: './dashboard-soft-skills.component.html',
+    styles: [
+        `
       @import 'variables';
       tr,
       th,
@@ -31,7 +30,7 @@ type ViewMode = 'list' | 'form';
         z-index: 9999 !important;
       }
     `,
-  ],
+    ]
 })
 export class DashboardSoftSkillsComponent implements OnInit {
   @ViewChild('skillModal') myModal: any;

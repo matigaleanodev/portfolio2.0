@@ -12,12 +12,11 @@ import { ToastrService } from 'ngx-toastr';
 import { AppService } from '@shared/services/app.service';
 
 @Component({
-  selector: 'app-profile-form',
-  standalone: true,
-  templateUrl: './profile-form.component.html',
-  styles: [],
-  imports: [ReactiveFormsModule, ImageUploaderComponent],
-  providers: [AppService, ProfileService],
+    selector: 'app-profile-form',
+    templateUrl: './profile-form.component.html',
+    styles: [],
+    imports: [ReactiveFormsModule, ImageUploaderComponent],
+    providers: [AppService, ProfileService]
 })
 export class ProfileFormComponent implements OnInit {
   profile!: Profile;

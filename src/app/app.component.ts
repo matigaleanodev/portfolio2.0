@@ -4,23 +4,22 @@ import { AsyncPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { particles } from 'src/assets/animations/particles';
-import { Engine } from 'tsparticles-engine';
-import { loadFull } from 'tsparticles';
-import { NgParticlesModule } from 'ng-particles';
 import { AppService } from '@shared/services/app.service';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 import { ToastrService } from 'ngx-toastr';
+import { Container, Engine } from '@tsparticles/engine';
+import { loadFull } from 'tsparticles';
+import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [
     AsyncPipe,
     RouterOutlet,
     HeaderComponent,
-    NgParticlesModule,
+    NgxParticlesModule,
     LoadingSpinnerComponent,
   ],
   providers: [AppService],
@@ -34,12 +33,18 @@ export class AppComponent implements OnInit {
   app = inject(AppService);
   toastr = inject(ToastrService);
 
+  private readonly ngParticlesService = inject(NgParticlesService);
+
   loading: Signal<boolean> = toSignal(this.app.Loading$, {
     initialValue: true,
   });
 
   ngOnInit(): void {
     this.initData();
+    this.ngParticlesService.init(async (engine: Engine) => {
+      console.log(engine);
+      await loadFull(engine);
+    });
   }
 
   initData() {
@@ -64,8 +69,8 @@ export class AppComponent implements OnInit {
     }
   }
 
-  async particlesInit(engine: Engine): Promise<void> {
-    await loadFull(engine);
+  particlesLoaded(container: Container): void {
+    console.log(container);
   }
 
   prepareRoute(outlet: RouterOutlet) {

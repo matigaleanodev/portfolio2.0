@@ -8,13 +8,11 @@ import { fadeInOnEnterAnimation } from 'angular-animations';
 import { Observable, of } from 'rxjs';
 
 @Component({
-  selector: 'app-projects',
-  standalone: true,
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
-
-  imports: [SubtitleComponent, ProjectItemComponent, FooterComponent],
-  animations: [fadeInOnEnterAnimation({ anchor: 'enter' })],
+    selector: 'app-projects',
+    templateUrl: './projects.component.html',
+    styleUrls: ['./projects.component.scss'],
+    imports: [SubtitleComponent, ProjectItemComponent, FooterComponent],
+    animations: [fadeInOnEnterAnimation({ anchor: 'enter' })]
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[] = [];

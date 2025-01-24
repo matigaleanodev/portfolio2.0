@@ -8,18 +8,17 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-inbox',
-  standalone: true,
-  imports: [AsyncPipe],
-  providers: [AppService, ContactService],
-  templateUrl: './inbox.component.html',
-  styles: [
-    `
+    selector: 'app-inbox',
+    imports: [AsyncPipe],
+    providers: [AppService, ContactService],
+    templateUrl: './inbox.component.html',
+    styles: [
+        `
       .accordion-collapse {
         transition: all 0.3s ease-out 0s !important;
       }
     `,
-  ],
+    ]
 })
 export class InboxComponent {
   service = inject(ContactService);

@@ -6,12 +6,11 @@ import { FooterComponent } from '@shared/components/footer/footer.component';
 import { FirebaseService } from '@shared/services/firebase.service';
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
-  imports: [HomeSkillsComponent, FooterComponent, NgOptimizedImage, AsyncPipe],
-  providers: [FirebaseService],
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    imports: [HomeSkillsComponent, FooterComponent, NgOptimizedImage, AsyncPipe],
+    providers: [FirebaseService]
 })
 export class HomeComponent {
   firebase = inject(FirebaseService);

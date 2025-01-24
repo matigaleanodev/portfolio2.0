@@ -7,11 +7,10 @@ import { RouterLink } from '@angular/router';
 registerLocaleData(localeEs);
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  templateUrl: './footer.component.html',
-  styles: [
-    `
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styles: [
+        `
       @import 'variables';
       .footer {
         background-color: $header-background-dark !important;
@@ -30,9 +29,9 @@ registerLocaleData(localeEs);
         }
       }
     `,
-  ],
-  imports: [SocialBoxComponent, RouterLink, DatePipe, TitleCasePipe],
-  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
+    ],
+    imports: [SocialBoxComponent, RouterLink, DatePipe, TitleCasePipe],
+    providers: [{ provide: LOCALE_ID, useValue: 'es' }]
 })
 export class FooterComponent {
   currentMonth: Signal<Date> = signal<Date>(new Date());

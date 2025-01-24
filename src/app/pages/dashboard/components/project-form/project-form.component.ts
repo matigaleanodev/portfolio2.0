@@ -9,11 +9,10 @@ import {
 import { ImageUploaderComponent } from '../image-uploader/image-uploader.component';
 
 @Component({
-  selector: 'app-project-form',
-  standalone: true,
-  templateUrl: './project-form.component.html',
-  styles: [],
-  imports: [ReactiveFormsModule, ImageUploaderComponent],
+    selector: 'app-project-form',
+    templateUrl: './project-form.component.html',
+    styles: [],
+    imports: [ReactiveFormsModule, ImageUploaderComponent]
 })
 export class ProjectFormComponent implements OnInit {
   @Input() selectedProject: Project | null = null;
