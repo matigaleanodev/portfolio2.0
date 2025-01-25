@@ -1,55 +1,27 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { routes } from './app.routes';
+import { ApplicationConfig } from '@angular/core';
+import { isDevMode } from '@angular/core';
+import { provideServiceWorker } from '@angular/service-worker';
 import {
-  InMemoryScrollingFeature,
-  InMemoryScrollingOptions,
-  PreloadAllModules,
+  RouteReuseStrategy,
   provideRouter,
-  withComponentInputBinding,
-  withInMemoryScrolling,
   withPreloading,
-  withViewTransitions,
+  PreloadAllModules,
 } from '@angular/router';
-import { provideAnimations } from '@angular/platform-browser/animations';
-import * as AOS from 'aos';
-import { provideToastr } from 'ngx-toastr';
-import { requestInterceptor } from '@shared/interceptors/request.interceptor';
-import { errorInterceptor } from '@shared/interceptors/error.interceptor';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { environment } from '../environments/environment';
+import {
+  IonicRouteStrategy,
+  provideIonicAngular,
+} from '@ionic/angular/standalone';
 
-const scrollConfig: InMemoryScrollingOptions = {
-  anchorScrolling: 'enabled',
-  scrollPositionRestoration: 'top',
-};
+import { routes } from './app.routes';
 
-AOS.init({
-  easing: 'ease-out-back',
-  duration: 1500,
-});
-window.addEventListener('load', AOS.refresh);
-
-const inMemoryScrollingFeature: InMemoryScrollingFeature =
-  withInMemoryScrolling(scrollConfig);
-
-export const appConfig: ApplicationConfig = {
+export const AppConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withInterceptors([requestInterceptor, errorInterceptor])),
-    provideAnimations(),
-    provideToastr({
-      preventDuplicates: true,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideIonicAngular(),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
     }),
-    provideRouter(
-      routes,
-      inMemoryScrollingFeature,
-      withPreloading(PreloadAllModules),
-      withComponentInputBinding(),
-      withViewTransitions()
-    ),
-    importProvidersFrom([]),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideStorage(() => getStorage()),
   ],
 };

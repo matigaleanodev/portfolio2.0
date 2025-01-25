@@ -1,13 +1,9 @@
-@import "variables";
-
-main {
-  min-height: 100dvh;
-  min-height: fill-available !important;
-  min-height: -webkit-fill-available !important;
+ion-split-pane {
+  --side-min-width: 80px;
+  --side-max-width: 80px;
 }
 
-.spin {
-  top: 0;
-  left: 0;
-  z-index: 2000;
+ion-menu {
+  --width: 80px;
+  --max-width: 80px !important;
 }
