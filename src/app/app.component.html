@@ -20,6 +20,12 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
+        <ngx-particles
+          [id]="id"
+          [options]="particlesOptions()"
+          (particlesLoaded)="particlesLoaded($event)"
+          style="position: relative"
+        ></ngx-particles>
         <ion-router-outlet />
       </ion-content>
       <ion-footer [translucent]="true">

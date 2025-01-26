@@ -1,14 +1,15 @@
 .profile {
+  user-select: none !important;
   &-title {
     &-h1 {
       font-weight: 900;
       line-height: clamp(2rem, 4vw, 3.5rem);
-      text-shadow: 0px 3px 5px #1706305b;
       -webkit-text-stroke: 0.4px var(ion-color-dark);
       font-size: clamp(2rem, 4vw, 3.5rem);
     }
     &-name {
       color: var(--ion-color-primary);
+      text-shadow: 0px 3px 5px var(--shadow-color);
     }
     &-h2 {
       font-weight: 600;
@@ -28,6 +29,9 @@
         content: " />";
       }
     }
+  }
+  &-img {
+    filter: drop-shadow(0px 3px 5px var(--shadow-color));
   }
 }
 

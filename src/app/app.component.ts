@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
   IonApp,
   IonRouterOutlet,
@@ -20,6 +20,10 @@ import { defineCustomElement as defineNav } from '@ionic/core/components/ion-nav
 import { ThemeService } from '@shared/services/theme/theme.service';
 import { TokenService } from '@shared/services/token/token.service';
 import { DatePipe } from '@angular/common';
+import { particles } from '@shared/animations/particles.animation';
+import { Container, Engine } from '@tsparticles/engine';
+import { loadFull } from 'tsparticles';
+import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 
 @Component({
   selector: 'app-root',
@@ -38,6 +42,7 @@ import { DatePipe } from '@angular/common';
     IonApp,
     IonRouterOutlet,
     DatePipe,
+    NgxParticlesModule,
   ],
 })
 export class AppComponent implements OnInit {
@@ -46,6 +51,9 @@ export class AppComponent implements OnInit {
 
   readonly date = new Date();
   readonly title = 'Matias Galeano -  Angular Stack Developer';
+  id = 'tsparticles';
+  particlesOptions = signal(particles);
+  private readonly ngParticlesService = inject(NgParticlesService);
 
   constructor() {
     defineLoading();
@@ -56,5 +64,13 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this._theme.initTheme();
+    this.ngParticlesService.init(async (engine: Engine) => {
+      console.log(engine);
+      await loadFull(engine);
+    });
+  }
+
+  particlesLoaded(container: Container): void {
+    console.log(container);
   }
 }

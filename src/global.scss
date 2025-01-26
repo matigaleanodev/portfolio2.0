@@ -30,6 +30,11 @@ html {
   }
 }
 
+ion-content,
+.ion-page {
+  --background: transparent !important;
+}
+
 ion-split-pane {
   --side-min-width: 80px;
   --side-max-width: 80px;
