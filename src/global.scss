@@ -1,43 +1,43 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+@use "@ionic/angular/css/core.css";
 
-/* Core CSS required for Ionic components to work properly */
-@import "@ionic/angular/css/core.css";
+@use "@ionic/angular/css/normalize.css";
+@use "@ionic/angular/css/structure.css";
+@use "@ionic/angular/css/typography.css";
+@use "@ionic/angular/css/display.css";
 
-/* Basic CSS for apps built with Ionic */
-@import "@ionic/angular/css/normalize.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/typography.css";
-@import "@ionic/angular/css/display.css";
+@use "@ionic/angular/css/padding.css";
+@use "@ionic/angular/css/float-elements.css";
+@use "@ionic/angular/css/text-alignment.css";
+@use "@ionic/angular/css/text-transformation.css";
+@use "@ionic/angular/css/flex-utils.css";
 
-/* Optional CSS utils that can be commented out */
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
-
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
-/* @import "@ionic/angular/css/palettes/dark.always.css"; */
-/* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* @use "@ionic/angular/css/palettes/dark.always.css"; */
+@use "@ionic/angular/css/palettes/dark.class.css";
+// @use "@ionic/angular/css/palettes/dark.system.css";
+@use "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1;0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html {
   font-size: 14px;
+}
+
+#main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  ion-content {
+    flex: 1;
+  }
+}
+
+ion-split-pane {
+  --side-min-width: 80px;
+  --side-max-width: 80px;
+}
+
+ion-menu {
+  --width: 80px;
+  --max-width: 80px !important;
 }
 
 .accent-primary {

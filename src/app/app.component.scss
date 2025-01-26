@@ -1,9 +1,11 @@
-ion-split-pane {
-  --side-min-width: 80px;
-  --side-max-width: 80px;
+a {
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  color: var(--ion-color-secondary);
+  text-decoration: none;
 }
 
-ion-menu {
-  --width: 80px;
-  --max-width: 80px !important;
+.brand {
+  height: 100%;
+  width: auto;
 }

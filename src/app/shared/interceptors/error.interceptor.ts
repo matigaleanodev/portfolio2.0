@@ -1,7 +1,7 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
-import { ToastrService } from '../services/toastr/toastr.service';
+import { ToastrService } from '.@shared/services/toastr/toastr.service';
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const _toastr = inject(ToastrService);

@@ -1,3 +1,42 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane when="xs" contentId="main-content">
+    <ion-menu id="menu-content" contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <div class="flex justify-center items-center h-16">
+            <ion-img
+              class="h-4/5 max-h-4/5 object-contain"
+              src="assets/icon/favicon.png"
+            ></ion-img>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content color="primary"></ion-content>
+    </ion-menu>
+    <div id="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title> {{ title }} </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-router-outlet />
+      </ion-content>
+      <ion-footer [translucent]="true">
+        <ion-toolbar class="ion-padding-end ion-text-end">
+          <ion-text>
+            Copyright &copy;
+            <a
+              href="https://matiasgaleano.com.ar/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Matias Galeano</a
+            >
+            - {{ date | date : "MMMM yyyy" }}
+          </ion-text>
+        </ion-toolbar>
+      </ion-footer>
+    </div>
+  </ion-split-pane>
 </ion-app>
