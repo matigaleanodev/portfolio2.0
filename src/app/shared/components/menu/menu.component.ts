@@ -10,6 +10,7 @@ import {
   mail,
   person,
 } from 'ionicons/icons';
+import { MenuItems } from '../menu';
 
 @Component({
   selector: 'app-menu',
@@ -19,33 +20,7 @@ import {
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent {
-  menuItems: MenuItem[] = [
-    {
-      titulo: 'Home',
-      link: '/home',
-      icono: 'home',
-    },
-    {
-      titulo: 'Sobre mí',
-      link: '/about',
-      icono: 'person',
-    },
-    {
-      titulo: 'Skills',
-      link: '/skills',
-      icono: 'laptop-outline',
-    },
-    {
-      titulo: 'Projectos',
-      link: '/projects',
-      icono: 'clipboard-outline',
-    },
-    {
-      titulo: 'Contacto',
-      link: '/contact',
-      icono: 'mail',
-    },
-  ];
+  readonly menuItems = MenuItems;
 
   constructor() {
     addIcons({

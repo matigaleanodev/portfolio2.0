@@ -7,7 +7,11 @@
     class="custom-sidebar-item"
   >
     <ion-label class="custom-label">
-      <ion-icon [name]="item.icono" size="large"></ion-icon>
+      <ion-icon
+        [name]="item.icono"
+        size="large"
+        [attr.aria-label]="item.titulo"
+      />
       <span>{{ item.titulo }}</span>
     </ion-label>
   </ion-item>

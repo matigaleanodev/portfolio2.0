@@ -1,17 +1,50 @@
 <ion-app>
+  @if (useTabs()) {
+
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-icon
+        slot="start"
+        color="light"
+        aria-hidden="true"
+        src="assets/logos/logo-mati.svg"
+        class="object-contain text-[32px] ion-margin-horizontal"
+      />
+      <ion-title> {{ title }} </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-router-outlet />
+  </ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      @for (item of menuItems | menu; track $index) {
+      <ion-tab-button [tab]="item.link">
+        @if (item.icono === 'home') {
+        <ion-icon src="assets/logos/logo-mati.svg" />
+        }@else {
+        <ion-icon [name]="item.icono" />
+        }
+        <ion-label>
+          {{ item.titulo }}
+        </ion-label>
+      </ion-tab-button>
+      }
+    </ion-tab-bar>
+  </ion-tabs>
+
+  } @else {
+
   <ion-split-pane when="xs" contentId="main-content">
     <ion-menu id="menu-content" contentId="main-content" type="overlay">
       <ion-header>
         <ion-toolbar color="primary">
           <div class="flex justify-center items-center h-16">
-            <!-- <ion-img
-              class="h-4/5 max-h-4/5 object-contain"
-              src="assets/icon/favicon.png"
-            ></ion-img> -->
             <ion-icon
               color="light"
+              aria-hidden="true"
               src="assets/logos/logo-mati.svg"
-              class="w-full max-w-[80%] object-contain text-[32px]"
+              class="object-contain text-[32px]"
             />
           </div>
         </ion-toolbar>
@@ -52,4 +85,5 @@
       </ion-footer>
     </div>
   </ion-split-pane>
+  }
 </ion-app>
