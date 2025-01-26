@@ -11,6 +11,7 @@ import {
   IonFooter,
   IonText,
   IonImg,
+  IonIcon,
 } from '@ionic/angular/standalone';
 
 import { Platform } from '@ionic/angular';
@@ -31,6 +32,7 @@ import { MenuComponent } from '@shared/components/menu/menu.component';
   standalone: true,
   templateUrl: 'app.component.html',
   imports: [
+    IonIcon,
     IonImg,
     IonText,
     IonFooter,

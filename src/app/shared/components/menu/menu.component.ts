@@ -3,7 +3,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IonList, IonItem, IonLabel, IonIcon } from '@ionic/angular/standalone';
 import { MenuItem } from '@shared/models/menu.model';
 import { addIcons } from 'ionicons';
-import { clipboardOutline, home, laptopOutline, mail } from 'ionicons/icons';
+import {
+  clipboardOutline,
+  home,
+  laptopOutline,
+  mail,
+  person,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-menu',
@@ -18,6 +24,11 @@ export class MenuComponent {
       titulo: 'Home',
       link: '/home',
       icono: 'home',
+    },
+    {
+      titulo: 'Sobre mí',
+      link: '/about',
+      icono: 'person',
     },
     {
       titulo: 'Skills',
@@ -39,6 +50,7 @@ export class MenuComponent {
   constructor() {
     addIcons({
       home,
+      person,
       laptopOutline,
       clipboardOutline,
       mail,
