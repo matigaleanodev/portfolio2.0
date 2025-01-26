@@ -1,0 +1,16 @@
+<ion-list>
+  @for (item of menuItems; track $index) {
+  <ion-item
+    lines="none"
+    [routerLink]="item.link"
+    routerLinkActive="active"
+    class="custom-sidebar-item"
+  >
+    <ion-label class="custom-label">
+      <ion-icon [name]="item.icono" size="large"></ion-icon>
+      <span>{{ item.titulo }}</span>
+    </ion-label>
+  </ion-item>
+
+  }
+</ion-list>

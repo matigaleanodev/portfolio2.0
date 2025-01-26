@@ -24,6 +24,7 @@ import { particles } from '@shared/animations/particles.animation';
 import { Container, Engine } from '@tsparticles/engine';
 import { loadFull } from 'tsparticles';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
+import { MenuComponent } from '@shared/components/menu/menu.component';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,7 @@ import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
     IonRouterOutlet,
     DatePipe,
     NgxParticlesModule,
+    MenuComponent,
   ],
 })
 export class AppComponent implements OnInit {

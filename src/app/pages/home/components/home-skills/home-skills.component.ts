@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import Typed, { TypedOptions } from 'typed.js';
-import { IonIcon } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
   logoAngular,
@@ -11,7 +10,7 @@ import {
 
 @Component({
   selector: 'app-home-skills',
-  imports: [IonIcon],
+  imports: [],
   standalone: true,
   templateUrl: './home-skills.component.html',
   styleUrls: ['./home-skills.component.scss'],
