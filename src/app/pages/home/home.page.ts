@@ -9,6 +9,4 @@ import { HomeSkillsComponent } from './components/home-skills/home-skills.compon
   styleUrls: ['home.page.scss'],
   imports: [IonImg, IonCol, IonRow, IonContent, HomeSkillsComponent],
 })
-export class HomePage {
-  constructor() {}
-}
+export class HomePage {}

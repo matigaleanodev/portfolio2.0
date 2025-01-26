@@ -20,7 +20,8 @@ import {
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { routes } from './app.routes';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
+import { provideHttpClient } from '@angular/common/http';
 
 const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
@@ -47,6 +48,7 @@ export const AppConfig: ApplicationConfig = {
       withComponentInputBinding(),
       withViewTransitions()
     ),
+    provideHttpClient(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     importProvidersFrom([IonicStorageModule.forRoot()]),

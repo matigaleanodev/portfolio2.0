@@ -72,3 +72,13 @@ ion-menu {
 .accent-danger {
   border-left: 0.3rem solid var(--ion-color-danger) !important;
 }
+
+.skill-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.typed-cursor {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}

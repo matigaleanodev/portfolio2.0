@@ -1,22 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import Typed, { TypedOptions } from 'typed.js';
+import { IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import {
+  logoAngular,
+  logoIonic,
+  logoJavascript,
+  logoNodejs,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-home-skills',
+  imports: [IonIcon],
+  standalone: true,
   templateUrl: './home-skills.component.html',
   styleUrls: ['./home-skills.component.scss'],
 })
 export class HomeSkillsComponent implements OnInit {
+  constructor() {
+    addIcons({
+      logoAngular,
+      logoNodejs,
+      logoJavascript,
+      logoIonic,
+    });
+  }
+
   ngOnInit() {
     const options: TypedOptions = {
       strings: [
-        '<span style="color: #dd1b16">Angular</span> <img src="assets/icons/angular.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #e02e2f">NestJs</span> <img src="assets/icons/nestjs.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #6cc24a">NodeJs</span> <img src="assets/icons/nodejs.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #00758f">MySQL</span> <img src="assets/icons/mysql.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #f7df1e">Javascript</span> <img src="assets/icons/javascript.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #007acc">Typescript</span> <img src="assets/icons/typescript.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
-        '<span style="color: #e34c26">HTML</span> <img src="assets/icons/html.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem"> y <span style="color: #2965f1">CSS</span> <img src="assets/icons/css.svg" style="height: 1.8rem; width: 1.8rem; margin-bottom: 0.5rem">',
+        '<span class="skill-text" style="color: var(--ion-color-angular)">Angular <ion-icon class="p0 m0" icon="logo-angular" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-ionic)">Ionic <ion-icon class="p0 m0" icon="logo-ionic" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-nestjs)">NestJs <ion-icon class="p0 m0" src="assets/logos/logo-nestjs.svg" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-nodejs)">NodeJs <ion-icon class="p0 m0" icon="logo-nodejs" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-mysql)">MySQL <ion-icon class="p0 m0" src="assets/logos/logo-mysql.svg" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-javascript)">Javascript <ion-icon class="p0 m0" icon="logo-javascript" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-typescript)">Typescript <ion-icon class="p0 m0" src="assets/logos/logo-typescript.svg" /></span> ',
+        '<span class="skill-text" style="color: var(--ion-color-html)">HTML <ion-icon class="p0 m0" src="assets/logos/logo-html5.svg" /></span> y <span class="skill-text" style="color: var(--ion-color-css)">CSS <ion-icon class="p0 m0" src="assets/logos/logo-css3.svg" /></span>',
       ],
       typeSpeed: 70,
       startDelay: 150,
