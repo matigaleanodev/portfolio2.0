@@ -1,6 +1,7 @@
 .profile {
   user-select: none !important;
   &-title {
+    text-align: start;
     &-h1 {
       font-weight: 900;
       line-height: clamp(2rem, 4vw, 3.5rem);

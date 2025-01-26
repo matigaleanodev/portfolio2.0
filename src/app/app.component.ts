@@ -10,7 +10,6 @@ import {
   IonTitle,
   IonFooter,
   IonText,
-  IonImg,
   IonIcon,
 } from '@ionic/angular/standalone';
 
@@ -33,7 +32,6 @@ import { MenuComponent } from '@shared/components/menu/menu.component';
   templateUrl: 'app.component.html',
   imports: [
     IonIcon,
-    IonImg,
     IonText,
     IonFooter,
     IonTitle,
