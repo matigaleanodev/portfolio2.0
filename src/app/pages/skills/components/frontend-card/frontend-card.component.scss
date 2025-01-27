@@ -1,6 +1,7 @@
 .chrome-window {
   border-radius: 8px;
 
+  position: relative;
   .chrome-header {
     ion-toolbar {
       --min-height: 40px !important;
@@ -60,7 +61,7 @@
   }
 
   .chrome-content {
-    padding: 16px;
+    padding-bottom: 40px;
   }
 
   ion-list {
