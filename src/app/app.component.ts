@@ -36,7 +36,7 @@ import { Container, Engine } from '@tsparticles/engine';
 import { loadFull } from 'tsparticles';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 import { MenuComponent } from '@shared/components/menu/menu.component';
-import { MenuItems } from '@shared/components/menu';
+import { MenuItems } from '@shared/components/menu/menu';
 import { addIcons } from 'ionicons';
 import {
   clipboardOutline,

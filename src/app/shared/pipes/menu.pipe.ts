@@ -11,20 +11,20 @@ export class MenuPipe implements PipeTransform {
       return menuItems;
     }
 
-    const homeItemIndex = menuItems.findIndex((item) => item.icono === 'home');
+    const itemsCopy = [...menuItems];
+    const homeItemIndex = itemsCopy.findIndex((item) => item.icono === 'home');
 
     if (
       homeItemIndex === -1 ||
-      homeItemIndex === Math.floor(menuItems.length / 2)
+      homeItemIndex === Math.floor(itemsCopy.length / 2)
     ) {
-      return menuItems;
+      return itemsCopy;
     }
 
-    const homeItem = menuItems.splice(homeItemIndex, 1)[0];
+    const homeItem = itemsCopy.splice(homeItemIndex, 1)[0];
+    const middleIndex = Math.floor(itemsCopy.length / 2);
+    itemsCopy.splice(middleIndex, 0, homeItem);
 
-    const middleIndex = Math.floor(menuItems.length / 2);
-    menuItems.splice(middleIndex, 0, homeItem);
-
-    return menuItems;
+    return itemsCopy;
   }
 }

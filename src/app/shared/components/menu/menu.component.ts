@@ -10,7 +10,7 @@ import {
   mail,
   person,
 } from 'ionicons/icons';
-import { MenuItems } from '../menu';
+import { MenuItems } from './menu';
 
 @Component({
   selector: 'app-menu',

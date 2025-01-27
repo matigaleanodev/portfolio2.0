@@ -1,22 +1,29 @@
 <ion-app>
   @if (useTabs()) {
-
-  <ion-header>
-    <ion-toolbar color="primary">
-      <ion-icon
-        slot="start"
-        color="light"
-        aria-hidden="true"
-        src="assets/logos/logo-mati.svg"
-        class="object-contain text-[32px] ion-margin-horizontal"
-      />
-      <ion-title> {{ title }} </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content>
-    <ion-router-outlet />
-  </ion-content>
   <ion-tabs>
+    <div class="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-icon
+            slot="start"
+            color="light"
+            aria-hidden="true"
+            src="assets/logos/logo-mati.svg"
+            class="object-contain text-[32px] ion-margin-horizontal"
+          />
+          <ion-title> {{ title }} </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ngx-particles
+          [id]="id"
+          [options]="particlesOptions()"
+          (particlesLoaded)="particlesLoaded($event)"
+          style="position: relative"
+        ></ngx-particles>
+        <ion-router-outlet />
+      </ion-content>
+    </div>
     <ion-tab-bar slot="bottom">
       @for (item of menuItems | menu; track $index) {
       <ion-tab-button [tab]="item.link">
@@ -53,7 +60,7 @@
         <app-menu />
       </ion-content>
     </ion-menu>
-    <div id="main-content">
+    <div class="main-content" id="main-content">
       <ion-header>
         <ion-toolbar color="primary">
           <ion-title> {{ title }} </ion-title>
