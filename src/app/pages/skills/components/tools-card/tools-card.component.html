@@ -1,14 +1,11 @@
-<ion-card
-  class="tools-window bg-white px-4 py-0 rounded-lg shadow-xl border border-gray-300"
->
+<ion-card class="tools-window rounded-lg shadow-xl border border-gray-300">
   <ion-card-header class="tools-header">
-    <ion-toolbar class="tools-toolbar p-1">
+    <ion-toolbar class="tools-toolbar px-2">
       <ion-buttons slot="start">
-        <ion-icon name="construct-outline" class="text-gray-800"></ion-icon>
-        <!-- Icono de herramientas -->
+        <ion-icon name="construct-outline" />
       </ion-buttons>
       <div class="flex items-center space-x-2 ml-2">
-        <ion-card-title class="tools-tab-title text-gray-900 text-sm font-sans">
+        <ion-card-title class="tools-tab-title font-sans">
           Tools
         </ion-card-title>
       </div>
@@ -21,14 +18,54 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-card-header>
+
   <ion-card-content class="tools-content">
-    <ion-list>
-      @for (tool of tools; track $index) {
-      <ion-item class="tools-item">
-        <ion-label>{{ tool.name }}</ion-label>
-        <ion-button fill="outline" size="small">Usar</ion-button>
-      </ion-item>
-      }
-    </ion-list>
+    <div class="flex">
+      <div class="file-explorer">
+        <ion-list>
+          @for (tool of tools(); track $index) {
+          <ion-item
+            [class.selected]="currentIndex() === $index"
+            (click)="currentIndex.set($index)"
+          >
+            <ion-label>{{ tool.name }}</ion-label>
+          </ion-item>
+          }
+        </ion-list>
+      </div>
+
+      <div class="carousel">
+        <div
+          class="flex flex-col transition-transform duration-500 ease-in-out h-full"
+          [ngStyle]="{ transform: 'translateY(' + -currentIndex() * 100 + '%' }"
+        >
+          @for (tool of tools(); track $index) {
+          <div class="carousel-item">
+            <img [src]="tool.image" alt="{{ tool.name }}" class="tool-image" />
+            <div class="tool-description">
+              <h3 class="text-xl font-semibold text-green-400">
+                {{ tool.name }}
+              </h3>
+              <p class="text-gray-300">{{ tool.description }}</p>
+              <ion-button fill="outline" size="small">Usar</ion-button>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+
+      <div class="tools-navigation">
+        <ion-button color="medium" fill="clear" (click)="prevSlide()">
+          <ion-icon slot="icon-only" name="chevron-up" size="large"></ion-icon>
+        </ion-button>
+        <ion-button color="medium" fill="clear" (click)="nextSlide()">
+          <ion-icon
+            slot="icon-only"
+            name="chevron-down"
+            size="large"
+          ></ion-icon>
+        </ion-button>
+      </div>
+    </div>
   </ion-card-content>
 </ion-card>
