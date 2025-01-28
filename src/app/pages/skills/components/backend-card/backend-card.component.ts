@@ -10,6 +10,8 @@ import {
   IonButtons,
   IonButton,
   IonFooter,
+  IonTitle,
+  IonText,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { chevronDown, chevronUp, terminalOutline } from 'ionicons/icons';
@@ -18,6 +20,8 @@ import { chevronDown, chevronUp, terminalOutline } from 'ionicons/icons';
   selector: 'app-backend-card',
   standalone: true,
   imports: [
+    IonText,
+    IonTitle,
     IonFooter,
     IonButton,
     IonButtons,

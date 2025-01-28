@@ -48,8 +48,6 @@
     font-size: 16px;
     font-weight: normal;
     padding: 2px 6px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
     margin-left: 8px;
   }
 
@@ -69,4 +67,9 @@
       --border-color: transparent;
     }
   }
+}
+
+.skill-title {
+  font-size: 1.5rem;
+  font-weight: 500;
 }

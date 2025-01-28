@@ -9,6 +9,8 @@ import {
   IonToolbar,
   IonCardHeader,
   IonCard,
+  IonText,
+  IonTitle,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
@@ -24,6 +26,8 @@ import {
   selector: 'app-frontend-card',
   standalone: true,
   imports: [
+    IonTitle,
+    IonText,
     IonButtons,
     IonButton,
     IonIcon,
@@ -79,7 +83,7 @@ export class FrontendCardComponent {
     });
 
     effect(() => {
-      const interval = setInterval(() => this.nextSlide(), 3000);
+      const interval = setInterval(() => this.nextSlide(), 300000);
       return () => clearInterval(interval);
     });
   }

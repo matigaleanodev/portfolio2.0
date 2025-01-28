@@ -10,8 +10,8 @@ export class ThemeService {
   currentTheme = signal<CurrentTheme>('default');
   isDefaultTheme = signal<boolean>(true);
 
+  readonly colorScheme: MediaQueryList;
   private storage = inject(StorageService);
-  private colorScheme: MediaQueryList;
 
   constructor() {
     this.colorScheme = window.matchMedia('(prefers-color-scheme: dark)');
@@ -41,7 +41,7 @@ export class ThemeService {
     }
   }
 
-  private updateTheme(theme: CurrentTheme): void {
+  updateTheme(theme: CurrentTheme): void {
     this.currentTheme.set(theme);
 
     if (theme === 'dark') {

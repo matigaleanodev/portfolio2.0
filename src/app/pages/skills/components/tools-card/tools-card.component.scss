@@ -60,11 +60,15 @@
     ion-item {
       --background: transparent;
       --border-color: transparent;
-      color: var(--ion-color-medium);
+      --min-height: 20px;
+      display: flex;
+      ion-note {
+        margin: auto 0;
+      }
     }
 
     .selected {
-      background-color: #e1e1e1;
+      background-color: #2d2e3b;
     }
   }
 
@@ -116,4 +120,9 @@
       }
     }
   }
+}
+
+.skill-title {
+  font-size: 1.5rem;
+  font-weight: 500;
 }

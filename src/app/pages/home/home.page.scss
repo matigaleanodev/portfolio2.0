@@ -19,9 +19,8 @@
       &::before,
       &::after {
         font-size: clamp(1.5rem, 2.8vw, 2.5rem);
-        color: var(--ion-color-light);
         font-weight: 900;
-        -webkit-text-stroke: 0.2px var(ion-color-dark);
+        -webkit-text-stroke: 0.25px var(ion-color-dark);
       }
       &::before {
         content: "< ";

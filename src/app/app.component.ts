@@ -1,6 +1,7 @@
 import {
   Component,
   computed,
+  effect,
   HostListener,
   inject,
   OnInit,
@@ -38,13 +39,7 @@ import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 import { MenuComponent } from '@shared/components/menu/menu.component';
 import { MenuItems } from '@shared/components/menu/menu';
 import { addIcons } from 'ionicons';
-import {
-  clipboardOutline,
-  laptop,
-  laptopOutline,
-  mail,
-  person,
-} from 'ionicons/icons';
+import { clipboardOutline, laptopOutline, mail, person } from 'ionicons/icons';
 import { MenuPipe } from '@shared/pipes/menu.pipe';
 
 @Component({
@@ -83,13 +78,15 @@ export class AppComponent implements OnInit {
   private readonly isNative = signal(this.platform.is('capacitor'));
 
   readonly date = new Date();
-  readonly title = 'Matias Galeano -  Angular Stack Developer';
+  readonly title = 'Matias Galeano';
   readonly id = 'tsparticles';
   readonly particlesOptions = signal(particles);
   readonly menuItems = MenuItems;
   readonly useTabs = computed(
     () => this.isNative() || this.screenWidth() <= 768
   );
+
+  readonly currentTheme = computed(() => this._theme.currentTheme());
 
   constructor() {
     defineLoading();
@@ -102,12 +99,44 @@ export class AppComponent implements OnInit {
       laptopOutline,
       clipboardOutline,
     });
+    effect(() => {
+      this.updateParticleColors();
+    });
   }
 
   ngOnInit(): void {
     this._theme.initTheme();
+  }
+
+  private updateParticleColors(): void {
+    const lightColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--ion-color-light')
+      .trim();
+    const darkColor = getComputedStyle(document.documentElement)
+      .getPropertyValue('--ion-color-dark')
+      .trim();
+
+    const theme = this.currentTheme();
+
+    const isDarkTheme =
+      theme === 'dark' ||
+      (theme === 'default' && this._theme.colorScheme.matches);
+
+    this.particlesOptions.set({
+      ...particles,
+      background: {
+        color: {
+          value: isDarkTheme ? '#03000d' : '#b6ccf2',
+        },
+      },
+      particles: {
+        ...particles.particles,
+        color: {
+          value: isDarkTheme ? lightColor : darkColor,
+        },
+      },
+    });
     this._particles.init(async (engine: Engine) => {
-      console.log(engine);
       await loadFull(engine);
     });
   }
@@ -120,4 +149,12 @@ export class AppComponent implements OnInit {
   private updateScreenWidth = () => {
     this.screenWidth.set(window.innerWidth);
   };
+
+  @HostListener('window:matchMedia', ['$event'])
+  private onColorSchemeChange(event: MediaQueryListEvent): void {
+    if (this._theme.currentTheme() === 'default') {
+      this._theme.updateTheme(event.matches ? 'dark' : 'light');
+      this.updateParticleColors();
+    }
+  }
 }

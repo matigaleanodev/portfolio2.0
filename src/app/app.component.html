@@ -11,15 +11,15 @@
             src="assets/logos/logo-mati.svg"
             class="object-contain text-[32px] ion-margin-horizontal"
           />
-          <ion-title> {{ title }} </ion-title>
+          <ion-title class="select-none"> {{ title }} </ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ngx-particles
+          class="relative"
           [id]="id"
           [options]="particlesOptions()"
           (particlesLoaded)="particlesLoaded($event)"
-          style="position: relative"
         ></ngx-particles>
         <ion-router-outlet />
       </ion-content>
@@ -32,7 +32,7 @@
         }@else {
         <ion-icon [name]="item.icono" />
         }
-        <ion-label>
+        <ion-label class="select-none">
           {{ item.titulo }}
         </ion-label>
       </ion-tab-button>
@@ -63,7 +63,7 @@
     <div class="main-content" id="main-content">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title> {{ title }} </ion-title>
+          <ion-title class="select-none"> {{ title }} </ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -71,7 +71,7 @@
           [id]="id"
           [options]="particlesOptions()"
           (particlesLoaded)="particlesLoaded($event)"
-          style="position: relative"
+          class="relative"
         ></ngx-particles>
         <ion-router-outlet />
       </ion-content>

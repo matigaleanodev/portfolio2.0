@@ -6,7 +6,7 @@
   text-align: center;
   background: transparent;
   --background: transparent;
-  color: var(--ion-color-light, #fff);
+  color: var(--ion-menu-color);
   border-radius: 2px;
   padding: 1rem 2px;
   cursor: pointer;
@@ -17,7 +17,7 @@
 }
 
 .custom-sidebar-item:hover {
-  background: var(--ion-color-light, #fff);
+  background: var(--ion-menu-color);
   color: var(--ion-color-primary);
 }
 
@@ -35,7 +35,7 @@
 }
 
 .custom-sidebar-item.active {
-  background: var(--ion-color-light, #fff);
+  background: var(--ion-menu-color);
   color: var(--ion-color-primary);
 }
 
