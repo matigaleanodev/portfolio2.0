@@ -1,13 +1,14 @@
 import { NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import {
-  IonCard,
-  IonCardHeader,
-  IonToolbar,
-  IonCardTitle,
-  IonCardContent,
-  IonIcon,
+  IonButton,
   IonButtons,
+  IonIcon,
+  IonCardContent,
+  IonCardTitle,
+  IonToolbar,
+  IonCardHeader,
+  IonCard,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import {
@@ -24,6 +25,7 @@ import {
   standalone: true,
   imports: [
     IonButtons,
+    IonButton,
     IonIcon,
     IonCardContent,
     IonCardTitle,
@@ -35,7 +37,37 @@ import {
   templateUrl: './frontend-card.component.html',
   styleUrls: ['./frontend-card.component.scss'],
 })
-export class FrontendCardComponent implements OnInit {
+export class FrontendCardComponent {
+  frontendSkills = signal([
+    {
+      name: 'JavaScript y Typescript',
+      link: 'https://www.typescriptlang.org/',
+      description:
+        "Utilizo 'JavaScript y TypeScript' porque son lenguajes de programación muy poderosos y versátiles que permiten desarrollar aplicaciones dinámicas y escalables. TypeScript, al ser un superset de JavaScript, me ayuda a trabajar de manera más segura y estructurada.",
+      image: 'assets/logos/logo-typescript.svg',
+    },
+    {
+      name: 'Angular',
+      link: 'https://angular.dev/',
+      description:
+        "Utilizo 'Angular' porque es un framework robusto y completo que me permite desarrollar aplicaciones de una sola página (SPA) de manera eficiente, con un enfoque en la reutilización de componentes, manejo de estados y optimización del rendimiento.",
+      image: 'assets/logos/logo-angular.svg',
+    },
+    {
+      name: 'Ionic',
+      link: 'https://ionicframework.com/',
+      description:
+        "Utilizo 'Ionic' porque es un framework ideal para desarrollar aplicaciones móviles híbridas, permitiendo compartir código entre plataformas como Android, iOS y la web, lo que optimiza el tiempo de desarrollo y el mantenimiento de las aplicaciones.",
+      image:
+        'https://raw.githubusercontent.com/ionic-team/ionic-framework/main/.github/assets/logo.png',
+    },
+  ]);
+
+  currentIndex = signal(0);
+  isTransitioning = signal(false);
+  totalItems = computed(() => this.frontendSkills().length);
+  visibleIndex = computed(() => this.currentIndex() + 1);
+
   constructor() {
     addIcons({
       logoChrome,
@@ -45,46 +77,42 @@ export class FrontendCardComponent implements OnInit {
       ellipsisHorizontal,
       refresh,
     });
+
+    effect(() => {
+      const interval = setInterval(() => this.nextSlide(), 3000);
+      return () => clearInterval(interval);
+    });
   }
 
-  ngOnInit() {}
-  frondendSkills = [
-    {
-      name: 'JavaScript y Typescript',
-      link: 'https://www.typescriptlang.org/',
-      description:
-        "Utilizo 'JavaScript y TypeScript' porque son lenguajes de programación muy poderosos y versátiles que permiten desarrollar aplicaciones dinámicas y escalables. TypeScript, al ser un superset de JavaScript, me ayuda a trabajar de manera más segura y estructurada.",
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/6/6a/TypeScript_Logo_2020.svg',
-    },
-    {
-      name: 'Angular',
-      link: 'https://angular.dev/',
-      description:
-        "Utilizo 'Angular' porque es un framework robusto y completo que me permite desarrollar aplicaciones de una sola página (SPA) de manera eficiente, con un enfoque en la reutilización de componentes, manejo de estados y optimización del rendimiento.",
-      image: 'https://angular.io/assets/images/logos/angular/angular.png',
-    },
-    {
-      name: 'Ionic',
-      link: 'https://ionicframework.com/',
-      description:
-        "Utilizo 'Ionic' porque es un framework ideal para desarrollar aplicaciones móviles híbridas, permitiendo compartir código entre plataformas como Android, iOS y la web, lo que optimiza el tiempo de desarrollo y el mantenimiento de las aplicaciones.",
-      image:
-        'https://upload.wikimedia.org/wikipedia/commons/e/e5/Ionic_Logo.svg',
-    },
-  ];
+  nextSlide(): void {
+    if (this.isTransitioning()) return;
 
-  currentIndex: number = 0;
+    this.isTransitioning.set(true);
+    this.currentIndex.update((index) => index + 1);
 
-  prevSlide() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
+    setTimeout(() => {
+      if (this.currentIndex() >= this.totalItems()) {
+        this.isTransitioning.set(false);
+        this.currentIndex.set(0);
+      } else {
+        this.isTransitioning.set(false);
+      }
+    }, 500);
   }
 
-  nextSlide() {
-    if (this.currentIndex < this.frondendSkills.length - 1) {
-      this.currentIndex++;
-    }
+  prevSlide(): void {
+    if (this.isTransitioning()) return;
+
+    this.isTransitioning.set(true);
+    this.currentIndex.update((index) => index - 1);
+
+    setTimeout(() => {
+      if (this.currentIndex() < 0) {
+        this.isTransitioning.set(false);
+        this.currentIndex.set(this.totalItems() - 1);
+      } else {
+        this.isTransitioning.set(false);
+      }
+    }, 500);
   }
 }

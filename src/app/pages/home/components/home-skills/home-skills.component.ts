@@ -28,7 +28,7 @@ export class HomeSkillsComponent implements OnInit {
   ngOnInit() {
     const options: TypedOptions = {
       strings: [
-        '<span class="skill-text" style="color: var(--ion-color-angular)">Angular <ion-icon aria-hidden="true" class="p0 m0" icon="logo-angular" /></span>',
+        '<span class="skill-text" style="color: var(--ion-color-angular)">Angular <ion-icon aria-hidden="true" class="p0 m0" src="assets/logos/logo-angular.svg" /></span>',
         '<span class="skill-text" style="color: var(--ion-color-ionic)">Ionic <ion-icon aria-hidden="true" class="p0 m0" icon="logo-ionic" /></span>',
         '<span class="skill-text" style="color: var(--ion-color-nestjs)">NestJs <ion-icon aria-hidden="true" class="p0 m0" src="assets/logos/logo-nestjs.svg" /></span>',
         '<span class="skill-text" style="color: var(--ion-color-nodejs)">NodeJs <ion-icon aria-hidden="true" class="p0 m0" icon="logo-nodejs" /></span>',
