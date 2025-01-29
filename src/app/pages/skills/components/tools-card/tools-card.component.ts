@@ -61,19 +61,6 @@ export class ToolsCardComponent implements OnInit {
       image: 'path_to_image/postman.png',
       description: 'Herramienta para probar APIs',
     },
-    {
-      name: 'Insomnia',
-      icon: 'logoInsomnia',
-      image: 'path_to_image/insomnia.png',
-      description: 'Alternativa de Postman',
-    },
-    {
-      name: 'Docker',
-      icon: 'logoDocker',
-      image: 'path_to_image/docker.png',
-      description:
-        'Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores',
-    },
   ]);
 
   currentIndex = signal(0);
@@ -83,7 +70,7 @@ export class ToolsCardComponent implements OnInit {
       constructOutline,
     });
     effect(() => {
-      const interval = setInterval(() => this.nextSlide(), 3000);
+      const interval = setInterval(() => this.nextSlide(), 8000);
       return () => clearInterval(interval);
     });
   }

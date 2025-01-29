@@ -86,7 +86,7 @@ export class BackendCardComponent {
       terminalOutline,
     });
     effect(() => {
-      const interval = setInterval(() => this.nextSlide(), 3000);
+      const interval = setInterval(() => this.nextSlide(), 8000);
       return () => clearInterval(interval);
     });
   }

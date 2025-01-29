@@ -83,7 +83,7 @@ export class FrontendCardComponent {
     });
 
     effect(() => {
-      const interval = setInterval(() => this.nextSlide(), 300000);
+      const interval = setInterval(() => this.nextSlide(), 8000);
       return () => clearInterval(interval);
     });
   }

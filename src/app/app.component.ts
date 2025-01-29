@@ -34,6 +34,7 @@ import { TokenService } from '@shared/services/token/token.service';
 import { DatePipe } from '@angular/common';
 import { particles } from '@shared/animations/particles.animation';
 import { Container, Engine } from '@tsparticles/engine';
+import { loadSlim } from '@tsparticles/slim';
 import { loadFull } from 'tsparticles';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 import { MenuComponent } from '@shared/components/menu/menu.component';
@@ -137,7 +138,8 @@ export class AppComponent implements OnInit {
       },
     });
     this._particles.init(async (engine: Engine) => {
-      await loadFull(engine);
+      await loadSlim(engine);
+      //await loadFull(engine);
     });
   }
 

@@ -76,6 +76,30 @@ ion-menu {
   gap: 0.5rem;
 }
 
+.angular-gradient {
+  background: linear-gradient(
+    53.2deg,
+    #e40035,
+    #f60a48 20%,
+    #f20755 40%,
+    #dc087d 50%,
+    #9717e7 70%,
+    #6c00f5 100%
+  );
+  background-clip: text;
+  color: transparent;
+}
+
 .typed-cursor {
   font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+.menu-color {
+  color: var(--ion-menu-color-inverted);
+}
+
+.ang-img {
+  height: 30px;
+  width: auto;
+  margin-left: 4px;
 }
