@@ -1,34 +1,40 @@
 <ion-content class="profile">
-  <ion-row class="h-full">
-    <ion-col
-      size="12"
-      sizeMd="6"
-      class="flex justify-center items-center lg:pt-[10%]"
-    >
-      <div>
-        <p class="text-light profile-title-h1">
-          Hola!!
-          <span class="wave" role="img" aria-labelledby="wave">👋🏻</span>
-          <br />
-          soy
-          <span class="profile-title-name">Matias Galeano</span>
-          <br />
-          <span class="text-3xl">Software Developer.</span>
-        </p>
-        <div class="w-full flex justify-center profile-title-h2 skill-content">
-          <app-home-skills class="skill-content" />
-        </div>
-      </div>
-    </ion-col>
-    <ion-col
-      size="12"
-      sizeMd="6"
-      class="hidden md:flex justify-center items-center lg:pb-[10%]"
-    >
-      <ion-img
-        class="h-3/5 max-h-3/5 object-contain profile-img"
-        src="assets/images/programming.svg"
-      />
-    </ion-col>
-  </ion-row>
+  <section class="h-full">
+    <ion-row class="h-full">
+      <ion-col
+        size="12"
+        sizeMd="6"
+        class="flex justify-center items-center lg:pt-[10%]"
+      >
+        <article #perfil>
+          <p class="text-light profile-title-h1">
+            Hola!!
+            <span class="wave" role="img" aria-labelledby="wave">👋🏻</span>
+            <br />
+            soy
+            <span class="profile-title-name">Matias Galeano</span>
+            <br />
+            <span class="text-3xl">Software Developer.</span>
+          </p>
+          <div
+            class="w-full flex justify-center profile-title-h2 skill-content"
+          >
+            <app-home-skills class="skill-content" />
+          </div>
+        </article>
+      </ion-col>
+      <ion-col size="12" sizeMd="6" class="hidden md:block">
+        <figure
+          #imagen
+          class="h-full object-contain flex justify-center items-center"
+        >
+          <ion-img
+            class="w-3/5 max-w-3/5 object-contain profile-img"
+            src="assets/images/programming.svg"
+            alt=" Svg de una persona programando"
+          />
+        </figure>
+      </ion-col>
+    </ion-row>
+  </section>
 </ion-content>

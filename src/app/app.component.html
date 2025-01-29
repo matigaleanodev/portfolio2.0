@@ -1,38 +1,41 @@
 <ion-app>
   @if (useTabs()) {
+  <main class="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-icon
+          slot="start"
+          aria-hidden="true"
+          src="assets/logos/logo-mati.svg"
+          class="object-contain text-[32px] ion-margin-horizontal menu-color"
+        />
+        <ion-title class="select-none">
+          <h1 class="menu-color">
+            {{ title }}
+          </h1>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ngx-particles
+        class="relative"
+        [id]="id"
+        [options]="particlesOptions()"
+        (particlesLoaded)="particlesLoaded($event)"
+      ></ngx-particles>
+      <ion-router-outlet />
+    </ion-content>
+  </main>
   <ion-tabs>
-    <div class="main-content">
-      <ion-header>
-        <ion-toolbar color="primary">
-          <ion-icon
-            slot="start"
-            color="light"
-            aria-hidden="true"
-            src="assets/logos/logo-mati.svg"
-            class="object-contain text-[32px] ion-margin-horizontal"
-          />
-          <ion-title class="select-none"> {{ title }} </ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content>
-        <ngx-particles
-          class="relative"
-          [id]="id"
-          [options]="particlesOptions()"
-          (particlesLoaded)="particlesLoaded($event)"
-        ></ngx-particles>
-        <ion-router-outlet />
-      </ion-content>
-    </div>
-    <ion-tab-bar slot="bottom">
+    <ion-tab-bar color="primary" slot="bottom">
       @for (item of menuItems | menu; track $index) {
-      <ion-tab-button [tab]="item.link">
+      <ion-tab-button [tab]="item.link" routerLinkActive="active">
         @if (item.icono === 'home') {
-        <ion-icon src="assets/logos/logo-mati.svg" />
+        <ion-icon class="menu-color" src="assets/logos/logo-mati.svg" />
         }@else {
-        <ion-icon [name]="item.icono" />
+        <ion-icon class="menu-color" [name]="item.icono" />
         }
-        <ion-label class="select-none">
+        <ion-label class="select-none menu-color">
           {{ item.titulo }}
         </ion-label>
       </ion-tab-button>
@@ -48,10 +51,9 @@
         <ion-toolbar color="primary">
           <div class="flex justify-center items-center h-16">
             <ion-icon
-              color="light"
               aria-hidden="true"
               src="assets/logos/logo-mati.svg"
-              class="object-contain text-[32px]"
+              class="object-contain text-[32px] menu-color"
             />
           </div>
         </ion-toolbar>
@@ -63,7 +65,11 @@
     <div class="main-content" id="main-content">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title class="select-none"> {{ title }} </ion-title>
+          <ion-title class="select-none">
+            <h1 class="menu-color">
+              {{ title }}
+            </h1>
+          </ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
@@ -78,15 +84,14 @@
       <ion-footer [translucent]="true">
         <ion-toolbar class="ion-padding-end ion-text-end">
           <ion-text>
-            Copyright &copy;
+            Copyright &copy; {{ date | date : "yyyy" }}
             <a
               href="https://matiasgaleano.com.ar/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Matias Galeano</a
-            >
-            - {{ date | date : "MMMM yyyy" }}
+              Matias Galeano
+            </a>
           </ion-text>
         </ion-toolbar>
       </ion-footer>

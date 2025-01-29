@@ -1,19 +1,34 @@
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col offsetLg="1" sizeLg="7" class="ion-padding">
-        <app-frontend-card />
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col offsetLg="4" sizeLg="7" class="ion-padding">
-        <app-backend-card />
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col offsetLg="3" sizeLg="6" class="ion-padding">
-        <app-tools-card />
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <section>
+    <ion-grid>
+      <ion-row>
+        <ion-title>
+          <h2 class="!text-center !text-3xl !font-black">
+            {{ "Tecnologías con las que trabajo" | uppercase }}
+          </h2>
+        </ion-title>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="1" sizeLg="7" class="ion-padding">
+          <article #frontend>
+            <app-frontend-card />
+          </article>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="4" sizeLg="7" class="ion-padding">
+          <article #backend>
+            <app-backend-card />
+          </article>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col offsetLg="3" sizeLg="6" class="ion-padding">
+          <article #tools>
+            <app-tools-card />
+          </article>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
 </ion-content>

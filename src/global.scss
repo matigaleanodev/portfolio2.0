@@ -1,3 +1,5 @@
+@use "tailwindcss";
+
 @use "@ionic/angular/css/core.css";
 
 @use "@ionic/angular/css/normalize.css";
@@ -14,7 +16,6 @@
 /* @use "@ionic/angular/css/palettes/dark.always.css"; */
 @use "@ionic/angular/css/palettes/dark.class.css";
 // @use "@ionic/angular/css/palettes/dark.system.css";
-@use "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1;0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html {
@@ -26,7 +27,6 @@ html {
   flex-direction: column;
   height: 100vh;
 }
-
 ion-content,
 .ion-page {
   --background: transparent !important;
@@ -39,7 +39,7 @@ ion-split-pane {
 
 ion-menu {
   --width: 80px;
-  --max-width: 80px !important;
+  --max-width: 80px;
 }
 
 .accent-primary {
@@ -95,11 +95,15 @@ ion-menu {
 }
 
 .menu-color {
-  color: var(--ion-menu-color-inverted);
+  color: var(--ion-menu-color);
 }
 
 .ang-img {
   height: 30px;
   width: auto;
   margin-left: 4px;
+}
+
+h1 {
+  margin: 0 !important;
 }

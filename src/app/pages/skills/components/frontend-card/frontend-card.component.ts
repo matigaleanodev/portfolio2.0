@@ -44,24 +44,25 @@ import {
 export class FrontendCardComponent {
   frontendSkills = signal([
     {
-      name: 'JavaScript y Typescript',
+      name: 'TypeScript',
       link: 'https://www.typescriptlang.org/',
       description:
-        "Utilizo 'JavaScript y TypeScript' porque son lenguajes de programación muy poderosos y versátiles que permiten desarrollar aplicaciones dinámicas y escalables. TypeScript, al ser un superset de JavaScript, me ayuda a trabajar de manera más segura y estructurada.",
+        "Uso 'JavaScript y TypeScript' por su versatilidad y escalabilidad. TypeScript mejora la seguridad y estructura del código.",
       image: 'assets/logos/logo-typescript.svg',
     },
     {
       name: 'Angular',
       link: 'https://angular.dev/',
       description:
-        "Utilizo 'Angular' porque es un framework robusto y completo que me permite desarrollar aplicaciones de una sola página (SPA) de manera eficiente, con un enfoque en la reutilización de componentes, manejo de estados y optimización del rendimiento.",
-      image: 'assets/logos/logo-angular.svg',
+        "Uso 'Angular' por su robustez y eficiencia en el desarrollo de SPA, con componentes reutilizables y alto rendimiento.",
+      image:
+        'https://angular.dev/assets/images/press-kit/angular_icon_gradient.gif',
     },
     {
       name: 'Ionic',
       link: 'https://ionicframework.com/',
       description:
-        "Utilizo 'Ionic' porque es un framework ideal para desarrollar aplicaciones móviles híbridas, permitiendo compartir código entre plataformas como Android, iOS y la web, lo que optimiza el tiempo de desarrollo y el mantenimiento de las aplicaciones.",
+        "Uso 'Ionic' para crear apps híbridas con un solo código, optimizando el desarrollo en Android, iOS y web.",
       image:
         'https://raw.githubusercontent.com/ionic-team/ionic-framework/main/.github/assets/logo.png',
     },

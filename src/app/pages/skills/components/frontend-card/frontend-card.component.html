@@ -46,21 +46,9 @@
   </div>
 
   <ion-card-content class="chrome-content border">
-    <!-- Carrusel -->
+    <!-- Contenedor principal del carrusel -->
     <div class="flex items-center mt-6 space-x-4">
-      <!-- Botón anterior -->
-      <div class="flex-shrink-0">
-        <ion-button
-          color="medium"
-          fill="clear"
-          (click)="prevSlide()"
-          class="rounded-full p-2"
-        >
-          <ion-icon slot="icon-only" name="chevron-back" size="large" />
-        </ion-button>
-      </div>
-
-      <!-- Contenido del carrusel -->
+      <!-- Contenedor del carrusel -->
       <div class="flex-1 overflow-hidden h-48">
         <div
           class="flex transition-transform duration-500 ease-in-out h-full"
@@ -74,7 +62,7 @@
               <img
                 src="{{ skill.image }}"
                 alt="{{ skill.name }}"
-                class="w-32 h-32 rounded-lg"
+                class="w-20 h-20 lg:w-32 lg:h-32 rounded-lg"
               />
               <div>
                 <ion-title>
@@ -88,8 +76,17 @@
         </div>
       </div>
 
-      <!-- Botón siguiente -->
-      <div class="flex-shrink-0">
+      <!-- Contenedor de botones en columna a la derecha -->
+      <div class="flex flex-col space-y-2 w-auto">
+        <ion-button
+          color="medium"
+          fill="clear"
+          (click)="prevSlide()"
+          class="rounded-full p-2"
+        >
+          <ion-icon slot="icon-only" name="chevron-back" size="large" />
+        </ion-button>
+
         <ion-button
           color="medium"
           fill="clear"
