@@ -46,19 +46,19 @@ export class ToolsCardComponent implements OnInit {
     {
       name: 'Visual Studio Code',
       icon: 'logoVisualstudio',
-      image: 'path_to_image/vscode.png',
+      image: 'assets/logos/logo-vscode.svg',
       description: 'Editor de código fuente',
     },
     {
       name: 'Git',
       icon: 'logoGit',
-      image: 'path_to_image/git.png',
+      image: 'assets/logos/logo-git.svg',
       description: 'Sistema de control de versiones',
     },
     {
       name: 'Postman',
       icon: 'logoPostman',
-      image: 'path_to_image/postman.png',
+      image: 'assets/logos/logo-postman.svg',
       description: 'Herramienta para probar APIs',
     },
   ]);

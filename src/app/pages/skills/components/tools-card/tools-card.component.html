@@ -25,10 +25,11 @@
         <ion-list>
           @for (tool of tools(); track $index) {
           <ion-item
+            class="cursor-pointer"
             [ngClass]="{ selected: currentIndex() === $index }"
             (click)="currentIndex.set($index)"
           >
-            <ion-note>{{ tool.name }}</ion-note>
+            <ion-note class="select-none">{{ tool.name }}</ion-note>
           </ion-item>
           }
         </ion-list>
