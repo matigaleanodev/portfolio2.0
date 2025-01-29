@@ -41,35 +41,35 @@ export class BackendCardComponent {
     {
       name: 'Node.js',
       descripcion:
-        'Utilizo Node.js porque es un entorno de ejecución de JavaScript que me permite desarrollar aplicaciones del lado del servidor de manera eficiente y escalable.',
+        'Lo utilizo por su eficiencia y escalabilidad en el desarrollo backend.',
       image: 'assets/logos/logo-nodejs.svg',
       link: 'https://nodejs.org/',
     },
     {
       name: 'NestJS',
       descripcion:
-        'Utilizo NestJS porque es un framework de Node.js que me permite desarrollar aplicaciones del lado del servidor de manera estructurada y modular, siguiendo el patrón de arquitectura MVC.',
+        'Lo prefiero por su arquitectura modular y estructurada sobre Node.js.',
       image: 'assets/logos/logo-nestjs.svg',
       link: 'https://nestjs.com/',
     },
     {
       name: 'Firebase',
       descripcion:
-        'Utilizo Firebase porque es una plataforma de desarrollo de aplicaciones móviles y web que me permite desarrollar aplicaciones de manera rápida y sencilla, con una base de datos en tiempo real y servicios de autenticación y almacenamiento en la nube.',
+        'Ideal para desarrollo ágil con base de datos en tiempo real y servicios en la nube.',
       image: 'assets/logos/logo-firebase.svg',
       link: 'https://firebase.google.com/',
     },
     {
       name: 'MySQL',
       descripcion:
-        'Utilizo MySQL porque es un sistema de gestión de bases de datos relacional que me permite almacenar y gestionar datos de manera eficiente y segura.',
+        'Lo utilizo por su fiabilidad y eficiencia en la gestión de bases de datos relacionales.',
       image: 'assets/logos/logo-mysql.svg',
       link: 'https://www.mysql.com/',
     },
     {
       name: 'PostgreSQL',
       descripcion:
-        'Utilizo PostgreSQL porque es un sistema de gestión de bases de datos relacional de código abierto que me permite almacenar y gestionar datos de manera eficiente y segura, con soporte para consultas complejas y transacciones.',
+        'Lo elijo por su robustez en consultas avanzadas y manejo de transacciones complejas.',
       image: 'assets/logos/logo-postgresql.svg',
       link: 'https://www.postgresql.org/',
     },

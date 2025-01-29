@@ -23,6 +23,9 @@ import {
   IonTabBar,
   IonTabButton,
   IonLabel,
+  IonFab,
+  IonFabList,
+  IonFabButton,
 } from '@ionic/angular/standalone';
 
 import { Platform } from '@ionic/angular';
@@ -35,12 +38,20 @@ import { DatePipe } from '@angular/common';
 import { particles } from '@shared/animations/particles.animation';
 import { Container, Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
-import { loadFull } from 'tsparticles';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 import { MenuComponent } from '@shared/components/menu/menu.component';
 import { MenuItems } from '@shared/components/menu/menu';
 import { addIcons } from 'ionicons';
-import { clipboardOutline, laptopOutline, mail, person } from 'ionicons/icons';
+import {
+  clipboardOutline,
+  contrast,
+  laptopOutline,
+  mail,
+  moon,
+  person,
+  phonePortraitOutline,
+  sunny,
+} from 'ionicons/icons';
 import { MenuPipe } from '@shared/pipes/menu.pipe';
 
 @Component({
@@ -48,6 +59,9 @@ import { MenuPipe } from '@shared/pipes/menu.pipe';
   standalone: true,
   templateUrl: 'app.component.html',
   imports: [
+    IonFabButton,
+    IonFabList,
+    IonFab,
     IonLabel,
     IonTabButton,
     IonTabBar,
@@ -99,6 +113,10 @@ export class AppComponent implements OnInit {
       mail,
       laptopOutline,
       clipboardOutline,
+      contrast,
+      sunny,
+      moon,
+      phonePortraitOutline,
     });
     effect(() => {
       this.updateParticleColors();
@@ -158,5 +176,17 @@ export class AppComponent implements OnInit {
       this._theme.updateTheme(event.matches ? 'dark' : 'light');
       this.updateParticleColors();
     }
+  }
+
+  useDeviceTheme() {
+    this._theme.useDeviceTheme();
+  }
+
+  setDark() {
+    this._theme.setDarkTheme();
+  }
+
+  setLight() {
+    this._theme.setLightTheme();
   }
 }

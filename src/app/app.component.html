@@ -23,8 +23,27 @@
         [options]="particlesOptions()"
         (particlesLoaded)="particlesLoaded($event)"
       ></ngx-particles>
+
       <ion-router-outlet />
     </ion-content>
+    <ion-fab class="mb-16" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="contrast" />
+      </ion-fab-button>
+      <ion-fab-list side="top" class="fix-ion-fab-list">
+        <ion-fab-button color="dark" (click)="setDark()">
+          <ion-icon name="moon" color="medium" />
+        </ion-fab-button>
+        <ion-fab-button color="light" (click)="setLight()">
+          <ion-icon name="sunny" color="warning" />
+        </ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list side="start" class="fix-ion-fab-list">
+        <ion-fab-button color="primary" (click)="useDeviceTheme()">
+          <ion-icon name="phone-portrait-outline" />
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
   </main>
   <ion-tabs>
     <ion-tab-bar color="primary" slot="bottom">
@@ -79,7 +98,26 @@
           (particlesLoaded)="particlesLoaded($event)"
           class="relative"
         ></ngx-particles>
-        <ion-router-outlet />
+        <ion-router-outlet>
+          <ion-fab vertical="bottom" horizontal="end">
+            <ion-fab-button>
+              <ion-icon name="contrast" />
+            </ion-fab-button>
+            <ion-fab-list side="top" class="fix-ion-fab-list">
+              <ion-fab-button color="dark" (click)="setDark()">
+                <ion-icon name="moon" color="medium" />
+              </ion-fab-button>
+              <ion-fab-button color="light" (click)="setLight()">
+                <ion-icon name="sunny" color="warning" />
+              </ion-fab-button>
+            </ion-fab-list>
+            <ion-fab-list side="start" class="fix-ion-fab-list">
+              <ion-fab-button color="primary" (click)="useDeviceTheme()">
+                <ion-icon name="phone-portrait-outline" />
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+        </ion-router-outlet>
       </ion-content>
       <ion-footer [translucent]="true">
         <ion-toolbar class="ion-padding-end ion-text-end">

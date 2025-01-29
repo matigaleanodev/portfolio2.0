@@ -16,7 +16,38 @@
 /* @use "@ionic/angular/css/palettes/dark.always.css"; */
 @use "@ionic/angular/css/palettes/dark.class.css";
 // @use "@ionic/angular/css/palettes/dark.system.css";
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1;0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+ion-fab-list {
+  display: flex !important;
+  gap: 12px !important;
+  position: absolute !important;
+}
+
+ion-fab-list[side="top"] {
+  flex-direction: column-reverse !important;
+  bottom: 100% !important;
+  margin-bottom: 12px !important;
+}
+
+ion-fab-list[side="bottom"] {
+  flex-direction: column !important;
+  top: 100% !important;
+  margin-top: 12px !important;
+}
+
+ion-fab-list[side="start"] {
+  flex-direction: row-reverse !important;
+  right: 100% !important;
+  margin-right: 12px !important;
+}
+
+ion-fab-list[side="end"] {
+  flex-direction: row !important;
+  left: 100% !important;
+  margin-left: 12px !important;
+}
 
 html {
   font-size: 14px;
