@@ -1,0 +1,25 @@
+.instant-photo {
+  width: 200px;
+  padding: 0px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+ion-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+}
+
+ion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

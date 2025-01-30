@@ -1,0 +1,12 @@
+<ion-card
+  class="instant-photo !border !border-gray !rounded-md !shadow-md !shadow-gray-300"
+  [ngStyle]="{ transform: 'rotate(' + rotation() + 'deg)' }"
+>
+  <ion-card-content>
+    <ion-img
+      class="border rounded-md overflow-hidden"
+      [src]="imageSrc()"
+      alt="Instant Photo"
+    ></ion-img>
+  </ion-card-content>
+</ion-card>

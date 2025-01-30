@@ -10,6 +10,7 @@ import {
   IonCardContent,
   IonCard,
 } from '@ionic/angular/standalone';
+import { InstantPhotoComponent } from './components/instant-photo/instant-photo.component';
 
 @Component({
   selector: 'app-about',
@@ -26,6 +27,7 @@ import {
     IonGrid,
     IonContent,
     UpperCasePipe,
+    InstantPhotoComponent,
   ],
 })
 export class AboutComponent implements OnInit {

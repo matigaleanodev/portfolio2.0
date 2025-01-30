@@ -58,6 +58,11 @@ html {
   flex-direction: column;
   height: 100vh;
 }
+
+.tabs-inner {
+  margin-top: 56px;
+}
+
 ion-content,
 .ion-page {
   --background: transparent !important;
