@@ -19,34 +19,35 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;900&family=Sofia+Sans+Semi+Condensed:ital,wght@0,1;0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,1;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-ion-fab-list {
-  display: flex !important;
-  gap: 12px !important;
-  position: absolute !important;
+ion-fab-list.fab-list-active {
+  display: flex;
+  gap: 12px;
+  position: absolute;
+  transition: display 0.2s ease;
 }
 
 ion-fab-list[side="top"] {
-  flex-direction: column-reverse !important;
-  bottom: 100% !important;
-  margin-bottom: 12px !important;
+  flex-direction: column-reverse;
+  bottom: 100%;
+  margin-bottom: 12px;
 }
 
 ion-fab-list[side="bottom"] {
-  flex-direction: column !important;
-  top: 100% !important;
-  margin-top: 12px !important;
+  flex-direction: column;
+  top: 100%;
+  margin-top: 12px;
 }
 
 ion-fab-list[side="start"] {
-  flex-direction: row-reverse !important;
-  right: 100% !important;
-  margin-right: 12px !important;
+  flex-direction: row-reverse;
+  right: 100%;
+  margin-right: 12px;
 }
 
 ion-fab-list[side="end"] {
-  flex-direction: row !important;
-  left: 100% !important;
-  margin-left: 12px !important;
+  flex-direction: row;
+  left: 100%;
+  margin-left: 12px;
 }
 
 html {
@@ -142,4 +143,8 @@ ion-menu {
 
 h1 {
   margin: 0 !important;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, 3rem);
 }
