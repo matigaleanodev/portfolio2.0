@@ -7,10 +7,15 @@
     </ion-title>
     <ion-grid>
       <ion-row>
-        <ion-col offsetLg="3" size="12" sizeLg="5">
+        <ion-col
+          offsetLg="3"
+          size="12"
+          sizeLg="5"
+          class="flex justify-center items-center"
+        >
           <article>
             <ion-card>
-              <ion-card-content>
+              <ion-card-content class="!py-[3rem] !px-[2rem]">
                 <ion-text>
                   <p>
                     <strong>¡Hola! Soy de Posadas, Misiones, Argentina.</strong>
@@ -31,20 +36,6 @@
                 </ion-text>
               </ion-card-content>
             </ion-card>
-            <br />
-            <ion-card>
-              <ion-card-content>
-                <ion-text>
-                  <p>
-                    Además de mis habilidades técnicas, me considero una persona
-                    creativa, proactiva y con buenas habilidades para el trabajo
-                    en equipo y la comunicación. Creo firmemente en la
-                    importancia de la colaboración y siempre estoy dispuesto a
-                    aprender y mejorar.
-                  </p>
-                </ion-text>
-              </ion-card-content>
-            </ion-card>
           </article>
         </ion-col>
         <ion-col size="12" sizeLg="4" class="flex justify-center items-center">
@@ -55,6 +46,37 @@
               rotation="-30"
             />
           </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col
+          offsetLg="1"
+          size="12"
+          sizeLg="4"
+          class="flex justify-center items-center"
+        >
+          <div class="photo-container flex justify-center items-center">
+            <app-instant-photo
+              class="fit-content"
+              imageSrc="https://misionesaldesnudo.com/wp-content/uploads/2022/05/posadas-2.jpg"
+              rotation="30"
+            />
+          </div>
+        </ion-col>
+        <ion-col size="12" sizeLg="5" class="flex justify-center items-center">
+          <ion-card>
+            <ion-card-content class="!py-[3rem] !px-[2rem]">
+              <ion-text>
+                <p>
+                  Además de mis habilidades técnicas, me considero una persona
+                  creativa, proactiva y con buenas habilidades para el trabajo
+                  en equipo y la comunicación. Creo firmemente en la importancia
+                  de la colaboración y siempre estoy dispuesto a aprender y
+                  mejorar.
+                </p>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
