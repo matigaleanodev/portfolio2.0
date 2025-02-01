@@ -34,7 +34,7 @@ import { defineCustomElement as defineModal } from '@ionic/core/components/ion-m
 import { defineCustomElement as defineNav } from '@ionic/core/components/ion-nav';
 import { ThemeService } from '@shared/services/theme/theme.service';
 import { TokenService } from '@shared/services/token/token.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import { particles } from '@shared/animations/particles.animation';
 import { Container, Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
@@ -53,6 +53,8 @@ import {
   sunny,
 } from 'ionicons/icons';
 import { MenuPipe } from '@shared/pipes/menu.pipe';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -103,7 +105,7 @@ export class AppComponent implements OnInit {
 
   readonly currentTheme = computed(() => this._theme.currentTheme());
 
-  constructor() {
+  constructor(private router: Router, private nav: NavController) {
     defineLoading();
     defineModal();
     defineNav();
@@ -168,6 +170,11 @@ export class AppComponent implements OnInit {
   @HostListener('window:resize')
   private updateScreenWidth = () => {
     this.screenWidth.set(window.innerWidth);
+    if (this.useTabs()) {
+      const currentUrl = this.router.url;
+      console.log(currentUrl);
+      this.nav.navigateRoot(this.router.url);
+    }
   };
 
   @HostListener('window:matchMedia', ['$event'])

@@ -8,37 +8,42 @@
     <ion-grid>
       <ion-row>
         <ion-col
+          offsetMd="1"
           offsetLg="3"
           size="12"
-          sizeLg="5"
+          sizeMd="5"
+          class="flex justify-center items-center px-2 lg:px-0"
+        >
+          <ion-card>
+            <ion-card-content class="!py-[3rem] !px-[2rem]">
+              <ion-text>
+                <p>
+                  <strong>¡Hola! Soy de Posadas, Misiones, Argentina.</strong>
+                </p>
+                <p>
+                  Me apasiona el desarrollo en TypeScript, el fútbol, la música
+                  y los videojuegos, especialmente World of Warcraft. 🎮⚽🎶
+                </p>
+                <p>
+                  Actualmente, soy
+                  <strong>Frontend Developer y Mobile Developer</strong> en
+                  <a href="http://www.ingertec.com.ar" target="_blank"
+                    >IngerTec Argentina </a
+                  >, donde me especializo en crear aplicaciones web y móviles
+                  increíbles utilizando Angular e Ionic.
+                </p>
+              </ion-text>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col
+          size="12"
+          offsetMd="1"
+          offsetLg="0"
+          sizeMd="3"
+          sizeLg="4"
           class="flex justify-center items-center"
         >
-          <article>
-            <ion-card>
-              <ion-card-content class="!py-[3rem] !px-[2rem]">
-                <ion-text>
-                  <p>
-                    <strong>¡Hola! Soy de Posadas, Misiones, Argentina.</strong>
-                  </p>
-                  <p>
-                    Me apasiona el desarrollo en TypeScript, el fútbol, la
-                    música y los videojuegos, especialmente World of Warcraft.
-                    🎮⚽🎶
-                  </p>
-                  <p>
-                    Actualmente, soy
-                    <strong>Frontend Developer y Mobile Developer</strong> en
-                    <a href="http://www.ingertec.com.ar" target="_blank"
-                      >IngerTec Argentina </a
-                    >, donde me especializo en crear aplicaciones web y móviles
-                    increíbles utilizando Angular e Ionic.
-                  </p>
-                </ion-text>
-              </ion-card-content>
-            </ion-card>
-          </article>
-        </ion-col>
-        <ion-col size="12" sizeLg="4" class="flex justify-center items-center">
           <div class="photo-container flex justify-center items-center">
             <app-instant-photo
               class="fit-content"
@@ -50,20 +55,12 @@
       </ion-row>
       <ion-row>
         <ion-col
-          offsetLg="1"
           size="12"
-          sizeLg="4"
-          class="flex justify-center items-center"
+          sizeMd="5"
+          pushMd="6"
+          pushLg="4"
+          class="flex justify-center items-center px-2 lg:px-0"
         >
-          <div class="photo-container flex justify-center items-center">
-            <app-instant-photo
-              class="fit-content"
-              imageSrc="https://misionesaldesnudo.com/wp-content/uploads/2022/05/posadas-2.jpg"
-              rotation="30"
-            />
-          </div>
-        </ion-col>
-        <ion-col size="12" sizeLg="5" class="flex justify-center items-center">
           <ion-card>
             <ion-card-content class="!py-[3rem] !px-[2rem]">
               <ion-text>
@@ -77,6 +74,23 @@
               </ion-text>
             </ion-card-content>
           </ion-card>
+        </ion-col>
+
+        <ion-col
+          size="12"
+          sizeMd="4"
+          offsetMd="1"
+          pullLg="6"
+          pullMd="5"
+          class="flex justify-center items-center"
+        >
+          <div class="photo-container flex justify-center items-center">
+            <app-instant-photo
+              class="fit-content"
+              imageSrc="https://misionesaldesnudo.com/wp-content/uploads/2022/05/posadas-2.jpg"
+              rotation="30"
+            />
+          </div>
         </ion-col>
       </ion-row>
     </ion-grid>
