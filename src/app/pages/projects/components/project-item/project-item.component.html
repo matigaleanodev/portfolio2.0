@@ -1,0 +1,56 @@
+<article
+  class="relative w-[min(90vw,400px)] h-[min(90vw,400px)] md:w-[300px] md:h-[300px] border border-gray-300 rounded-md text-white transition-transform duration-500 hover:scale-110 overflow-hidden"
+>
+  <div
+    class="absolute inset-0 flex flex-col bg-black/50 backdrop-blur-lg opacity-0 transition-opacity duration-300 hover:opacity-100"
+  >
+    <div class="absolute top-2 left-2 p-2 bg-black/70 rounded-md">
+      <h5 class="text-lg font-bold">{{ project().name }}</h5>
+    </div>
+    <div
+      class="absolute inset-0 flex items-center justify-center p-6 text-center"
+    >
+      <p>{{ project().description }}</p>
+    </div>
+    <div class="flex justify-center gap-4 mt-auto mb-4">
+      @if (project().frontUrl) {
+      <a
+        Tooltip
+        tooltip="Frontend Repo"
+        [href]="project().frontUrl"
+        target="_blank"
+        class="text-xl text-white hover:text-gray-400"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      } @if (project().backUrl) {
+      <a
+        Tooltip
+        tooltip="Backend Repo"
+        [href]="project().backUrl"
+        target="_blank"
+        class="text-xl text-white hover:text-gray-400"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      } @if (project().demoUrl) {
+      <a
+        Tooltip
+        tooltip="Live Demo"
+        [href]="project().demoUrl"
+        target="_blank"
+        class="text-xl text-white hover:text-gray-400"
+      >
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+      }
+    </div>
+  </div>
+  @if (image()) {
+  <img
+    [src]="image()"
+    [alt]="project().name"
+    class="w-full h-full object-cover transition-transform duration-500"
+  />
+  }
+</article>

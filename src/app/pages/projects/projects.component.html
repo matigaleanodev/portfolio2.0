@@ -1,3 +1,9 @@
-<p>
-  projects works!
-</p>
+<ion-grid>
+  <ion-row>
+    @for (project of projects(); track $index) {
+    <ion-col>
+      <app-project-item [project]="project" />
+    </ion-col>
+    }
+  </ion-row>
+</ion-grid>

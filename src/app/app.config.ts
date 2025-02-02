@@ -40,7 +40,7 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 export const AppConfig: ApplicationConfig = {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    provideIonicAngular(),
+    provideIonicAngular({ mode: 'md' }),
     provideRouter(
       routes,
       inMemoryScrollingFeature,
@@ -50,8 +50,8 @@ export const AppConfig: ApplicationConfig = {
     ),
     provideHttpClient(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     importProvidersFrom([IonicStorageModule.forRoot()]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',

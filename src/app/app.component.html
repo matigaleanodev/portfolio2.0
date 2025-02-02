@@ -21,7 +21,6 @@
         class="relative"
         [id]="id"
         [options]="particlesOptions()"
-        (particlesLoaded)="particlesLoaded($event)"
       ></ngx-particles>
 
       <ion-router-outlet />
@@ -95,7 +94,6 @@
         <ngx-particles
           [id]="id"
           [options]="particlesOptions()"
-          (particlesLoaded)="particlesLoaded($event)"
           class="relative"
         ></ngx-particles>
         <ion-router-outlet>

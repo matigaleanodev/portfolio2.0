@@ -34,9 +34,9 @@ import { defineCustomElement as defineModal } from '@ionic/core/components/ion-m
 import { defineCustomElement as defineNav } from '@ionic/core/components/ion-nav';
 import { ThemeService } from '@shared/services/theme/theme.service';
 import { TokenService } from '@shared/services/token/token.service';
-import { DatePipe, NgClass } from '@angular/common';
+import { DatePipe } from '@angular/common';
 import { particles } from '@shared/animations/particles.animation';
-import { Container, Engine } from '@tsparticles/engine';
+import { Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 import { NgParticlesService, NgxParticlesModule } from '@tsparticles/angular';
 import { MenuComponent } from '@shared/components/menu/menu.component';
@@ -53,8 +53,8 @@ import {
   sunny,
 } from 'ionicons/icons';
 import { MenuPipe } from '@shared/pipes/menu.pipe';
-import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ApiService } from '@shared/services/api/api.service';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-root',
@@ -86,6 +86,7 @@ import { NavController } from '@ionic/angular';
   ],
 })
 export class AppComponent implements OnInit {
+  private _api = inject(ApiService);
   private _theme = inject(ThemeService);
   private _token = inject(TokenService);
   private _particles = inject(NgParticlesService);
@@ -93,6 +94,7 @@ export class AppComponent implements OnInit {
 
   private readonly screenWidth = signal(window.innerWidth);
   private readonly isNative = signal(this.platform.is('capacitor'));
+  private readonly apiInit = toSignal(this._api.initApi());
 
   readonly date = new Date();
   readonly title = 'Matias Galeano';
@@ -105,7 +107,7 @@ export class AppComponent implements OnInit {
 
   readonly currentTheme = computed(() => this._theme.currentTheme());
 
-  constructor(private router: Router, private nav: NavController) {
+  constructor() {
     defineLoading();
     defineModal();
     defineNav();
@@ -163,18 +165,9 @@ export class AppComponent implements OnInit {
     });
   }
 
-  particlesLoaded(container: Container): void {
-    console.log(container);
-  }
-
   @HostListener('window:resize')
   private updateScreenWidth = () => {
     this.screenWidth.set(window.innerWidth);
-    if (this.useTabs()) {
-      const currentUrl = this.router.url;
-      console.log(currentUrl);
-      this.nav.navigateRoot(this.router.url);
-    }
   };
 
   @HostListener('window:matchMedia', ['$event'])
