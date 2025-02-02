@@ -18,6 +18,7 @@ import {
 } from '@ionic/angular/standalone';
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 import { routes } from './app.routes';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { environment } from 'src/environments/environment';
@@ -52,6 +53,7 @@ export const AppConfig: ApplicationConfig = {
     provideRouter(routes, withPreloading(PreloadAllModules)),
     importProvidersFrom([IonicStorageModule.forRoot()]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideStorage(() => getStorage()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000',

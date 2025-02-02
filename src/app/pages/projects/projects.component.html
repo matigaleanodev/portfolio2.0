@@ -1,9 +1,19 @@
-<ion-grid>
-  <ion-row>
-    @for (project of projects(); track $index) {
-    <ion-col>
-      <app-project-item [project]="project" />
-    </ion-col>
-    }
-  </ion-row>
-</ion-grid>
+<ion-content>
+  <section>
+    <ion-title>
+      <h2 class="!text-center !font-black">
+        {{ "Proyectos en los que trabajé" | uppercase }}
+      </h2>
+    </ion-title>
+
+    <ion-grid>
+      <ion-row>
+        @for (project of projects(); track $index) {
+        <ion-col class="flex justify-center">
+          <app-project-item [project]="project" />
+        </ion-col>
+        }
+      </ion-row>
+    </ion-grid>
+  </section>
+</ion-content>

@@ -4,8 +4,8 @@
   <div
     class="absolute inset-0 flex flex-col bg-black/50 backdrop-blur-lg opacity-0 transition-opacity duration-300 hover:opacity-100"
   >
-    <div class="absolute top-2 left-2 p-2 bg-black/70 rounded-md">
-      <h5 class="text-lg font-bold">{{ project().name }}</h5>
+    <div class="rounded-md w-full">
+      <h5 class="px-[1rem] text-lg font-bold">{{ project().name }}</h5>
     </div>
     <div
       class="absolute inset-0 flex items-center justify-center p-6 text-center"
@@ -21,7 +21,7 @@
         target="_blank"
         class="text-xl text-white hover:text-gray-400"
       >
-        <i class="fa-brands fa-github"></i>
+        <ion-icon name="logo-github" />
       </a>
       } @if (project().backUrl) {
       <a
@@ -31,7 +31,7 @@
         target="_blank"
         class="text-xl text-white hover:text-gray-400"
       >
-        <i class="fa-brands fa-github"></i>
+        <ion-icon name="logo-github" />
       </a>
       } @if (project().demoUrl) {
       <a
@@ -41,7 +41,7 @@
         target="_blank"
         class="text-xl text-white hover:text-gray-400"
       >
-        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        <ion-icon name="open-outline" />
       </a>
       }
     </div>
