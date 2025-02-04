@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { defineCustomElement as defineToast } from '@ionic/core/components/ion-toast';
+import { ToastOption } from '@shared/models/toastr.model';
 
 import { addIcons } from 'ionicons';
 import {
@@ -9,7 +10,6 @@ import {
   informationCircleOutline,
   warningOutline,
 } from 'ionicons/icons';
-import { ToastOption } from 'src/app/models/toastr.model';
 
 @Injectable({
   providedIn: 'root',

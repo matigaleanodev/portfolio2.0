@@ -1,3 +1,19 @@
-<p>
-  contact works!
-</p>
+<ion-content>
+  <section>
+    <ion-title>
+      <h2 class="!text-center !font-black">
+        {{ "Contacta conmigo" | uppercase }}
+      </h2>
+    </ion-title>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="p-2" size="12" sizeMd="6" sizeLg="4" offsetLg="1">
+          <app-contact-message class="h-full" />
+        </ion-col>
+        <ion-col class="p-2" size="12" sizeMd="6" sizeLg="4" offsetLg="1">
+          <app-contact-form />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
+</ion-content>

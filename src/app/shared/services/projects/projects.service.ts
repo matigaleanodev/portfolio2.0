@@ -9,10 +9,9 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ProjectsService {
   private readonly _http = inject(HttpClient);
-  private readonly API_URL = environment.API_URL;
 
   save(project: CreateProject): Observable<Project> {
-    return this._http.post<Project>(`${this.API_URL}/project`, project).pipe(
+    return this._http.post<Project>(`api/project`, project).pipe(
       map((project) => {
         return project;
       })
@@ -20,24 +19,22 @@ export class ProjectsService {
   }
 
   update(project: CreateProject): Observable<Project> {
-    return this._http
-      .patch<Project>(`${this.API_URL}/project/${project.id}`, project)
-      .pipe(
-        map((project) => {
-          return project;
-        })
-      );
+    return this._http.patch<Project>(`api/project/${project.id}`, project).pipe(
+      map((project) => {
+        return project;
+      })
+    );
   }
 
   delete(id: number): Observable<Project> {
-    return this._http.delete<Project>(`${this.API_URL}/project/${id}`);
+    return this._http.delete<Project>(`api/project/${id}`);
   }
 
   getAll(): Observable<Project[]> {
-    return this._http.get<Project[]>(`${this.API_URL}/project`);
+    return this._http.get<Project[]>(`api/project`);
   }
 
   getOne(id: number): Observable<Project> {
-    return this._http.get<Project>(`${this.API_URL}/project/${id}`);
+    return this._http.get<Project>(`api/project/${id}`);
   }
 }

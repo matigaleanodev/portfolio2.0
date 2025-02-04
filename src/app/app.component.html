@@ -83,7 +83,7 @@
     <div class="main-content" id="main-content">
       <ion-header>
         <ion-toolbar color="primary">
-          <ion-title class="select-none">
+          <ion-title class="select-none title">
             <h1 class="menu-color">
               {{ title }}
             </h1>
@@ -120,14 +120,15 @@
       <ion-footer [translucent]="true">
         <ion-toolbar class="ion-padding-end ion-text-end">
           <ion-text>
-            Copyright &copy; {{ date | date : "yyyy" }}
+            &copy; Desarrollado por
             <a
-              href="https://matiasgaleano.com.ar/"
+              href="https://www.linkedin.com/in/matigaleanodev/"
               target="_blank"
               rel="noopener noreferrer"
             >
               Matias Galeano
             </a>
+            {{ date | date : "yyyy" }}
           </ion-text>
         </ion-toolbar>
       </ion-footer>

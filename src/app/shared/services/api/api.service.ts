@@ -11,7 +11,7 @@ export class ApiService {
   private _http = inject(HttpClient);
 
   initApi() {
-    return this._http.get<any>(`${this.API_URL}/profile`).pipe(
+    return this._http.get<any>(`api/profile`).pipe(
       map((res) => {
         console.log('api init');
         return res;

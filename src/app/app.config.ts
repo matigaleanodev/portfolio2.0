@@ -41,6 +41,7 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 export const AppConfig: ApplicationConfig = {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+
     provideIonicAngular({ mode: 'md' }),
     provideRouter(
       routes,
