@@ -1,11 +1,12 @@
 {
-  "name": "matias-galeano",
-  "short_name": "matias-galeano",
+  "name": "Matias Galeano",
+  "short_name": "mg-dev",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
+  "version": "2.0.0",
   "icons": [
     {
       "src": "icons/icon-48.webp",
