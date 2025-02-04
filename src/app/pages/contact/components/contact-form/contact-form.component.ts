@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   FormControl,
@@ -23,7 +24,7 @@ import { CreateContactDTO } from '@shared/models/contact.model';
 import { ContactService } from '@shared/services/contact/contact.service';
 import { ToastrService } from '@shared/services/toastr/toastr.service';
 import { addIcons } from 'ionicons';
-import { person } from 'ionicons/icons';
+import { documentText, mail, person } from 'ionicons/icons';
 
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment.development';
@@ -46,6 +47,7 @@ import { environment } from 'src/environments/environment.development';
     ReactiveFormsModule,
     RecaptchaModule,
     RecaptchaFormsModule,
+    NgClass,
   ],
 })
 export class ContactFormComponent {
@@ -67,6 +69,8 @@ export class ContactFormComponent {
   constructor() {
     addIcons({
       person,
+      mail,
+      documentText,
     });
   }
 
@@ -102,6 +106,10 @@ export class ContactFormComponent {
       : this.Message?.hasError('minlength')
       ? 'El mensaje es muy corto!'
       : 'Mensaje invalido!';
+  }
+
+  get Recaptcha() {
+    return this.contactForm.get('recaptcha');
   }
 
   submit(event: Event) {

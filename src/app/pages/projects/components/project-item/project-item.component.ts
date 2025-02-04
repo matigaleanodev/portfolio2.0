@@ -15,13 +15,14 @@ import { addIcons } from 'ionicons';
 import { logoGithub, openOutline } from 'ionicons/icons';
 import { Observable } from 'rxjs';
 import { IonIcon } from '@ionic/angular/standalone';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
   standalone: true,
-  imports: [IonIcon],
+  imports: [IonIcon, NgOptimizedImage],
 })
 export class ProjectItemComponent implements OnInit {
   readonly project = input.required<Project>();

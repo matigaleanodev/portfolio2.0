@@ -25,12 +25,12 @@
               type="text"
               fill="outline"
               formControlName="email"
-              label="Nombre"
+              label="Email"
               labelPlacement="floating"
               helperText="Ingresa tu email"
               errorText="Debes ingresar tu email"
             >
-              <ion-icon color="primary" name="person" slot="start" />
+              <ion-icon color="primary" name="mail" slot="start" />
             </ion-input>
           </ion-col>
         </ion-row>
@@ -46,13 +46,17 @@
               helperText="Dejame tu mensaje"
               errorText="Debes ingresar un mensaje"
             >
-              <ion-icon color="primary" name="person" slot="start" />
+              <ion-icon color="primary" name="document-text" slot="start" />
             </ion-textarea>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="12" sizeLg="6" class="p-2">
             <re-captcha
+              [ngClass]="{
+                '!border-2 !border-red-500':
+                  Recaptcha?.invalid && Recaptcha?.touched
+              }"
               formControlName="recaptcha"
               [siteKey]="sitekey"
             ></re-captcha>
@@ -62,7 +66,13 @@
             sizeLg="6"
             class="p-2 lg:flex justify-end items-end"
           >
-            <ion-button expand="block" size="large"> enviar </ion-button>
+            <ion-button
+              [disabled]="contactForm.invalid"
+              expand="block"
+              size="large"
+            >
+              enviar
+            </ion-button>
           </ion-col>
         </ion-row>
       </ion-grid>

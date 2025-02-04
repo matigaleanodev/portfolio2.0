@@ -2,12 +2,11 @@ export interface Project {
   id: number;
   name: string;
   description: string;
-  date: string;
   image: string;
-  frontUrl: string;
-  backUrl: string;
-  demoUrl: string;
-  createAt?: Date;
+  frontUrl: string | null;
+  backUrl: string | null;
+  demoUrl: string | null;
+  createdAt?: string;
   delay?: number;
 }
 
