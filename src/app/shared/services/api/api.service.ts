@@ -8,10 +8,11 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ApiService {
   private API_URL = environment.API_URL;
+
   private _http = inject(HttpClient);
 
   initApi() {
-    return this._http.get<any>(`api/profile`).pipe(
+    return this._http.get<any>(`${this.API_URL}/api/profile`).pipe(
       map((res) => {
         console.log('api init');
         return res;

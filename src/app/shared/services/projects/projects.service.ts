@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root',
 })
 export class ProjectsService {
+  private API_URL = environment.API_URL;
   private readonly _http = inject(HttpClient);
 
   save(project: CreateProject): Observable<Project> {
@@ -19,22 +20,24 @@ export class ProjectsService {
   }
 
   update(project: CreateProject): Observable<Project> {
-    return this._http.patch<Project>(`api/project/${project.id}`, project).pipe(
-      map((project) => {
-        return project;
-      })
-    );
+    return this._http
+      .patch<Project>(`${this.API_URL}/api/project/${project.id}`, project)
+      .pipe(
+        map((project) => {
+          return project;
+        })
+      );
   }
 
   delete(id: number): Observable<Project> {
-    return this._http.delete<Project>(`api/project/${id}`);
+    return this._http.delete<Project>(`${this.API_URL}/api/project/${id}`);
   }
 
   getAll(): Observable<Project[]> {
-    return this._http.get<Project[]>(`api/project`);
+    return this._http.get<Project[]>(`${this.API_URL}/api/project`);
   }
 
   getOne(id: number): Observable<Project> {
-    return this._http.get<Project>(`api/project/${id}`);
+    return this._http.get<Project>(`${this.API_URL}/api/project/${id}`);
   }
 }

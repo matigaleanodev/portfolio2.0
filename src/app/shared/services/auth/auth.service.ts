@@ -6,18 +6,21 @@ import { HttpClient, HttpContext } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { BYPASS_JW_TOKEN } from '@shared/interceptors/request.interceptor';
 import { LoginUser, User, LoginResponse } from '@shared/models/user.mode';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  private API_URL = environment.API_URL;
   private _http = inject(HttpClient);
   private _token = inject(TokenService);
   private _router = inject(Router);
   private _storage = inject(StorageService);
+
   login(credentials: LoginUser): Observable<User> {
     return this._http
-      .post<LoginResponse>(`api/users/login`, credentials, {
+      .post<LoginResponse>(`${this.API_URL}/api/users/login`, credentials, {
         context: new HttpContext().set(BYPASS_JW_TOKEN, true),
       })
       .pipe(
