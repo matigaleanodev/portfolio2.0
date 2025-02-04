@@ -15,20 +15,17 @@ import { addIcons } from 'ionicons';
 import { logoGithub, openOutline } from 'ionicons/icons';
 import { Observable } from 'rxjs';
 import { IonIcon } from '@ionic/angular/standalone';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
   standalone: true,
-  imports: [IonIcon, NgOptimizedImage],
+  imports: [IonIcon],
 })
 export class ProjectItemComponent implements OnInit {
   readonly project = input.required<Project>();
   private firebase = inject(FirebaseService);
-
-  private imgObs: Observable<string> | undefined;
 
   readonly image = signal<string>('');
 
