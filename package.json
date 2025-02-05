@@ -3,6 +3,28 @@
   "version": "2.0.0",
   "author": "Matias Galeano",
   "homepage": "https://matiasgaleano.com.ar/",
+  "description": "Matías Galeano: Desarrollador Fullstack especializado en Angular, NestJS y MySQL. Explora mi portafolio para ver ejemplos de proyectos web innovadores y soluciones tecnológicas de alta calidad.",
+  "keywords": [
+    "portfolio",
+    "matias galeano",
+    "angular",
+    "ionic",
+    "typescript",
+    "web development",
+    "front-end",
+    "full-stack",
+    "nestjs",
+    "mysql",
+    "nodejs"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matigaleanodev/portfolio2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/matigaleanodev/portfolio2.0/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
@@ -73,6 +95,5 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.6.3"
-  },
-  "description": "An Ionic project"
+  }
 }
