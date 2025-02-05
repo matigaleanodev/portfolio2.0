@@ -9,8 +9,8 @@
     <ion-grid>
       <ion-row>
         @for (project of projects(); track $index) {
-        <ion-col class="flex justify-center p-2">
-          <app-project-item [project]="project" />
+        <ion-col size="12" sizeLg="8" class="flex justify-center p-2">
+          <app-project-item class="w-full" [project]="project" />
         </ion-col>
         }
       </ion-row>

@@ -1,27 +1,50 @@
 import {
   Component,
-  computed,
-  effect,
   inject,
   input,
   OnInit,
   signal,
   Signal,
 } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { Project } from '@shared/models/project.mdel';
 import { FirebaseService } from '@shared/services/firebase/firebase.service';
 import { addIcons } from 'ionicons';
 import { logoGithub, openOutline } from 'ionicons/icons';
-import { Observable } from 'rxjs';
-import { IonIcon } from '@ionic/angular/standalone';
+import {
+  IonIcon,
+  IonFooter,
+  IonToolbar,
+  IonButton,
+  IonRow,
+  IonCol,
+  IonGrid,
+  IonContent,
+  IonCardTitle,
+  IonCardHeader,
+  IonCard,
+  IonCardContent,
+  IonButtons,
+} from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-project-item',
   templateUrl: './project-item.component.html',
   styleUrls: ['./project-item.component.scss'],
   standalone: true,
-  imports: [IonIcon],
+  imports: [
+    IonButtons,
+    IonCardContent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonGrid,
+    IonCol,
+    IonRow,
+    IonButton,
+    IonToolbar,
+    IonFooter,
+    IonIcon,
+  ],
 })
 export class ProjectItemComponent implements OnInit {
   readonly project = input.required<Project>();

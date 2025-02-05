@@ -1,56 +1,52 @@
-<article
-  class="relative w-[min(90vw,400px)] h-[min(90vw,400px)] md:w-[300px] md:h-[300px] border border-gray-300 rounded-md text-white transition-transform duration-500 hover:scale-110 overflow-hidden"
->
-  <div
-    class="absolute inset-0 flex flex-col bg-black/50 backdrop-blur-lg opacity-0 transition-opacity duration-300 hover:opacity-100"
-  >
-    <div class="rounded-md w-full">
-      <h5 class="px-[1rem] text-lg font-bold">{{ project().name }}</h5>
-    </div>
-    <div
-      class="absolute inset-0 flex items-center justify-center p-6 text-center"
-    >
-      <p>{{ project().description }}</p>
-    </div>
-    <div class="flex justify-center gap-4 mt-auto mb-4">
-      @if (project().frontUrl) {
-      <a
-        Tooltip
-        tooltip="Frontend Repo"
-        [href]="project().frontUrl"
-        target="_blank"
-        class="text-xl text-white hover:text-gray-400"
-      >
-        <ion-icon name="logo-github" />
-      </a>
-      } @if (project().backUrl) {
-      <a
-        Tooltip
-        tooltip="Backend Repo"
-        [href]="project().backUrl"
-        target="_blank"
-        class="text-xl text-white hover:text-gray-400"
-      >
-        <ion-icon name="logo-github" />
-      </a>
-      } @if (project().demoUrl) {
-      <a
-        Tooltip
-        tooltip="Live Demo"
-        [href]="project().demoUrl"
-        target="_blank"
-        class="text-xl text-white hover:text-gray-400"
-      >
-        <ion-icon name="open-outline" />
-      </a>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title class="text-lg font-bold px-[1rem]">
+      <h4>
+        {{ project().name }}
+      </h4>
+    </ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-grid class="items-center md:flex">
+      @if (image()) {
+      <ion-row class="w-full md:flex md:items-center">
+        <ion-col size="12" sizeLg="auto" class="flex justify-center">
+          <img
+            [src]="image()"
+            [alt]="project().name"
+            class="h-[200px] w-auto object-cover rounded-md"
+          />
+        </ion-col>
+        <ion-col
+          size="12"
+          sizeLg="auto"
+          class="md:flex-1 w-full p-4 text-center md:text-left"
+        >
+          <p>{{ project().description }}</p>
+        </ion-col>
+      </ion-row>
       }
-    </div>
-  </div>
-  @if (image()) {
-  <img
-    [src]="image()"
-    [alt]="project().name"
-    class="w-full h-full object-cover transition-transform duration-500"
-  />
-  }
-</article>
+    </ion-grid>
+  </ion-card-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons>
+        @if (project().frontUrl) {
+        <ion-button fill="clear" [href]="project().frontUrl" target="_blank">
+          <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+        </ion-button>
+        } @if (project().backUrl) {
+        <ion-button fill="clear" [href]="project().backUrl" target="_blank">
+          <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+        </ion-button>
+        } @if (project().demoUrl) {
+        <ion-button fill="clear" [href]="project().demoUrl" target="_blank">
+          <ion-icon slot="icon-only" name="open-outline"></ion-icon>
+        </ion-button>
+        }
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-card>
