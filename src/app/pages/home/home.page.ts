@@ -54,6 +54,6 @@ export class HomePage {
   }
 
   ionViewWillLeave() {
-    this.prog.set(Math.random() >= 0.5);
+    this.prog.update((x) => !x);
   }
 }

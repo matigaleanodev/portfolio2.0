@@ -1,52 +1,54 @@
-<ion-card>
-  <ion-card-header>
-    <ion-card-title class="text-lg font-bold px-[1rem]">
-      <h4>
-        {{ project().name }}
-      </h4>
-    </ion-card-title>
-  </ion-card-header>
+<article #card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="text-lg font-bold px-[1rem]">
+        <h4>
+          {{ project().name }}
+        </h4>
+      </ion-card-title>
+    </ion-card-header>
 
-  <ion-card-content>
-    <ion-grid class="items-center md:flex">
-      @if (image()) {
-      <ion-row class="w-full md:flex md:items-center">
-        <ion-col size="12" sizeLg="auto" class="flex justify-center">
-          <img
-            [src]="image()"
-            [alt]="project().name"
-            class="h-[200px] w-auto object-cover rounded-md"
-          />
-        </ion-col>
-        <ion-col
-          size="12"
-          sizeLg="auto"
-          class="md:flex-1 w-full p-4 text-center md:text-left"
-        >
-          <p>{{ project().description }}</p>
-        </ion-col>
-      </ion-row>
-      }
-    </ion-grid>
-  </ion-card-content>
-
-  <ion-footer>
-    <ion-toolbar>
-      <ion-buttons>
-        @if (project().frontUrl) {
-        <ion-button fill="clear" [href]="project().frontUrl" target="_blank">
-          <ion-icon slot="icon-only" name="logo-github"></ion-icon>
-        </ion-button>
-        } @if (project().backUrl) {
-        <ion-button fill="clear" [href]="project().backUrl" target="_blank">
-          <ion-icon slot="icon-only" name="logo-github"></ion-icon>
-        </ion-button>
-        } @if (project().demoUrl) {
-        <ion-button fill="clear" [href]="project().demoUrl" target="_blank">
-          <ion-icon slot="icon-only" name="open-outline"></ion-icon>
-        </ion-button>
+    <ion-card-content>
+      <ion-grid class="items-center md:flex">
+        @if (image()) {
+        <ion-row class="w-full md:flex md:items-center">
+          <ion-col size="12" sizeLg="auto" class="flex justify-center">
+            <img
+              [src]="image()"
+              [alt]="project().name"
+              class="h-[200px] w-auto object-cover rounded-md"
+            />
+          </ion-col>
+          <ion-col
+            size="12"
+            sizeLg="auto"
+            class="md:flex-1 w-full p-4 text-center md:text-left"
+          >
+            <p>{{ project().description }}</p>
+          </ion-col>
+        </ion-row>
         }
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-footer>
-</ion-card>
+      </ion-grid>
+    </ion-card-content>
+
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons>
+          @if (project().frontUrl) {
+          <ion-button fill="clear" [href]="project().frontUrl" target="_blank">
+            <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+          </ion-button>
+          } @if (project().backUrl) {
+          <ion-button fill="clear" [href]="project().backUrl" target="_blank">
+            <ion-icon slot="icon-only" name="logo-github"></ion-icon>
+          </ion-button>
+          } @if (project().demoUrl) {
+          <ion-button fill="clear" [href]="project().demoUrl" target="_blank">
+            <ion-icon slot="icon-only" name="open-outline"></ion-icon>
+          </ion-button>
+          }
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-card>
+</article>
