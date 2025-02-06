@@ -55,6 +55,7 @@ import {
 import { MenuPipe } from '@shared/pipes/menu.pipe';
 import { ApiService } from '@shared/services/api/api.service';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -67,7 +68,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
     IonLabel,
     IonTabButton,
     IonTabBar,
-    IonTabs,
     IonIcon,
     IonText,
     IonFooter,
@@ -83,6 +83,8 @@ import { toSignal } from '@angular/core/rxjs-interop';
     NgxParticlesModule,
     MenuComponent,
     MenuPipe,
+    RouterLink,
+    RouterLinkActive,
   ],
 })
 export class AppComponent implements OnInit {

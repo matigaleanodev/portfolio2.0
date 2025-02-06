@@ -3,6 +3,7 @@ import {
   computed,
   effect,
   ElementRef,
+  signal,
   viewChild,
 } from '@angular/core';
 import { IonContent, IonRow, IonCol, IonImg } from '@ionic/angular/standalone';
@@ -23,6 +24,8 @@ export class HomePage {
 
   imagenEl = viewChild<ElementRef>('imagen');
   imagen = computed(() => this.imagenEl()?.nativeElement);
+
+  prog = signal<boolean>(Math.random() >= 0.5);
 
   constructor() {
     effect(() => {
@@ -48,5 +51,9 @@ export class HomePage {
         });
       }
     });
+  }
+
+  ionViewWillLeave() {
+    this.prog.set(Math.random() >= 0.5);
   }
 }

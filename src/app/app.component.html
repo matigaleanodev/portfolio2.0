@@ -1,69 +1,6 @@
 <ion-app>
-  @if (useTabs()) {
-  <main class="main-content">
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-icon
-          slot="start"
-          aria-hidden="true"
-          src="assets/logos/logo-mati.svg"
-          class="object-contain text-[32px] ion-margin-horizontal menu-color"
-        />
-        <ion-title class="select-none">
-          <h1 class="menu-color">
-            {{ title }}
-          </h1>
-        </ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content>
-      <ngx-particles
-        class="relative"
-        [id]="id"
-        [options]="particlesOptions()"
-      ></ngx-particles>
-
-      <ion-router-outlet />
-    </ion-content>
-    <ion-fab class="mb-16" vertical="bottom" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="contrast" />
-      </ion-fab-button>
-      <ion-fab-list side="top" class="fix-ion-fab-list">
-        <ion-fab-button color="dark" (click)="setDark()">
-          <ion-icon name="moon" color="medium" />
-        </ion-fab-button>
-        <ion-fab-button color="light" (click)="setLight()">
-          <ion-icon name="sunny" color="warning" />
-        </ion-fab-button>
-      </ion-fab-list>
-      <ion-fab-list side="start" class="fix-ion-fab-list">
-        <ion-fab-button color="primary" (click)="useDeviceTheme()">
-          <ion-icon name="phone-portrait-outline" />
-        </ion-fab-button>
-      </ion-fab-list>
-    </ion-fab>
-  </main>
-  <ion-tabs>
-    <ion-tab-bar color="primary" slot="bottom">
-      @for (item of menuItems | menu; track $index) {
-      <ion-tab-button [tab]="item.link" routerLinkActive="active">
-        @if (item.icono === 'home') {
-        <ion-icon class="menu-color" src="assets/logos/logo-mati.svg" />
-        }@else {
-        <ion-icon class="menu-color" [name]="item.icono" />
-        }
-        <ion-label class="select-none menu-color">
-          {{ item.titulo }}
-        </ion-label>
-      </ion-tab-button>
-      }
-    </ion-tab-bar>
-  </ion-tabs>
-
-  } @else {
-
   <ion-split-pane when="xs" contentId="main-content">
+    @if (!useTabs()) {
     <ion-menu id="menu-content" contentId="main-content" type="overlay">
       <ion-header>
         <ion-toolbar color="primary">
@@ -80,9 +17,18 @@
         <app-menu />
       </ion-content>
     </ion-menu>
+    }
     <div class="main-content" id="main-content">
       <ion-header>
         <ion-toolbar color="primary">
+          @if (useTabs()) {
+          <ion-icon
+            aria-hidden="true"
+            slot="start"
+            src="assets/logos/logo-mati.svg"
+            class="object-contain text-[32px] menu-color ms-2"
+          />
+          }
           <ion-title class="select-none title">
             <h1 class="menu-color">
               {{ title }}
@@ -96,27 +42,45 @@
           [options]="particlesOptions()"
           class="relative"
         ></ngx-particles>
-        <ion-router-outlet>
-          <ion-fab vertical="bottom" horizontal="end">
-            <ion-fab-button>
-              <ion-icon name="contrast" />
-            </ion-fab-button>
-            <ion-fab-list side="top" class="fix-ion-fab-list">
-              <ion-fab-button color="dark" (click)="setDark()">
-                <ion-icon name="moon" color="medium" />
-              </ion-fab-button>
-              <ion-fab-button color="light" (click)="setLight()">
-                <ion-icon name="sunny" color="warning" />
-              </ion-fab-button>
-            </ion-fab-list>
-            <ion-fab-list side="start" class="fix-ion-fab-list">
-              <ion-fab-button color="primary" (click)="useDeviceTheme()">
-                <ion-icon name="phone-portrait-outline" />
-              </ion-fab-button>
-            </ion-fab-list>
-          </ion-fab>
-        </ion-router-outlet>
+        <ion-router-outlet />
       </ion-content>
+      <ion-fab class="mt-4" vertical="top" horizontal="end">
+        <ion-fab-button>
+          <ion-icon name="contrast" />
+        </ion-fab-button>
+        <ion-fab-list side="bottom" class="fix-ion-fab-list">
+          <ion-fab-button color="dark" (click)="setDark()">
+            <ion-icon name="moon" color="medium" />
+          </ion-fab-button>
+          <ion-fab-button color="light" (click)="setLight()">
+            <ion-icon name="sunny" color="warning" />
+          </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start" class="fix-ion-fab-list">
+          <ion-fab-button color="primary" (click)="useDeviceTheme()">
+            <ion-icon name="phone-portrait-outline" />
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+
+      @if (useTabs()) {
+
+      <ion-tab-bar color="primary" slot="bottom">
+        @for (item of menuItems | menu; track $index) {
+        <ion-tab-button [routerLink]="item.link" routerLinkActive="active">
+          @if (item.icono === 'home') {
+          <ion-icon class="menu-color" src="assets/logos/logo-mati.svg" />
+          }@else {
+          <ion-icon class="menu-color" [name]="item.icono" />
+          }
+          <ion-label class="select-none menu-color">
+            {{ item.titulo }}
+          </ion-label>
+        </ion-tab-button>
+        }
+      </ion-tab-bar>
+
+      } @else {
       <ion-footer [translucent]="true">
         <ion-toolbar class="ion-padding-end ion-text-end">
           <ion-text>
@@ -132,7 +96,7 @@
           </ion-text>
         </ion-toolbar>
       </ion-footer>
+      }
     </div>
   </ion-split-pane>
-  }
 </ion-app>
