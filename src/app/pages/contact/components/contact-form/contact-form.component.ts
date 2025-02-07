@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import {
   FormControl,
@@ -16,9 +15,6 @@ import {
   IonGrid,
   IonTextarea,
   IonButton,
-  IonFooter,
-  IonToolbar,
-  IonButtons,
 } from '@ionic/angular/standalone';
 import { CreateContactDTO } from '@shared/models/contact.model';
 import { ContactService } from '@shared/services/contact/contact.service';
@@ -47,7 +43,6 @@ import { environment } from 'src/environments/environment.development';
     ReactiveFormsModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    NgClass,
   ],
 })
 export class ContactFormComponent {
@@ -116,6 +111,7 @@ export class ContactFormComponent {
     event.preventDefault();
     if (this.contactForm.valid) {
       const contact: CreateContactDTO = this.contactForm.getRawValue();
+      debugger;
       this._service.send(contact).subscribe({
         next: (res) => {
           this._toastr.success(
