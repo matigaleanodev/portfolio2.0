@@ -29,6 +29,8 @@ import {
   IonCard,
   IonCardContent,
   IonButtons,
+  IonImg,
+  IonText,
 } from '@ionic/angular/standalone';
 import { animate, inView } from 'motion';
 
@@ -38,14 +40,13 @@ import { animate, inView } from 'motion';
   styleUrls: ['./project-item.component.scss'],
   standalone: true,
   imports: [
+    IonText,
+    IonImg,
     IonButtons,
     IonCardContent,
     IonCard,
     IonCardHeader,
     IonCardTitle,
-    IonGrid,
-    IonCol,
-    IonRow,
     IonButton,
     IonToolbar,
     IonFooter,

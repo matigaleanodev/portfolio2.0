@@ -7,19 +7,15 @@
     </ion-title>
 
     <ion-grid>
-      <ion-row>
+      <ion-row class="ion-justify-content-around">
         @for (project of projects(); track $index) {
         <ion-col
-          [offsetLg]="$index % 2 === 0 ? 2 : 3"
           size="12"
-          sizeLg="8"
+          sizeMd="6"
+          sizeLg="auto"
           class="flex justify-center p-2"
         >
-          <app-project-item
-            class="w-full"
-            [project]="project"
-            [index]="$index"
-          />
+          <app-project-item [project]="project" [index]="$index" />
         </ion-col>
         }
       </ion-row>
