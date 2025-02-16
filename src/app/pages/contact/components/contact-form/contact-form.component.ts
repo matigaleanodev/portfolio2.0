@@ -21,7 +21,7 @@ import { ContactService } from '@shared/services/contact/contact.service';
 import { ToastrService } from '@shared/services/toastr/toastr.service';
 import { addIcons } from 'ionicons';
 import { documentText, mail, person } from 'ionicons/icons';
-
+import { LoadingController } from '@ionic/angular';
 import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 import { environment } from 'src/environments/environment.development';
 
@@ -48,6 +48,7 @@ import { environment } from 'src/environments/environment.development';
 export class ContactFormComponent {
   private _service = inject(ContactService);
   private _toastr = inject(ToastrService);
+  private _loading = inject(LoadingController);
 
   contactForm: FormGroup = new FormGroup({
     name: new FormControl<string>('', [Validators.required]),
@@ -107,11 +108,14 @@ export class ContactFormComponent {
     return this.contactForm.get('recaptcha');
   }
 
-  submit(event: Event) {
+  async submit(event: Event) {
     event.preventDefault();
     if (this.contactForm.valid) {
       const contact: CreateContactDTO = this.contactForm.getRawValue();
-      debugger;
+      const load = await this._loading.create({
+        message: 'Enviando mensaje',
+      });
+      load.present();
       this._service.send(contact).subscribe({
         next: (res) => {
           this._toastr.success(
@@ -120,9 +124,11 @@ export class ContactFormComponent {
         },
         error: (error) => {
           this._toastr.error(error);
+          load.dismiss();
         },
         complete: () => {
           this.contactForm.reset();
+          load.dismiss();
         },
       });
     } else {

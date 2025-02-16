@@ -38,21 +38,21 @@ export class ToastrService {
   }
 
   async success(message: string): Promise<void> {
-    const header = 'SmartIoT';
+    const header = 'Matias Galeano';
     const icon = 'checkmark-circle-outline';
     const color = 'success';
     await this.presentToast({ message, color, header, icon });
   }
 
   async warning(message: string): Promise<void> {
-    const header = 'SmartIoT';
+    const header = 'Matias Galeano';
     const icon = 'warning-outline';
     const color = 'warning';
     await this.presentToast({ message, color, header, icon });
   }
 
   async info(message: string): Promise<void> {
-    const header = 'SmartIoT';
+    const header = 'Matias Galeano';
     const icon = 'information-circle-outline';
     const color = 'medium';
     await this.presentToast({ message, color, header, icon });
