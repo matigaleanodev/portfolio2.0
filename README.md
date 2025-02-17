@@ -31,9 +31,12 @@ El proyecto sigue una estructura modular utilizando componentes independientes y
 
 Este proyecto puede ser desplegado en plataformas como **Firebase**, **Vercel**, o cualquier entorno que soporte aplicaciones **Angular** e **Ionic**.
 
-### Pasos para ejecutar el proyecto localmente:
+## 📫 Contacto
 
-1. Clona este repositorio en tu máquina local:
-   ```bash
-   git clone https://github.com/tu-usuario/matigaleanodev-portfolio2.0.git
-   ```
+Puedes encontrarme en las siguientes plataformas:
+
+[![Email](https://img.shields.io/badge/Email-FFCA28?style=for-the-badge&logo=gmail&logoColor=white)](mailto:contacto@matiasgaleano.com.ar)
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/matigaleano.dev)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/matigaleanodev)
+
+¡Gracias por visitar mi portfolio! 😊
