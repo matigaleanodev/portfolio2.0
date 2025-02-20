@@ -2,17 +2,13 @@ import {
   AfterViewInit,
   Component,
   computed,
-  effect,
   ElementRef,
-  inject,
   input,
   OnInit,
   signal,
-  Signal,
   viewChild,
 } from '@angular/core';
 import { Project } from '@shared/models/project.mdel';
-import { FirebaseService } from '@shared/services/firebase/firebase.service';
 import { addIcons } from 'ionicons';
 import { logoGithub, openOutline } from 'ionicons/icons';
 import {
@@ -20,10 +16,6 @@ import {
   IonFooter,
   IonToolbar,
   IonButton,
-  IonRow,
-  IonCol,
-  IonGrid,
-  IonContent,
   IonCardTitle,
   IonCardHeader,
   IonCard,
@@ -60,8 +52,6 @@ export class ProjectItemComponent implements OnInit, AfterViewInit {
   readonly cardRef = viewChild<ElementRef>('card');
   readonly card = computed(() => this.cardRef()?.nativeElement);
 
-  private firebase = inject(FirebaseService);
-
   readonly image = signal<string>('');
 
   constructor() {
@@ -69,9 +59,7 @@ export class ProjectItemComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.firebase
-      .getImageURL(this.project().image)
-      .subscribe((src) => this.image.set(src));
+    this.image.set(`/assets/projects/${this.project().image}`);
   }
 
   ngAfterViewInit() {

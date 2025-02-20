@@ -39,7 +39,7 @@ const projectos: Project[] = [
     name: 'Portfolio Personal',
     description:
       'Web App de portfolio personal desarrollado en Angular del lado del frontend y NestJs del lado del backend.',
-    image: 'project_portfolio-min.png',
+    image: 'portfolio.svg',
     frontUrl: 'https://github.com/matigaleanodev/portfolio2.0',
     backUrl: 'https://github.com/matigaleanodev/portfolio-backend2.0',
     demoUrl: 'https://matiasgaleano.com.ar/',
@@ -50,7 +50,7 @@ const projectos: Project[] = [
     name: 'Pokemon Memory Game',
     description:
       'Juego de memoria desarrollado en Angular con imagenes de pokeapi',
-    image: 'project_pokememory-min.png',
+    image: 'pokeball.svg',
     frontUrl: 'https://github.com/matigaleanodev/Pokemon-Memory',
     backUrl: null,
     demoUrl: 'https://pokememory.matiasgaleano.com.ar/',
@@ -61,7 +61,7 @@ const projectos: Project[] = [
     name: 'Recipe Food Tracker',
     description:
       'Aplicación de recetas de cocina con datos de la API de spoonacular y traducciones a travez de Azure Translate',
-    image: 'project_foodtracker.png',
+    image: 'hat.svg',
     frontUrl: 'https://github.com/matigaleanodev/cookingRecipes',
     backUrl: null,
     demoUrl: 'https://foodtracker.matiasgaleano.com.ar/',
@@ -72,10 +72,22 @@ const projectos: Project[] = [
     name: 'Sistema de Autenticacion',
     description:
       'Sistema de autenticación utilizando Firebase desarrollado en Angular',
-    image: 'project_authapp.jpg',
+    image: 'padlock.svg',
     frontUrl: 'https://github.com/matigaleanodev/authentication-app',
     backUrl: null,
     demoUrl: 'https://auth-service-a3930.web.app/login',
     createdAt: '2023-10-12T20:54:57.000Z',
+  },
+  {
+    id: 11,
+    name: 'Bot de musica',
+    description:
+      'Bot de discord con integracion para reproducir musica de youtube',
+    image: 'discord.svg',
+    frontUrl: null,
+    backUrl: 'https://github.com/matigaleanodev/nestjs-discord-bot',
+    demoUrl:
+      'https://discord.com/oauth2/authorize?client_id=1337597917586002062',
+    createdAt: '2025-01-30T20:54:57.000Z',
   },
 ];

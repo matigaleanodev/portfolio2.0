@@ -10,11 +10,17 @@
 
     <ion-card-content>
       @if (image()) {
-      <figure class="h-[200px] w-auto object-cover rounded-md">
-        <ion-img [src]="image()" [alt]="project().name" />
+      <figure class="h-[200px] w-auto rounded-md">
+        <ion-img
+          class="!h-[90%] w-auto"
+          [src]="image()"
+          [alt]="project().name"
+        />
       </figure>
       <div class="mt-2">
-        <ion-text class="w-full">{{ project().description }}</ion-text>
+        <ion-text class="w-full">
+          {{ project().description }}
+        </ion-text>
       </div>
       }
     </ion-card-content>
