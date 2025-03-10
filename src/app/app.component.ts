@@ -19,16 +19,13 @@ import {
   IonFooter,
   IonText,
   IonIcon,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonLabel,
   IonFab,
   IonFabList,
   IonFabButton,
+  IonButtons,
+  IonMenuButton,
 } from '@ionic/angular/standalone';
 
-import { Platform } from '@ionic/angular';
 import { defineCustomElement as defineLoading } from '@ionic/core/components/ion-loading';
 import { defineCustomElement as defineModal } from '@ionic/core/components/ion-modal';
 import { defineCustomElement as defineNav } from '@ionic/core/components/ion-nav';
@@ -52,22 +49,19 @@ import {
   phonePortraitOutline,
   sunny,
 } from 'ionicons/icons';
-import { MenuPipe } from '@shared/pipes/menu.pipe';
 import { ApiService } from '@shared/services/api/api.service';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: 'app.component.html',
   imports: [
+    IonMenuButton,
+    IonButtons,
     IonFabButton,
     IonFabList,
     IonFab,
-    IonLabel,
-    IonTabButton,
-    IonTabBar,
     IonIcon,
     IonText,
     IonFooter,
@@ -82,9 +76,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     DatePipe,
     NgxParticlesModule,
     MenuComponent,
-    MenuPipe,
-    RouterLink,
-    RouterLinkActive,
   ],
 })
 export class AppComponent implements OnInit {
@@ -92,10 +83,8 @@ export class AppComponent implements OnInit {
   private _theme = inject(ThemeService);
   private _token = inject(TokenService);
   private _particles = inject(NgParticlesService);
-  private platform = inject(Platform);
 
   private readonly screenWidth = signal(window.innerWidth);
-  private readonly isNative = signal(this.platform.is('capacitor'));
   private readonly apiInit = toSignal(this._api.initApi());
 
   readonly date = new Date();
@@ -103,9 +92,6 @@ export class AppComponent implements OnInit {
   readonly id = 'tsparticles';
   readonly particlesOptions = signal(particles);
   readonly menuItems = MenuItems;
-  readonly useTabs = computed(
-    () => this.isNative() || this.screenWidth() <= 768
-  );
 
   readonly currentTheme = computed(() => this._theme.currentTheme());
 
@@ -163,7 +149,6 @@ export class AppComponent implements OnInit {
     });
     this._particles.init(async (engine: Engine) => {
       await loadSlim(engine);
-      //await loadFull(engine);
     });
   }
 

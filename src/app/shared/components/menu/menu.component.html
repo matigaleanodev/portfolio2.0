@@ -1,20 +1,21 @@
 <ion-list>
   @for (item of menuItems; track $index) {
-  <ion-item
-    lines="none"
-    [routerLink]="item.link"
-    routerLinkActive="active"
-    class="custom-sidebar-item"
-  >
-    <ion-label class="custom-label select-none">
-      <ion-icon
-        [name]="item.icono"
-        size="large"
-        [attr.aria-label]="item.titulo"
-      />
-      <span>{{ item.titulo }}</span>
-    </ion-label>
-  </ion-item>
-
+  <ion-menu-toggle>
+    <ion-item
+      lines="none"
+      [routerLink]="item.link"
+      routerLinkActive="active"
+      class="custom-sidebar-item"
+    >
+      <ion-label class="custom-label select-none">
+        <ion-icon
+          [name]="item.icono"
+          size="large"
+          [attr.aria-label]="item.titulo"
+        />
+        <span>{{ item.titulo }}</span>
+      </ion-label>
+    </ion-item>
+  </ion-menu-toggle>
   }
 </ion-list>
