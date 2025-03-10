@@ -152,3 +152,8 @@ h1 {
 h2 {
   font-size: clamp(1.5rem, 5vw, 3rem);
 }
+app-menu {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

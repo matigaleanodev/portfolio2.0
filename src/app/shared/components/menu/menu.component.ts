@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import {
-  IonList,
   IonItem,
   IonLabel,
   IonIcon,
   IonMenuToggle,
 } from '@ionic/angular/standalone';
-import { MenuItem } from '@shared/models/menu.model';
 import { addIcons } from 'ionicons';
 import {
   clipboardOutline,
@@ -26,7 +24,6 @@ import { MenuItems } from './menu';
     IonIcon,
     IonLabel,
     IonItem,
-    IonList,
     RouterLink,
     RouterLinkActive,
   ],
