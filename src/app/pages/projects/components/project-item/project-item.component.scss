@@ -14,7 +14,7 @@ ion-footer {
 }
 
 article {
-  max-width: 300px;
+  width: clamp(320px, 95%, 420px);
   ion-card {
     min-height: 390px;
     display: flex;
