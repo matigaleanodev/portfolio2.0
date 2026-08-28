@@ -52,7 +52,7 @@
     "@capacitor/status-bar": "7.0.1",
     "@ionic/angular": "^8.8.19",
     "@ionic/storage-angular": "^4.0.0",
-    "@tailwindcss/postcss": "^4.1.6",
+    "@tailwindcss/postcss": "^4.3.3",
     "@tsparticles/angular": "^3.0.0",
     "@tsparticles/engine": "^3.8.1",
     "@tsparticles/slim": "^3.8.1",
