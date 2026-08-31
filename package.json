@@ -58,7 +58,7 @@
     "@tsparticles/slim": "^3.8.1",
     "date-fns": "^4.4.0",
     "ionicons": "^8.1.0",
-    "motion": "^12.10.5",
+    "motion": "^12.43.0",
     "ng-recaptcha": "^13.2.1",
     "postcss": "^8.5.3",
     "rxjs": "~7.8.2",
