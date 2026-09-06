@@ -84,7 +84,7 @@
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "@typescript-eslint/parser": "^8.32.0",
     "eslint": "^9.26.0",
-    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsdoc": "^50.6.11",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "jasmine-core": "~5.7.1",
